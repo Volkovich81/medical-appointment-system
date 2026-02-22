@@ -5,6 +5,9 @@ import com.medical.system.entity.Patient;
 
 public class PatientMapper {
 
+    private PatientMapper() {
+    }
+
     public static PatientDTO toDto(Patient patient) {
         if (patient == null) {
             return null;
