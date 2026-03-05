@@ -6,24 +6,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.FetchType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "patients")
+@Table(name = "doctors")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Patient {
+public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,15 +35,17 @@ public class Patient {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "birth_date")
-    private LocalDate birthDate;
-
     private String phone;
     private String email;
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Appointment> appointments = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "doctor_specialization",
+            joinColumns = @JoinColumn(name = "doctor_id"),
+            inverseJoinColumns = @JoinColumn(name = "specialization_id")
+    )
+    private List<Specialization> specializations = new ArrayList<>();
 
-    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
-    private MedicalRecord medicalRecord;
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Appointment> appointments = new ArrayList<>();
 }

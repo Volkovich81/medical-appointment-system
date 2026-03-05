@@ -18,6 +18,23 @@
 
 * * *
 
+## Лабораторная работа №2: JPA (Hibernate/Spring Data)
+
+**Задание:**
+- Подключить PostgreSQL к проекту
+- Создать 5 сущностей со связями:
+    - `Patient`, `Doctor`, `Specialization`, `Appointment`, `MedicalRecord`
+    - `OneToMany`: Patient → Appointments, Doctor → Appointments
+    - `ManyToMany`: Doctor ↔ Specialization
+    - `OneToOne`: Patient ↔ MedicalRecord
+- Реализовать CRUD операции
+- Настроить CascadeType и FetchType
+- Решить проблему N+1 через JOIN FETCH
+- Показать разницу между @Transactional и без него
+- Сделать ER-диаграмму
+
+* * *
+
 ## SonarCloud
 
 https://sonarcloud.io/summary/new_code?id=Volkovich81_medical-appointment-system
