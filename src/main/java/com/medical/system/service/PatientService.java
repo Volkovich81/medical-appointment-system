@@ -5,6 +5,7 @@ import com.medical.system.entity.Patient;
 import com.medical.system.mapper.PatientMapper;
 import com.medical.system.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -13,6 +14,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PatientService {
     private final PatientRepository patientRepository;
+
+    @Autowired
+    private PatientService self;
 
     @Transactional(readOnly = true)
     public List<PatientDTO> getAllPatients() {
@@ -31,7 +35,7 @@ public class PatientService {
     @Transactional(readOnly = true)
     public List<PatientDTO> getPatientsByLastName(String lastName) {
         if (lastName == null || lastName.isEmpty()) {
-            return getAllPatients();
+            return self.getAllPatients();  // ← используем self вместо this
         }
         return patientRepository.findByLastNameIgnoreCase(lastName).stream()
                 .map(PatientMapper::toDto)

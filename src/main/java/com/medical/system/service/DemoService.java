@@ -29,12 +29,12 @@ public class DemoService {
 
         Patient savedPatient = patientRepository.save(patient);
 
-        MedicalRecord record = new MedicalRecord();
-        record.setRecordDate(LocalDate.now());
-        record.setDiagnosis("Диагноз");
-        record.setPatient(savedPatient);
+        MedicalRecord medicalRecord = new MedicalRecord();
+        medicalRecord.setRecordDate(LocalDate.now());
+        medicalRecord.setDiagnosis("Диагноз");
+        medicalRecord.setPatient(savedPatient);
 
-        medicalRecordRepository.save(record);
+        medicalRecordRepository.save(medicalRecord);
 
         if (throwError) {
             throw new IllegalStateException("ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась");
@@ -58,12 +58,12 @@ public class DemoService {
 
         Patient savedPatient = patientRepository.save(patient);
 
-        MedicalRecord record = new MedicalRecord();
-        record.setRecordDate(LocalDate.now());
-        record.setDiagnosis("Диагноз");
-        record.setPatient(savedPatient);
+        MedicalRecord medicalRecord = new MedicalRecord();
+        medicalRecord.setRecordDate(LocalDate.now());
+        medicalRecord.setDiagnosis("Диагноз");
+        medicalRecord.setPatient(savedPatient);
 
-        medicalRecordRepository.save(record);
+        medicalRecordRepository.save(medicalRecord);
 
         if (throwError) {
             throw new IllegalStateException("ОШИБКА! Но всё откатится благодаря @Transactional");
