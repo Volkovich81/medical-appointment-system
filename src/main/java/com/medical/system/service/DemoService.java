@@ -20,7 +20,7 @@ public class DemoService {
     private final MedicalRecordRepository medicalRecordRepository;
     private final AppointmentRepository appointmentRepository;
 
-    public void createWithoutTransaction(String patientName, boolean throwError) {
+    private Patient createPatientWithMedicalRecord(String patientName) {
         Patient patient = new Patient();
         patient.setFirstName(patientName);
         patient.setLastName("Тестовый");
@@ -35,6 +35,12 @@ public class DemoService {
         medicalRecord.setPatient(savedPatient);
 
         medicalRecordRepository.save(medicalRecord);
+
+        return savedPatient;
+    }
+
+    public void createWithoutTransaction(String patientName, boolean throwError) {
+        Patient savedPatient = createPatientWithMedicalRecord(patientName);
 
         if (throwError) {
             throw new IllegalStateException("ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась");
@@ -50,20 +56,7 @@ public class DemoService {
 
     @Transactional
     public void createWithTransaction(String patientName, boolean throwError) {
-        Patient patient = new Patient();
-        patient.setFirstName(patientName);
-        patient.setLastName("Тестовый");
-        patient.setBirthDate(LocalDate.of(1990, 1, 1));
-        patient.setEmail(patientName + "@email.com");
-
-        Patient savedPatient = patientRepository.save(patient);
-
-        MedicalRecord medicalRecord = new MedicalRecord();
-        medicalRecord.setRecordDate(LocalDate.now());
-        medicalRecord.setDiagnosis("Диагноз");
-        medicalRecord.setPatient(savedPatient);
-
-        medicalRecordRepository.save(medicalRecord);
+        Patient savedPatient = createPatientWithMedicalRecord(patientName);
 
         if (throwError) {
             throw new IllegalStateException("ОШИБКА! Но всё откатится благодаря @Transactional");
