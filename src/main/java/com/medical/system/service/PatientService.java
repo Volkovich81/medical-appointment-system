@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +18,7 @@ public class PatientService {
     public List<PatientDTO> getAllPatients() {
         return patientRepository.findAll().stream()
                 .map(PatientMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Transactional(readOnly = true)
@@ -36,7 +35,7 @@ public class PatientService {
         }
         return patientRepository.findByLastNameIgnoreCase(lastName).stream()
                 .map(PatientMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Transactional

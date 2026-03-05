@@ -28,7 +28,6 @@ public class DemoService {
         patient.setEmail(patientName + "@email.com");
 
         Patient savedPatient = patientRepository.save(patient);
-        System.out.println("Пациент сохранён: " + savedPatient.getId());
 
         MedicalRecord record = new MedicalRecord();
         record.setRecordDate(LocalDate.now());
@@ -36,10 +35,9 @@ public class DemoService {
         record.setPatient(savedPatient);
 
         medicalRecordRepository.save(record);
-        System.out.println("Медкарта сохранена");
 
         if (throwError) {
-            throw new RuntimeException("ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась");
+            throw new IllegalStateException("ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась");
         }
 
         Appointment appointment = new Appointment();
@@ -48,7 +46,6 @@ public class DemoService {
         appointment.setPatient(savedPatient);
 
         appointmentRepository.save(appointment);
-        System.out.println("Запись сохранена");
     }
 
     @Transactional
@@ -60,7 +57,6 @@ public class DemoService {
         patient.setEmail(patientName + "@email.com");
 
         Patient savedPatient = patientRepository.save(patient);
-        System.out.println("Пациент сохранён: " + savedPatient.getId());
 
         MedicalRecord record = new MedicalRecord();
         record.setRecordDate(LocalDate.now());
@@ -68,10 +64,9 @@ public class DemoService {
         record.setPatient(savedPatient);
 
         medicalRecordRepository.save(record);
-        System.out.println("Медкарта сохранена");
 
         if (throwError) {
-            throw new RuntimeException("ОШИБКА! Но всё откатится благодаря @Transactional");
+            throw new IllegalStateException("ОШИБКА! Но всё откатится благодаря @Transactional");
         }
 
         Appointment appointment = new Appointment();
@@ -80,6 +75,5 @@ public class DemoService {
         appointment.setPatient(savedPatient);
 
         appointmentRepository.save(appointment);
-        System.out.println("Запись сохранена");
     }
 }

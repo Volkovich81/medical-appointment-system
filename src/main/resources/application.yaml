@@ -6,7 +6,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/medical_db
     username: postgres
     password: root
-    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
