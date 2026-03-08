@@ -32,6 +32,19 @@ public class PatientService {
         this.self = self;
     }
 
+    private Patient createPatientWithMedicalRecord(PatientDTO patientDTO) {
+        Patient patient = PatientMapper.toEntity(patientDTO);
+        Patient savedPatient = patientRepository.save(patient);
+
+        MedicalRecord medicalRecord = new MedicalRecord();
+        medicalRecord.setRecordDate(LocalDate.now());
+        medicalRecord.setDiagnosis("Диагноз");
+        medicalRecord.setPatient(savedPatient);
+        medicalRecordRepository.save(medicalRecord);
+
+        return savedPatient;
+    }
+
     @Transactional(readOnly = true)
     public List<PatientDTO> getAllPatients() {
         return patientRepository.findAll().stream()
@@ -94,14 +107,7 @@ public class PatientService {
     }
 
     public PatientDTO createWithoutTransaction(PatientDTO patientDTO, boolean throwError) {
-        Patient patient = PatientMapper.toEntity(patientDTO);
-        Patient savedPatient = patientRepository.save(patient);
-
-        MedicalRecord medicalRecord = new MedicalRecord();
-        medicalRecord.setRecordDate(LocalDate.now());
-        medicalRecord.setDiagnosis("Диагноз");
-        medicalRecord.setPatient(savedPatient);
-        medicalRecordRepository.save(medicalRecord);
+        Patient savedPatient = createPatientWithMedicalRecord(patientDTO);
 
         if (throwError) {
             throw new IllegalStateException("ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась");
@@ -118,14 +124,7 @@ public class PatientService {
 
     @Transactional
     public PatientDTO createWithTransaction(PatientDTO patientDTO, boolean throwError) {
-        Patient patient = PatientMapper.toEntity(patientDTO);
-        Patient savedPatient = patientRepository.save(patient);
-
-        MedicalRecord medicalRecord = new MedicalRecord();
-        medicalRecord.setRecordDate(LocalDate.now());
-        medicalRecord.setDiagnosis("Диагноз");
-        medicalRecord.setPatient(savedPatient);
-        medicalRecordRepository.save(medicalRecord);
+        Patient savedPatient = createPatientWithMedicalRecord(patientDTO);
 
         if (throwError) {
             throw new IllegalStateException("ОШИБКА! Но всё откатится благодаря @Transactional");
