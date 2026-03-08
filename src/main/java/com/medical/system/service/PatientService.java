@@ -89,14 +89,14 @@ public class PatientService {
         Patient patient = PatientMapper.toEntity(patientDTO);
         Patient savedPatient = patientRepository.save(patient);
 
-        MedicalRecord record = new MedicalRecord();
-        record.setRecordDate(LocalDate.now());
-        record.setDiagnosis("Диагноз");
-        record.setPatient(savedPatient);
-        medicalRecordRepository.save(record);
+        MedicalRecord medicalRecord = new MedicalRecord();
+        medicalRecord.setRecordDate(LocalDate.now());
+        medicalRecord.setDiagnosis("Диагноз");
+        medicalRecord.setPatient(savedPatient);
+        medicalRecordRepository.save(medicalRecord);
 
         if (throwError) {
-            throw new RuntimeException("ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась");
+            throw new IllegalStateException("ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась");
         }
 
         Appointment appointment = new Appointment();
@@ -121,7 +121,7 @@ public class PatientService {
         medicalRecordRepository.save(record);
 
         if (throwError) {
-            throw new RuntimeException("ОШИБКА! Но всё откатится благодаря @Transactional");
+            throw new IllegalStateException("ОШИБКА! Но всё откатится благодаря @Transactional");
         }
 
         Appointment appointment = new Appointment();
