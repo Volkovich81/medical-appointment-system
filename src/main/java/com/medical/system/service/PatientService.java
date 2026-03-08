@@ -2,21 +2,26 @@ package com.medical.system.service;
 
 import com.medical.system.dto.PatientDTO;
 import com.medical.system.entity.Patient;
+import com.medical.system.entity.MedicalRecord;
+import com.medical.system.entity.Appointment;
 import com.medical.system.mapper.PatientMapper;
 import com.medical.system.repository.PatientRepository;
+import com.medical.system.repository.MedicalRecordRepository;
+import com.medical.system.repository.AppointmentRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PatientService {
     private final PatientRepository patientRepository;
-    private final PatientService self;
-
-    public PatientService(PatientRepository patientRepository, PatientService self) {
-        this.patientRepository = patientRepository;
-        this.self = self;
-    }
+    private final MedicalRecordRepository medicalRecordRepository;
+    private final AppointmentRepository appointmentRepository;
 
     @Transactional(readOnly = true)
     public List<PatientDTO> getAllPatients() {
@@ -35,7 +40,7 @@ public class PatientService {
     @Transactional(readOnly = true)
     public List<PatientDTO> getPatientsByLastName(String lastName) {
         if (lastName == null || lastName.isEmpty()) {
-            return self.getAllPatients();
+            return getAllPatients();
         }
         return patientRepository.findByLastNameIgnoreCase(lastName).stream()
                 .map(PatientMapper::toDto)
@@ -77,5 +82,54 @@ public class PatientService {
     public PatientDTO getPatientWithAppointments(Long id) {
         Patient patient = patientRepository.findByIdWithAppointments(id);
         return PatientMapper.toDto(patient);
+    }
+
+    // Демонстрация БЕЗ @Transactional (частичное сохранение)
+    public PatientDTO createWithoutTransaction(PatientDTO patientDTO, boolean throwError) {
+        Patient patient = PatientMapper.toEntity(patientDTO);
+        Patient savedPatient = patientRepository.save(patient);
+
+        MedicalRecord record = new MedicalRecord();
+        record.setRecordDate(LocalDate.now());
+        record.setDiagnosis("Диагноз");
+        record.setPatient(savedPatient);
+        medicalRecordRepository.save(record);
+
+        if (throwError) {
+            throw new RuntimeException("ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась");
+        }
+
+        Appointment appointment = new Appointment();
+        appointment.setAppointmentDate(LocalDateTime.now().plusDays(1));
+        appointment.setStatus("SCHEDULED");
+        appointment.setPatient(savedPatient);
+        appointmentRepository.save(appointment);
+
+        return PatientMapper.toDto(savedPatient);
+    }
+
+    // Демонстрация С @Transactional (полный откат)
+    @Transactional
+    public PatientDTO createWithTransaction(PatientDTO patientDTO, boolean throwError) {
+        Patient patient = PatientMapper.toEntity(patientDTO);
+        Patient savedPatient = patientRepository.save(patient);
+
+        MedicalRecord record = new MedicalRecord();
+        record.setRecordDate(LocalDate.now());
+        record.setDiagnosis("Диагноз");
+        record.setPatient(savedPatient);
+        medicalRecordRepository.save(record);
+
+        if (throwError) {
+            throw new RuntimeException("ОШИБКА! Но всё откатится благодаря @Transactional");
+        }
+
+        Appointment appointment = new Appointment();
+        appointment.setAppointmentDate(LocalDateTime.now().plusDays(1));
+        appointment.setStatus("SCHEDULED");
+        appointment.setPatient(savedPatient);
+        appointmentRepository.save(appointment);
+
+        return PatientMapper.toDto(savedPatient);
     }
 }

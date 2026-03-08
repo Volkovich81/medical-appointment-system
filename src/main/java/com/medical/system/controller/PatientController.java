@@ -61,4 +61,14 @@ public class PatientController {
         PatientDTO patient = patientService.getPatientWithAppointments(id);
         return patient != null ? ResponseEntity.ok(patient) : ResponseEntity.notFound().build();
     }
+
+    @PostMapping("/test-no-tx")
+    public PatientDTO testNoTx(@RequestBody PatientDTO patientDTO, @RequestParam boolean error) {
+        return patientService.createWithoutTransaction(patientDTO, error);
+    }
+
+    @PostMapping("/test-tx")
+    public PatientDTO testTx(@RequestBody PatientDTO patientDTO, @RequestParam boolean error) {
+        return patientService.createWithTransaction(patientDTO, error);
+    }
 }

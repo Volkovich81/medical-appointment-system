@@ -2,6 +2,7 @@ package com.medical.system.mapper;
 
 import com.medical.system.dto.PatientDTO;
 import com.medical.system.entity.Patient;
+import java.util.stream.Collectors;
 
 public class PatientMapper {
     private PatientMapper() {}
@@ -16,6 +17,16 @@ public class PatientMapper {
         dto.setBirthDate(patient.getBirthDate());
         dto.setPhone(patient.getPhone());
         dto.setEmail(patient.getEmail());
+
+        if (patient.getAppointments() != null) {
+            dto.setAppointments(patient.getAppointments().stream()
+                    .map(AppointmentMapper::toDto)
+                    .collect(Collectors.toList()));
+        }
+
+        if (patient.getMedicalRecord() != null) {
+            dto.setMedicalRecord(MedicalRecordMapper.toDto(patient.getMedicalRecord()));
+        }
 
         return dto;
     }

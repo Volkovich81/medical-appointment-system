@@ -1,17 +1,14 @@
 package com.medical.system.dto;
 
 import lombok.Data;
-import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public class PatientDTO {
+public class DoctorDTO {
     private Long id;
     private String firstName;
     private String lastName;
-    private LocalDate birthDate;
     private String phone;
     private String email;
-    private List<AppointmentDTO> appointments;
-    private MedicalRecordDTO medicalRecord;
+    private List<Long> specializationIds;
 }
