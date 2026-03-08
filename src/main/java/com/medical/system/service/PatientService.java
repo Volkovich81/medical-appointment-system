@@ -34,7 +34,7 @@ public class PatientService {
         this.doctorRepository = doctorRepository;
     }
 
-    @Transactional(readOnly = true)
+    // Убрали @Transactional, потому что вызывается внутри этого же класса
     public List<PatientDTO> getAllPatients() {
         return patientRepository.findAll().stream()
                 .map(PatientMapper::toDto)
@@ -51,7 +51,7 @@ public class PatientService {
     @Transactional(readOnly = true)
     public List<PatientDTO> getPatientsByLastName(String lastName) {
         if (lastName == null || lastName.isEmpty()) {
-            return getAllPatients();
+            return getAllPatients();  // теперь можно напрямую
         }
         return patientRepository.findByLastNameIgnoreCase(lastName).stream()
                 .map(PatientMapper::toDto)
@@ -106,7 +106,6 @@ public class PatientService {
         medicalRecordRepository.save(medicalRecord);
 
         savedPatient.setMedicalRecord(medicalRecord);
-
         return savedPatient;
     }
 
