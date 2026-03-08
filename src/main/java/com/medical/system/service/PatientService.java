@@ -34,7 +34,6 @@ public class PatientService {
         this.doctorRepository = doctorRepository;
     }
 
-    // Убрали @Transactional, потому что вызывается внутри этого же класса
     public List<PatientDTO> getAllPatients() {
         return patientRepository.findAll().stream()
                 .map(PatientMapper::toDto)
@@ -51,7 +50,7 @@ public class PatientService {
     @Transactional(readOnly = true)
     public List<PatientDTO> getPatientsByLastName(String lastName) {
         if (lastName == null || lastName.isEmpty()) {
-            return getAllPatients();  // теперь можно напрямую
+            return getAllPatients();
         }
         return patientRepository.findByLastNameIgnoreCase(lastName).stream()
                 .map(PatientMapper::toDto)
@@ -119,12 +118,15 @@ public class PatientService {
         });
     }
 
-    public PatientDTO createWithoutTransaction(PatientDTO patientDTO, boolean throwError) {
+    private PatientDTO createPatientWithAppointment(PatientDTO patientDTO, boolean transactional, boolean throwError) {
         Patient savedPatient = createPatientWithMedicalRecord(patientDTO);
         Doctor doctor = getOrCreateDefaultDoctor();
 
         if (throwError) {
-            throw new IllegalStateException("ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась");
+            String message = transactional
+                    ? "ОШИБКА! Но всё откатится благодаря @Transactional"
+                    : "ОШИБКА! Пациент и медкарта уже сохранены, а запись не создалась";
+            throw new IllegalStateException(message);
         }
 
         Appointment appointment = new Appointment();
@@ -137,22 +139,12 @@ public class PatientService {
         return PatientMapper.toDto(savedPatient);
     }
 
+    public PatientDTO createWithoutTransaction(PatientDTO patientDTO, boolean throwError) {
+        return createPatientWithAppointment(patientDTO, false, throwError);
+    }
+
     @Transactional
     public PatientDTO createWithTransaction(PatientDTO patientDTO, boolean throwError) {
-        Patient savedPatient = createPatientWithMedicalRecord(patientDTO);
-        Doctor doctor = getOrCreateDefaultDoctor();
-
-        if (throwError) {
-            throw new IllegalStateException("ОШИБКА! Но всё откатится благодаря @Transactional");
-        }
-
-        Appointment appointment = new Appointment();
-        appointment.setAppointmentDate(LocalDateTime.now().plusDays(1));
-        appointment.setStatus("SCHEDULED");
-        appointment.setPatient(savedPatient);
-        appointment.setDoctor(doctor);
-        appointmentRepository.save(appointment);
-
-        return PatientMapper.toDto(savedPatient);
+        return createPatientWithAppointment(patientDTO, true, throwError);
     }
 }
