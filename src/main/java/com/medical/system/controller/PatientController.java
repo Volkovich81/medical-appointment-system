@@ -71,4 +71,10 @@ public class PatientController {
     public PatientDTO testTx(@RequestBody PatientDTO patientDTO, @RequestParam boolean error) {
         return patientService.createWithTransaction(patientDTO, error);
     }
+
+    @GetMapping("/nplus1-problem")
+    public ResponseEntity<List<PatientDTO>> testNPlus1Problem() {
+        List<PatientDTO> patients = patientService.getAllPatients();
+        return ResponseEntity.ok(patients);
+    }
 }
