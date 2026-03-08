@@ -10,7 +10,6 @@ import com.medical.system.repository.MedicalRecordRepository;
 import com.medical.system.repository.AppointmentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,16 +20,16 @@ public class PatientService {
     private final PatientRepository patientRepository;
     private final MedicalRecordRepository medicalRecordRepository;
     private final AppointmentRepository appointmentRepository;
-
-    @Autowired
-    private PatientService self;
+    private final PatientService self;
 
     public PatientService(PatientRepository patientRepository,
                           MedicalRecordRepository medicalRecordRepository,
-                          AppointmentRepository appointmentRepository) {
+                          AppointmentRepository appointmentRepository,
+                          PatientService self) {
         this.patientRepository = patientRepository;
         this.medicalRecordRepository = medicalRecordRepository;
         this.appointmentRepository = appointmentRepository;
+        this.self = self;
     }
 
     @Transactional(readOnly = true)
