@@ -12,6 +12,7 @@ import com.medical.system.repository.AppointmentRepository;
 import com.medical.system.repository.DoctorRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.medical.system.enums.AppointmentStatus;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -131,7 +132,7 @@ public class PatientService {
 
         Appointment appointment = new Appointment();
         appointment.setAppointmentDate(LocalDateTime.now().plusDays(1));
-        appointment.setStatus("SCHEDULED");
+        appointment.setStatus(AppointmentStatus.SCHEDULED);
         appointment.setPatient(savedPatient);
         appointment.setDoctor(doctor);
         appointmentRepository.save(appointment);

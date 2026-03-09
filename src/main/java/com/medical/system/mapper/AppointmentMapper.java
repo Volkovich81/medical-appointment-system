@@ -12,7 +12,7 @@ public class AppointmentMapper {
         AppointmentDTO dto = new AppointmentDTO();
         dto.setId(appointment.getId());
         dto.setAppointmentDate(appointment.getAppointmentDate());
-        dto.setStatus(appointment.getStatus());
+        dto.setStatus(appointment.getStatus().name());
 
         if (appointment.getPatient() != null) {
             dto.setPatientId(appointment.getPatient().getId());
