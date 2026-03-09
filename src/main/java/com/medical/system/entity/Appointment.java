@@ -28,6 +28,7 @@ public class Appointment {
     @Column(name = "appointment_date", nullable = false)
     private LocalDateTime appointmentDate;
 
+    @Column(length = 20)
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
