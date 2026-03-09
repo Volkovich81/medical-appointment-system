@@ -29,7 +29,7 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "appointment_date", nullable = false)
+    @Column(name = "date", nullable = false)
     private LocalDateTime appointmentDate;
 
     @Enumerated(EnumType.STRING)
