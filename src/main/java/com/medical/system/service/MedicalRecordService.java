@@ -49,11 +49,11 @@ public class MedicalRecordService {
     @Transactional
     public MedicalRecordDTO updateMedicalRecord(Long id, MedicalRecordDTO medicalRecordDTO) {
         return medicalRecordRepository.findById(id)
-                .map(record -> {
-                    record.setRecordDate(medicalRecordDTO.getRecordDate());
-                    record.setDiagnosis(medicalRecordDTO.getDiagnosis());
-                    record.setTreatment(medicalRecordDTO.getTreatment());
-                    MedicalRecord updatedRecord = medicalRecordRepository.save(record);
+                .map(existingRecord -> {
+                    existingRecord.setRecordDate(medicalRecordDTO.getRecordDate());
+                    existingRecord.setDiagnosis(medicalRecordDTO.getDiagnosis());
+                    existingRecord.setTreatment(medicalRecordDTO.getTreatment());
+                    MedicalRecord updatedRecord = medicalRecordRepository.save(existingRecord);
                     return MedicalRecordMapper.toDto(updatedRecord);
                 })
                 .orElse(null);
