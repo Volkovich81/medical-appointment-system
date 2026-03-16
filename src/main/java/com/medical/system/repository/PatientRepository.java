@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
+@SuppressWarnings({"SqlDialectInspection", "SqlNoDataSourceInspection"})
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 
@@ -18,9 +19,9 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
     Patient findByIdWithAppointments(@Param("id") Long id);
 
     @Query("SELECT DISTINCT p FROM Patient p " +
-            "JOIN p.appointments a " +           // через appointments
-            "JOIN a.doctor d " +                  // к доктору
-            "JOIN d.specializations s " +          // к специализациям доктора
+            "JOIN p.appointments a " +
+            "JOIN a.doctor d " +
+            "JOIN d.specializations s " +
             "WHERE s.name = :specializationName")
     Page<Patient> findByDoctorSpecializationJpql(
             @Param("specializationName") String specializationName,
