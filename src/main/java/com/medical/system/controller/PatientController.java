@@ -3,16 +3,17 @@ package com.medical.system.controller;
 import com.medical.system.dto.PatientDTO;
 import com.medical.system.service.PatientService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -52,14 +53,55 @@ public class PatientController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePatient(@PathVariable Long id) {
-        boolean deleted = patientService.deletePatient(id);
-        return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+        patientService.deletePatient(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}/with-appointments")
     public ResponseEntity<PatientDTO> getPatientWithAppointments(@PathVariable Long id) {
         PatientDTO patient = patientService.getPatientWithAppointments(id);
         return patient != null ? ResponseEntity.ok(patient) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/search/by-specialization")
+    public ResponseEntity<Page<PatientDTO>> findPatientsBySpecialization(
+            @RequestParam String specializationName,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "lastName") String sortBy,
+            @RequestParam(defaultValue = "asc") String sortDir) {
+
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationCached(
+                specializationName, page, size, sortBy, sortDir
+        );
+
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/search/by-specialization-native")
+    public ResponseEntity<Page<PatientDTO>> findPatientsBySpecializationNative(
+            @RequestParam String specializationName,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "lastName") String sortBy,
+            @RequestParam(defaultValue = "asc") String sortDir) {
+
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationNativeCached(
+                specializationName, page, size, sortBy, sortDir
+        );
+
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/cache/status")
+    public ResponseEntity<String> getCacheStatus() {
+        return ResponseEntity.ok("Размер кэша пациентов: " + patientService.getCacheSize());
+    }
+
+    @GetMapping("/nplus1-problem")
+    public ResponseEntity<List<PatientDTO>> testNPlus1Problem() {
+        List<PatientDTO> patients = patientService.getAllPatients();
+        return ResponseEntity.ok(patients);
     }
 
     @PostMapping("/test-no-tx")
@@ -70,11 +112,5 @@ public class PatientController {
     @PostMapping("/test-tx")
     public PatientDTO testTx(@RequestBody PatientDTO patientDTO, @RequestParam boolean error) {
         return patientService.createWithTransaction(patientDTO, error);
-    }
-
-    @GetMapping("/nplus1-problem")
-    public ResponseEntity<List<PatientDTO>> testNPlus1Problem() {
-        List<PatientDTO> patients = patientService.getAllPatients();
-        return ResponseEntity.ok(patients);
     }
 }

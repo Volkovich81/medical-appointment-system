@@ -3,13 +3,20 @@ package com.medical.system.mapper;
 import com.medical.system.dto.DoctorDTO;
 import com.medical.system.entity.Doctor;
 import com.medical.system.entity.Specialization;
+import com.medical.system.repository.SpecializationRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+@Component
 public class DoctorMapper {
-    private DoctorMapper() {}
+    private final SpecializationRepository specializationRepository;
 
-    public static DoctorDTO toDto(Doctor doctor) {
+    public DoctorMapper(SpecializationRepository specializationRepository) {
+        this.specializationRepository = specializationRepository;
+    }
+
+    public DoctorDTO toDto(Doctor doctor) {
         if (doctor == null) return null;
 
         DoctorDTO dto = new DoctorDTO();
@@ -28,7 +35,7 @@ public class DoctorMapper {
         return dto;
     }
 
-    public static Doctor toEntity(DoctorDTO dto) {
+    public Doctor toEntity(DoctorDTO dto) {
         if (dto == null) return null;
 
         Doctor doctor = new Doctor();
@@ -37,6 +44,10 @@ public class DoctorMapper {
         doctor.setLastName(dto.getLastName());
         doctor.setPhone(dto.getPhone());
         doctor.setEmail(dto.getEmail());
+
+        if (dto.getSpecializationIds() != null && !dto.getSpecializationIds().isEmpty()) {
+            doctor.setSpecializations(specializationRepository.findAllById(dto.getSpecializationIds()));
+        }
 
         return doctor;
     }

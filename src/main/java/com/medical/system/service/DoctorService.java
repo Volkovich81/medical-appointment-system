@@ -1,37 +1,39 @@
 package com.medical.system.service;
 
 import com.medical.system.dto.DoctorDTO;
+import com.medical.system.entity.Doctor;
 import com.medical.system.mapper.DoctorMapper;
 import com.medical.system.repository.DoctorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.medical.system.entity.Doctor;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class DoctorService {
     private final DoctorRepository doctorRepository;
+    private final DoctorMapper doctorMapper;
 
     public List<DoctorDTO> getAllDoctors() {
         return doctorRepository.findAll().stream()
-                .map(DoctorMapper::toDto)
+                .map(doctorMapper::toDto)
                 .toList();
     }
 
     public DoctorDTO getDoctorById(Long id) {
         return doctorRepository.findById(id)
-                .map(DoctorMapper::toDto)
+                .map(doctorMapper::toDto)
                 .orElse(null);
     }
 
     @Transactional
     public DoctorDTO createDoctor(DoctorDTO doctorDTO) {
-        Doctor doctor = DoctorMapper.toEntity(doctorDTO);
+        Doctor doctor = doctorMapper.toEntity(doctorDTO);
         Doctor savedDoctor = doctorRepository.save(doctor);
-        return DoctorMapper.toDto(savedDoctor);
+        return doctorMapper.toDto(savedDoctor);
     }
 
     @Transactional
@@ -43,7 +45,7 @@ public class DoctorService {
                     doctor.setPhone(doctorDTO.getPhone());
                     doctor.setEmail(doctorDTO.getEmail());
                     Doctor updatedDoctor = doctorRepository.save(doctor);
-                    return DoctorMapper.toDto(updatedDoctor);
+                    return doctorMapper.toDto(updatedDoctor);
                 })
                 .orElse(null);
     }

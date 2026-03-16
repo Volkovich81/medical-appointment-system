@@ -1,18 +1,24 @@
 package com.medical.system.service;
 
+import com.medical.system.cache.PatientCache;
+import com.medical.system.cache.PatientSearchKey;
 import com.medical.system.dto.PatientDTO;
 import com.medical.system.entity.Patient;
 import com.medical.system.entity.MedicalRecord;
 import com.medical.system.entity.Appointment;
 import com.medical.system.entity.Doctor;
+import com.medical.system.enums.AppointmentStatus;
 import com.medical.system.mapper.PatientMapper;
 import com.medical.system.repository.PatientRepository;
 import com.medical.system.repository.MedicalRecordRepository;
 import com.medical.system.repository.AppointmentRepository;
 import com.medical.system.repository.DoctorRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.medical.system.enums.AppointmentStatus;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -24,15 +30,18 @@ public class PatientService {
     private final MedicalRecordRepository medicalRecordRepository;
     private final AppointmentRepository appointmentRepository;
     private final DoctorRepository doctorRepository;
+    private final PatientCache patientCache;
 
     public PatientService(PatientRepository patientRepository,
                           MedicalRecordRepository medicalRecordRepository,
                           AppointmentRepository appointmentRepository,
-                          DoctorRepository doctorRepository) {
+                          DoctorRepository doctorRepository,
+                          PatientCache patientCache) {
         this.patientRepository = patientRepository;
         this.medicalRecordRepository = medicalRecordRepository;
         this.appointmentRepository = appointmentRepository;
         this.doctorRepository = doctorRepository;
+        this.patientCache = patientCache;
     }
 
     public List<PatientDTO> getAllPatients() {
@@ -58,10 +67,88 @@ public class PatientService {
                 .toList();
     }
 
+    @Transactional(readOnly = true)
+    public PatientDTO getPatientWithAppointments(Long id) {
+        Patient patient = patientRepository.findByIdWithAppointments(id);
+        return PatientMapper.toDto(patient);
+    }
+
+    public Page<PatientDTO> findPatientsBySpecializationCached(
+            String specializationName,
+            int page,
+            int size,
+            String sortBy,
+            String sortDir) {
+
+        PatientSearchKey key = new PatientSearchKey(
+                specializationName, page, size, sortBy, sortDir
+        );
+
+        if (patientCache.containsKey(key)) {
+            System.out.println("🔵 [JPQL] ДАННЫЕ ИЗ КЭША! Ключ: " + key);
+            return patientCache.get(key);
+        }
+
+        System.out.println("🟡 [JPQL] ДАННЫЕ ИЗ БАЗЫ ДАННЫХ... Ключ: " + key);
+
+        Sort sort = sortDir.equalsIgnoreCase("asc")
+                ? Sort.by(sortBy).ascending()
+                : Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        Page<Patient> patientsPage = patientRepository
+                .findByDoctorSpecializationJpql(specializationName, pageable);
+
+        Page<PatientDTO> dtoPage = patientsPage.map(PatientMapper::toDto);
+
+        patientCache.put(key, dtoPage);
+
+        return dtoPage;
+    }
+
+    public Page<PatientDTO> findPatientsBySpecializationNativeCached(
+            String specializationName,
+            int page,
+            int size,
+            String sortBy,
+            String sortDir) {
+
+        PatientSearchKey key = new PatientSearchKey(
+                specializationName, page, size, sortBy, sortDir
+        );
+
+        if (patientCache.containsKey(key)) {
+            System.out.println("🔵 [NATIVE] ДАННЫЕ ИЗ КЭША! Ключ: " + key);
+            return patientCache.get(key);
+        }
+
+        System.out.println("🟡 [NATIVE] ДАННЫЕ ИЗ БАЗЫ ДАННЫХ... Ключ: " + key);
+
+        Sort sort = sortDir.equalsIgnoreCase("asc")
+                ? Sort.by(sortBy).ascending()
+                : Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        Page<Patient> patientsPage = patientRepository
+                .findByDoctorSpecializationNative(specializationName, pageable);
+
+        Page<PatientDTO> dtoPage = patientsPage.map(PatientMapper::toDto);
+
+        patientCache.put(key, dtoPage);
+
+        return dtoPage;
+    }
+
+    private void invalidateCache() {
+        patientCache.clear();
+        System.out.println("🧹 [SERVICE] Кэш пациентов очищен (инвалидация)");
+    }
+
     @Transactional
     public PatientDTO createPatient(PatientDTO patientDTO) {
         Patient patient = PatientMapper.toEntity(patientDTO);
         Patient savedPatient = patientRepository.save(patient);
+        invalidateCache();
         return PatientMapper.toDto(savedPatient);
     }
 
@@ -75,24 +162,37 @@ public class PatientService {
                     patient.setPhone(patientDTO.getPhone());
                     patient.setEmail(patientDTO.getEmail());
                     Patient updatedPatient = patientRepository.save(patient);
+                    invalidateCache();
                     return PatientMapper.toDto(updatedPatient);
                 })
                 .orElse(null);
     }
 
     @Transactional
-    public boolean deletePatient(Long id) {
-        if (patientRepository.existsById(id)) {
-            patientRepository.deleteById(id);
-            return true;
-        }
-        return false;
+    public void deletePatient(Long id) {
+        patientRepository.deleteById(id);
+        invalidateCache();
     }
 
-    @Transactional(readOnly = true)
-    public PatientDTO getPatientWithAppointments(Long id) {
-        Patient patient = patientRepository.findByIdWithAppointments(id);
-        return PatientMapper.toDto(patient);
+    public int getCacheSize() {
+        return patientCache.size();
+    }
+
+    @Transactional
+    public PatientDTO createWithTransaction(PatientDTO patientDTO, boolean throwError) {
+        PatientDTO result = createPatientWithAppointment(patientDTO, true, throwError);
+        if (!throwError) {
+            invalidateCache();
+        }
+        return result;
+    }
+
+    public PatientDTO createWithoutTransaction(PatientDTO patientDTO, boolean throwError) {
+        PatientDTO result = createPatientWithAppointment(patientDTO, false, throwError);
+        if (!throwError) {
+            invalidateCache();
+        }
+        return result;
     }
 
     private Patient createPatientWithMedicalRecord(PatientDTO patientDTO) {
@@ -138,14 +238,5 @@ public class PatientService {
         appointmentRepository.save(appointment);
 
         return PatientMapper.toDto(savedPatient);
-    }
-
-    public PatientDTO createWithoutTransaction(PatientDTO patientDTO, boolean throwError) {
-        return createPatientWithAppointment(patientDTO, false, throwError);
-    }
-
-    @Transactional
-    public PatientDTO createWithTransaction(PatientDTO patientDTO, boolean throwError) {
-        return createPatientWithAppointment(patientDTO, true, throwError);
     }
 }
