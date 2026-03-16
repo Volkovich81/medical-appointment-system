@@ -1,11 +1,14 @@
 package com.medical.system.cache;
 
+import com.medical.system.dto.PatientDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import com.medical.system.dto.PatientDTO;
 
+@Slf4j
 @Component
 public class PatientCache {
 
@@ -13,7 +16,7 @@ public class PatientCache {
 
     public void put(PatientSearchKey key, Page<PatientDTO> page) {
         cache.put(key, page);
-        System.out.println("✅ [КЭШ] Данные сохранены. Ключ: " + key);
+        log.info("✅ [КЭШ] Данные сохранены. Ключ: {}", key);
     }
 
     public Page<PatientDTO> get(PatientSearchKey key) {
@@ -27,7 +30,7 @@ public class PatientCache {
     public void clear() {
         int sizeBefore = cache.size();
         cache.clear();
-        System.out.println("🧹 [КЭШ] Полностью очищен. Удалено элементов: " + sizeBefore);
+        log.info("🧹 [КЭШ] Полностью очищен. Удалено элементов: {}", sizeBefore);
     }
 
     public int size() {

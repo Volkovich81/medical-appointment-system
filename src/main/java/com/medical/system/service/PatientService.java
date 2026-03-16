@@ -13,6 +13,7 @@ import com.medical.system.repository.PatientRepository;
 import com.medical.system.repository.MedicalRecordRepository;
 import com.medical.system.repository.AppointmentRepository;
 import com.medical.system.repository.DoctorRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Slf4j
 @Service
 public class PatientService {
     private final PatientRepository patientRepository;
@@ -85,11 +87,11 @@ public class PatientService {
         );
 
         if (patientCache.containsKey(key)) {
-            System.out.println("🔵 [JPQL] ДАННЫЕ ИЗ КЭША! Ключ: " + key);
+            log.info("🔵 [JPQL] ДАННЫЕ ИЗ КЭША! Ключ: {}", key);
             return patientCache.get(key);
         }
 
-        System.out.println("🟡 [JPQL] ДАННЫЕ ИЗ БАЗЫ ДАННЫХ... Ключ: " + key);
+        log.info("🟡 [JPQL] ДАННЫЕ ИЗ БАЗЫ ДАННЫХ... Ключ: {}", key);
 
         Sort sort = sortDir.equalsIgnoreCase("asc")
                 ? Sort.by(sortBy).ascending()
@@ -118,11 +120,11 @@ public class PatientService {
         );
 
         if (patientCache.containsKey(key)) {
-            System.out.println("🔵 [NATIVE] ДАННЫЕ ИЗ КЭША! Ключ: " + key);
+            log.info("🔵 [NATIVE] ДАННЫЕ ИЗ КЭША! Ключ: {}", key);
             return patientCache.get(key);
         }
 
-        System.out.println("🟡 [NATIVE] ДАННЫЕ ИЗ БАЗЫ ДАННЫХ... Ключ: " + key);
+        log.info("🟡 [NATIVE] ДАННЫЕ ИЗ БАЗЫ ДАННЫХ... Ключ: {}", key);
 
         Sort sort = sortDir.equalsIgnoreCase("asc")
                 ? Sort.by(sortBy).ascending()
@@ -141,7 +143,7 @@ public class PatientService {
 
     private void invalidateCache() {
         patientCache.clear();
-        System.out.println("🧹 [SERVICE] Кэш пациентов очищен (инвалидация)");
+        log.info("🧹 [SERVICE] Кэш пациентов очищен (инвалидация)");
     }
 
     @Transactional
