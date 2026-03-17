@@ -125,11 +125,7 @@ public class PatientService {
         }
 
         log.info("🟡 [NATIVE] ДАННЫЕ ИЗ БАЗЫ ДАННЫХ... Ключ: {}", key);
-
-        Sort sort = sortDir.equalsIgnoreCase("asc")
-                ? Sort.by(sortBy).ascending()
-                : Sort.by(sortBy).descending();
-        Pageable pageable = PageRequest.of(page, size, sort);
+        Pageable pageable = PageRequest.of(page, size);
 
         Page<Patient> patientsPage = patientRepository
                 .findByDoctorSpecializationNative(specializationName, pageable);
