@@ -63,31 +63,31 @@ public class PatientController {
         return patient != null ? ResponseEntity.ok(patient) : ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/search/by-specialization")
+    @GetMapping("/search/by-doctor-specialization")
     public ResponseEntity<Page<PatientDTO>> findPatientsBySpecialization(
-            @RequestParam String specializationName,
+            @RequestParam String name,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(defaultValue = "lastName") String sortBy,
             @RequestParam(defaultValue = "asc") String sortDir) {
 
         Page<PatientDTO> result = patientService.findPatientsBySpecializationCached(
-                specializationName, page, size, sortBy, sortDir
+                name, page, size, sortBy, sortDir
         );
 
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("/search/by-specialization-native")
+    @GetMapping("/search/by-doctor-specialization-native")
     public ResponseEntity<Page<PatientDTO>> findPatientsBySpecializationNative(
-            @RequestParam String specializationName,
+            @RequestParam String name,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(defaultValue = "lastName") String sortBy,
             @RequestParam(defaultValue = "asc") String sortDir) {
 
         Page<PatientDTO> result = patientService.findPatientsBySpecializationNativeCached(
-                specializationName, page, size, sortBy, sortDir
+                name, page, size, sortBy, sortDir
         );
 
         return ResponseEntity.ok(result);

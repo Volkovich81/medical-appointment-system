@@ -76,14 +76,14 @@ public class PatientService {
     }
 
     public Page<PatientDTO> findPatientsBySpecializationCached(
-            String specializationName,
+            String name,
             int page,
             int size,
             String sortBy,
             String sortDir) {
 
         PatientSearchKey key = new PatientSearchKey(
-                specializationName, page, size, sortBy, sortDir
+                name, page, size, sortBy, sortDir
         );
 
         if (patientCache.containsKey(key)) {
@@ -99,7 +99,7 @@ public class PatientService {
         Pageable pageable = PageRequest.of(page, size, sort);
 
         Page<Patient> patientsPage = patientRepository
-                .findByDoctorSpecializationJpql(specializationName, pageable);
+                .findByDoctorSpecializationJpql(name, pageable);
 
         Page<PatientDTO> dtoPage = patientsPage.map(PatientMapper::toDto);
 
@@ -109,14 +109,14 @@ public class PatientService {
     }
 
     public Page<PatientDTO> findPatientsBySpecializationNativeCached(
-            String specializationName,
+            String name,
             int page,
             int size,
             String sortBy,
             String sortDir) {
 
         PatientSearchKey key = new PatientSearchKey(
-                specializationName, page, size, sortBy, sortDir
+                name, page, size, sortBy, sortDir
         );
 
         if (patientCache.containsKey(key)) {
@@ -128,7 +128,7 @@ public class PatientService {
         Pageable pageable = PageRequest.of(page, size);
 
         Page<Patient> patientsPage = patientRepository
-                .findByDoctorSpecializationNative(specializationName, pageable);
+                .findByDoctorSpecializationNative(name, pageable);
 
         Page<PatientDTO> dtoPage = patientsPage.map(PatientMapper::toDto);
 
