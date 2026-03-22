@@ -35,3 +35,61 @@
 2026-03-22T20:32:46.110+03:00  INFO 11224 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-03-22T20:32:46.113+03:00  INFO 11224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-03-22T20:32:46.119+03:00  INFO 11224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-22T20:46:44.421+03:00  INFO 5596 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 5596 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-03-22T20:46:44.423+03:00 DEBUG 5596 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-03-22T20:46:44.424+03:00  INFO 5596 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-22T20:46:45.245+03:00  INFO 5596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22T20:46:45.299+03:00  INFO 5596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
+2026-03-22T20:46:45.882+03:00  INFO 5596 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-03-22T20:46:45.889+03:00  INFO 5596 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-22T20:46:45.890+03:00  INFO 5596 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-03-22T20:46:45.944+03:00  INFO 5596 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-22T20:46:45.944+03:00  INFO 5596 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1455 ms
+2026-03-22T20:46:46.063+03:00  INFO 5596 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-22T20:46:46.111+03:00  INFO 5596 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-03-22T20:46:46.142+03:00  INFO 5596 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-22T20:46:46.346+03:00  INFO 5596 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22T20:46:46.364+03:00  INFO 5596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-22T20:46:46.502+03:00  INFO 5596 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30798137
+2026-03-22T20:46:46.503+03:00  INFO 5596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-22T20:46:46.535+03:00  WARN 5596 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22T20:46:47.309+03:00  INFO 5596 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22T20:46:47.391+03:00  INFO 5596 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22T20:46:47.668+03:00  INFO 5596 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22T20:46:48.249+03:00  WARN 5596 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22T20:46:48.702+03:00  INFO 5596 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-03-22T20:46:48.710+03:00  INFO 5596 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 4.788 seconds (process running for 5.211)
+2026-03-22T20:46:52.115+03:00  INFO 5596 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-22T20:46:52.115+03:00  INFO 5596 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-22T20:46:52.116+03:00  INFO 5596 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-22T20:46:52.868+03:00  INFO 5596 --- [http-nio-8081-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 511 ms
+2026-03-22T20:48:15.591+03:00  INFO 5596 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22T20:48:15.593+03:00  INFO 5596 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-22T20:48:15.598+03:00  INFO 5596 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-22T20:55:20.304+03:00  INFO 20528 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 20528 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-03-22T20:55:20.306+03:00 DEBUG 20528 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-03-22T20:55:20.307+03:00  INFO 20528 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-22T20:55:20.992+03:00  INFO 20528 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22T20:55:21.045+03:00  INFO 20528 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
+2026-03-22T20:55:21.602+03:00  INFO 20528 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-03-22T20:55:21.612+03:00  INFO 20528 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-22T20:55:21.612+03:00  INFO 20528 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-03-22T20:55:21.662+03:00  INFO 20528 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-22T20:55:21.662+03:00  INFO 20528 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1293 ms
+2026-03-22T20:55:21.779+03:00  INFO 20528 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-22T20:55:21.823+03:00  INFO 20528 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-03-22T20:55:21.852+03:00  INFO 20528 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-22T20:55:22.016+03:00  INFO 20528 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22T20:55:22.039+03:00  INFO 20528 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-22T20:55:22.169+03:00  INFO 20528 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27261190
+2026-03-22T20:55:22.171+03:00  INFO 20528 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-22T20:55:22.200+03:00  WARN 20528 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22T20:55:22.940+03:00  INFO 20528 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22T20:55:23.021+03:00  INFO 20528 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22T20:55:23.311+03:00  INFO 20528 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22T20:55:23.900+03:00  WARN 20528 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22T20:55:24.296+03:00  INFO 20528 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-03-22T20:55:24.303+03:00  INFO 20528 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 4.42 seconds (process running for 4.706)
+2026-03-22T20:55:36.091+03:00  INFO 20528 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22T20:55:36.093+03:00  INFO 20528 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-22T20:55:36.096+03:00  INFO 20528 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
