@@ -1,0 +1,37 @@
+2026-03-22T16:50:28.237+03:00  INFO 11224 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 11224 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-03-22T16:50:28.238+03:00 DEBUG 11224 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-03-22T16:50:28.239+03:00  INFO 11224 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-22T16:50:28.908+03:00  INFO 11224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-22T16:50:28.971+03:00  INFO 11224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
+2026-03-22T16:50:29.669+03:00  INFO 11224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-03-22T16:50:29.681+03:00  INFO 11224 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-22T16:50:29.682+03:00  INFO 11224 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-03-22T16:50:29.742+03:00  INFO 11224 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-22T16:50:29.743+03:00  INFO 11224 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1449 ms
+2026-03-22T16:50:29.894+03:00  INFO 11224 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-22T16:50:29.980+03:00  INFO 11224 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-03-22T16:50:30.029+03:00  INFO 11224 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-22T16:50:30.276+03:00  INFO 11224 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-22T16:50:30.313+03:00  INFO 11224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-22T16:50:30.511+03:00  INFO 11224 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64ec1459
+2026-03-22T16:50:30.513+03:00  INFO 11224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-22T16:50:30.587+03:00  WARN 11224 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-22T16:50:31.467+03:00  INFO 11224 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-22T16:50:31.634+03:00  INFO 11224 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22T16:50:31.949+03:00  INFO 11224 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-22T16:50:32.539+03:00  WARN 11224 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-22T16:50:32.962+03:00  INFO 11224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-03-22T16:50:32.969+03:00  INFO 11224 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 5.21 seconds (process running for 5.665)
+2026-03-22T16:51:01.257+03:00  INFO 11224 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-22T16:51:01.258+03:00  INFO 11224 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-22T16:51:01.260+03:00  INFO 11224 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-03-22T16:51:02.031+03:00  INFO 11224 --- [http-nio-8081-exec-10] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 465 ms
+2026-03-22T16:53:25.018+03:00  INFO 11224 --- [http-nio-8081-exec-4] com.medical.system.cache.PatientCache    : 🧹 [КЭШ] Полностью очищен. Удалено элементов: 0
+2026-03-22T16:53:25.018+03:00  INFO 11224 --- [http-nio-8081-exec-4] c.medical.system.service.PatientService  : 🧹 [SERVICE] Кэш пациентов очищен (инвалидация)
+2026-03-22T16:53:25.020+03:00  INFO 11224 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.createPatient(..)] выполнен за 100 мс
+2026-03-22T16:54:02.221+03:00  WARN 11224 --- [http-nio-8081-exec-1] c.m.s.exception.GlobalExceptionHandler   : Ошибка валидации: {firstName=Имя должно быть от 2 до 50 символов}
+2026-03-22T18:51:44.444+03:00  WARN 11224 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h56m13s93ms164µs801ns).
+2026-03-22T20:29:44.427+03:00  WARN 11224 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h35m29s949ms462µs101ns).
+2026-03-22T20:32:46.110+03:00  INFO 11224 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-22T20:32:46.113+03:00  INFO 11224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-22T20:32:46.119+03:00  INFO 11224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
