@@ -118,3 +118,62 @@
 2026-03-31T20:19:27.547+03:00  INFO 29188 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-03-31T20:19:27.553+03:00  INFO 29188 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-03-31T20:19:27.563+03:00  INFO 29188 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-31T20:27:06.290+03:00  INFO 13240 --- [main] MedicalAppointmentSystemApplicationTests : Starting MedicalAppointmentSystemApplicationTests using Java 17.0.18 with PID 13240 (started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-03-31T20:27:06.292+03:00 DEBUG 13240 --- [main] MedicalAppointmentSystemApplicationTests : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-03-31T20:27:06.294+03:00  INFO 13240 --- [main] MedicalAppointmentSystemApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2026-03-31T20:27:07.561+03:00  INFO 13240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-31T20:27:07.667+03:00  INFO 13240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 5 JPA repository interfaces.
+2026-03-31T20:27:08.628+03:00  INFO 13240 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-31T20:27:08.734+03:00  INFO 13240 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-03-31T20:27:08.796+03:00  INFO 13240 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-31T20:27:09.272+03:00  INFO 13240 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-31T20:27:09.319+03:00  INFO 13240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-31T20:27:09.616+03:00  INFO 13240 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@46663674
+2026-03-31T20:27:09.619+03:00  INFO 13240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-31T20:27:09.667+03:00  WARN 13240 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-31T20:27:11.141+03:00  INFO 13240 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-31T20:27:11.235+03:00  INFO 13240 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31T20:27:11.831+03:00  INFO 13240 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-31T20:27:13.060+03:00  WARN 13240 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-31T20:27:13.939+03:00  INFO 13240 --- [main] MedicalAppointmentSystemApplicationTests : Started MedicalAppointmentSystemApplicationTests in 8.249 seconds (process running for 10.116)
+2026-03-31T20:27:15.602+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName desc'}
+2026-03-31T20:27:15.612+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.617+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.623+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.629+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.635+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] „€›… ‡ €! «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.643+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.648+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName desc'}
+2026-03-31T20:27:15.662+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.672+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.677+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.682+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] „€›… ‡ €! «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.687+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='firstName desc'}
+2026-03-31T20:27:15.696+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.700+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.710+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.715+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName desc'}
+2026-03-31T20:27:15.720+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.726+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.739+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.748+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.752+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.757+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.770+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.775+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.785+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.794+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €! «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.800+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.805+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.809+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.819+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.825+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.830+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €! «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName asc'}
+2026-03-31T20:27:15.835+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName desc'}
+2026-03-31T20:27:15.842+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='firstName desc'}
+2026-03-31T20:27:15.849+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.858+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] νθ ― ζ¨¥­β®Ά ®η¨ι¥­ (¨­Ά «¨¤ ζ¨ο)
+2026-03-31T20:27:15.863+03:00  INFO 13240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] „€›… ‡ €‡› „€›•... «ξη: PatientSearchKey{spec='•¨ΰγΰ£', page=0, size=10, sort='lastName desc'}
+2026-03-31T20:27:15.978+03:00  INFO 13240 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31T20:27:15.983+03:00  INFO 13240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-31T20:27:15.991+03:00  INFO 13240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
