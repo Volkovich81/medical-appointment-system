@@ -14,8 +14,6 @@ import com.medical.system.repository.PatientRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -188,14 +186,36 @@ class PatientServiceTest {
         verify(patientCache).clear();
     }
 
-    @ParameterizedTest
-    @CsvSource({
-            "true, true",
-            "false, true",
-            "true, false",
-            "false, false"
-    })
-    void createWithTransaction_VariousScenarios(boolean transactional, boolean throwError) {
+    @Test
+    void createWithTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+
+        assertThrows(IllegalStateException.class, () -> patientService.createWithTransaction(patientDto, true));
+
+        verify(patientCache, never()).clear();
+    }
+
+    @Test
+    void createWithoutTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+
+        assertThrows(IllegalStateException.class, () -> patientService.createWithoutTransaction(patientDto, true));
+
+        verify(patientCache, never()).clear();
+    }
+
+    @Test
+    void createWithTransaction_NoError_Success() {
         Doctor doctor = new Doctor();
         doctor.setId(1L);
         Appointment appointment = new Appointment();
@@ -205,25 +225,27 @@ class PatientServiceTest {
         when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
         when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
 
-        if (throwError) {
-            assertThrows(IllegalStateException.class, () -> {
-                if (transactional) {
-                    patientService.createWithTransaction(patientDto, true);
-                } else {
-                    patientService.createWithoutTransaction(patientDto, true);
-                }
-            });
-            verify(patientCache, never()).clear();
-        } else {
-            PatientDTO result;
-            if (transactional) {
-                result = patientService.createWithTransaction(patientDto, false);
-            } else {
-                result = patientService.createWithoutTransaction(patientDto, false);
-            }
-            assertNotNull(result);
-            verify(patientCache).clear();
-        }
+        PatientDTO result = patientService.createWithTransaction(patientDto, false);
+
+        assertNotNull(result);
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void createWithoutTransaction_NoError_Success() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+        Appointment appointment = new Appointment();
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+        when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
+
+        PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
+
+        assertNotNull(result);
+        verify(patientCache).clear();
     }
 
     @Test
