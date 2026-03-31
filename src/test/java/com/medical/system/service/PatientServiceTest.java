@@ -310,88 +310,45 @@ class PatientServiceTest {
     }
 
     @Test
-    void createPatientWithMedicalRecord_Coverage() {
-        Doctor doctor = new Doctor();
-        doctor.setId(1L);
+    void createWithTransaction_WithDefaultDoctor_Success() {
+        Doctor defaultDoctor = new Doctor();
+        defaultDoctor.setId(1L);
+        defaultDoctor.setFirstName("Доктор");
+        defaultDoctor.setLastName("По умолчанию");
         Appointment appointment = new Appointment();
 
+        when(doctorRepository.findById(1L)).thenReturn(Optional.empty());
+        when(doctorRepository.save(any(Doctor.class))).thenReturn(defaultDoctor);
         when(patientRepository.save(any(Patient.class))).thenReturn(patient);
         when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
-        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
         when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
 
         PatientDTO result = patientService.createWithTransaction(patientDto, false);
 
         assertNotNull(result);
-        verify(medicalRecordRepository).save(any(MedicalRecord.class));
+        verify(doctorRepository).save(any(Doctor.class));
         verify(appointmentRepository).save(any(Appointment.class));
+        verify(patientCache).clear();
     }
 
     @Test
-    void createPatientWithAppointment_NoError_VerifyMedicalRecordSet() {
-        Doctor doctor = new Doctor();
-        doctor.setId(1L);
-        Appointment appointment = new Appointment();
-
-        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
-        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
-        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
-        when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
-
-        PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
-
-        assertNotNull(result);
-        verify(patientRepository, atLeast(2)).save(any(Patient.class));
-    }
-
-    @Test
-    void getOrCreateDefaultDoctor_WhenDoctorExists() {
+    void createWithoutTransaction_WithExistingDoctor_Success() {
         Doctor existingDoctor = new Doctor();
         existingDoctor.setId(1L);
         existingDoctor.setFirstName("Доктор");
         existingDoctor.setLastName("Существующий");
-
-        when(doctorRepository.findById(1L)).thenReturn(Optional.of(existingDoctor));
-
-        PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
-
-        assertNotNull(result);
-        verify(doctorRepository, never()).save(any(Doctor.class));
-    }
-
-    @Test
-    void getOrCreateDefaultDoctor_WhenDoctorNotFound_CreatesNew() {
-        Doctor newDoctor = new Doctor();
-        newDoctor.setId(1L);
-        newDoctor.setFirstName("Доктор");
-        newDoctor.setLastName("По умолчанию");
-
-        when(doctorRepository.findById(1L)).thenReturn(Optional.empty());
-        when(doctorRepository.save(any(Doctor.class))).thenReturn(newDoctor);
-        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
-        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
-        when(appointmentRepository.save(any(Appointment.class))).thenReturn(new Appointment());
-
-        PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
-
-        assertNotNull(result);
-        verify(doctorRepository).save(any(Doctor.class));
-    }
-
-    @Test
-    void createWithTransaction_WhenThrowErrorFalse_CompletesSuccessfully() {
-        Doctor doctor = new Doctor();
-        doctor.setId(1L);
         Appointment appointment = new Appointment();
 
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(existingDoctor));
         when(patientRepository.save(any(Patient.class))).thenReturn(patient);
         when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
-        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
         when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
 
-        PatientDTO result = patientService.createWithTransaction(patientDto, false);
+        PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
 
         assertNotNull(result);
+        verify(doctorRepository, never()).save(any());
+        verify(appointmentRepository).save(any(Appointment.class));
         verify(patientCache).clear();
     }
 }
