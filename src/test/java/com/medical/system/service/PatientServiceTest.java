@@ -733,4 +733,38 @@ class PatientServiceTest {
 
         verify(patientCache).put(any(), any());
     }
+
+    @Test
+    void createWithTransaction_ThrowErrorFalse_ShouldCallInvalidateCache() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+        Appointment appointment = new Appointment();
+
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
+
+        PatientDTO result = patientService.createWithTransaction(patientDto, false);
+
+        assertNotNull(result);
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void createWithoutTransaction_ThrowErrorFalse_ShouldCallInvalidateCache() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+        Appointment appointment = new Appointment();
+
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
+
+        PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
+
+        assertNotNull(result);
+        verify(patientCache).clear();
+    }
 }
