@@ -8,6 +8,7 @@ import com.medical.system.entity.MedicalRecord;
 import com.medical.system.entity.Appointment;
 import com.medical.system.entity.Doctor;
 import com.medical.system.enums.AppointmentStatus;
+import com.medical.system.exception.BulkOperationException;
 import com.medical.system.mapper.PatientMapper;
 import com.medical.system.repository.PatientRepository;
 import com.medical.system.repository.MedicalRecordRepository;
@@ -211,7 +212,7 @@ public class PatientService {
                 .toList();
         patientRepository.saveAll(patients);
         invalidateCache();
-        throw new RuntimeException("Тест: ошибка БЕЗ @Transactional");
+        throw new BulkOperationException("Тест: ошибка БЕЗ @Transactional");
     }
 
     @Transactional
@@ -221,7 +222,7 @@ public class PatientService {
                 .toList();
         patientRepository.saveAll(patients);
         invalidateCache();
-        throw new RuntimeException("Тест: ошибка С @Transactional");
+        throw new BulkOperationException("Тест: ошибка С @Transactional");
     }
 
     private Patient createPatientWithMedicalRecord(PatientDTO patientDTO) {

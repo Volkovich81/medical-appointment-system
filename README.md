@@ -1,10 +1,10 @@
 # Medical Appointment System
 
-**Medical Appointment System** — это REST API для автоматизации записи пациентов к врачам. В итоговой версии система будет обеспечивать полный цикл управления мед. пациентами: регистрацию пациентов, создание электронных медицинских карт и выписку рецептов, с последующим развертыванием через CI/CD.
+**Medical Appointment System** — это REST API для автоматизации записи пациентов к врачам. В итоговой версии система обеспечивает полный цикл управления медицинскими пациентами: регистрацию пациентов, создание электронных медицинских карт и выписку рецептов, с последующим развертыванием через CI/CD.
 
 **Стек:** Java 17 · Spring Boot 4 · Maven
 
-* * *
+---
 
 ## Лабораторная работа №1: Basic REST service
 
@@ -16,24 +16,24 @@
 - DTO и mapper
 - Настроить Checkstyle
 
-* * *
+---
 
 ## Лабораторная работа №2: JPA (Hibernate/Spring Data)
 
 **Задание:**
 - Подключить PostgreSQL к проекту
 - Создать 5 сущностей со связями:
-    - `Patient`, `Doctor`, `Specialization`, `Appointment`, `MedicalRecord`
-    - `OneToMany`: Patient → Appointments, Doctor → Appointments
-    - `ManyToMany`: Doctor ↔ Specialization
-    - `OneToOne`: Patient ↔ MedicalRecord
+  - `Patient`, `Doctor`, `Specialization`, `Appointment`, `MedicalRecord`
+  - `OneToMany`: Patient → Appointments, Doctor → Appointments
+  - `ManyToMany`: Doctor ↔ Specialization
+  - `OneToOne`: Patient ↔ MedicalRecord
 - Реализовать CRUD операции
 - Настроить CascadeType и FetchType
 - Решить проблему N+1 через JOIN FETCH
 - Показать разницу между @Transactional и без него
 - Сделать ER-диаграмму
 
-* * *
+---
 
 ## Лабораторная работа №3: Data Caching
 
@@ -46,7 +46,7 @@
 - Обеспечить корректную работу индекса через equals() и hashCode()
 - Реализовать инвалидацию индекса при изменении данных
 
-* * *
+---
 
 ## Лабораторная работа №4: Error Logging/Handling
 
@@ -60,7 +60,19 @@
 - Реализовать аспект (AOP) для логирования времени выполнения сервисных методов
 - Подключить Swagger/OpenAPI с описанием endpoint и DTO
 
-* * *
+---
+
+## Лабораторная работа №5: Batch data processing & Testing
+
+**Задание:**
+- Реализовать bulk-операцию (POST со списком объектов) для массового создания пациентов
+- Использовать Stream API и Optional в сервисном слое
+- Обеспечить транзакционность bulk-операции с демонстрацией работы с/без @Transactional
+- Написать unit-тесты для всех сервисов с использованием Mockito и JUnit
+- Достичь 100% покрытия кода тестами в сервисном слое
+- Настроить GitHub Actions для автоматического запуска тестов и отправки отчета в SonarCloud
+
+---
 
 ## SonarCloud
 
