@@ -103,6 +103,20 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>com/medical/system/aspect/**</exclude>
+                        <exclude>com/medical/system/cache/**</exclude>
+                        <exclude>com/medical/system/controller/**</exclude>
+                        <exclude>com/medical/system/dto/**</exclude>
+                        <exclude>com/medical/system/entity/**</exclude>
+                        <exclude>com/medical/system/enums/**</exclude>
+                        <exclude>com/medical/system/exception/**</exclude>
+                        <exclude>com/medical/system/mapper/**</exclude>
+                        <exclude>com/medical/system/repository/**</exclude>
+                        <exclude>com/medical/system/MedicalAppointmentSystemApplication.class</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
