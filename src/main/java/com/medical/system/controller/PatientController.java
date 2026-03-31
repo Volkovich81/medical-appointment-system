@@ -42,10 +42,59 @@ public class PatientController {
         return patient != null ? ResponseEntity.ok(patient) : ResponseEntity.notFound().build();
     }
 
+    @Operation(summary = "Найти пациента с записями (JOIN FETCH)")
+    @GetMapping("/{id}/with-appointments")
+    public ResponseEntity<PatientDTO> getPatientWithAppointments(@PathVariable Long id) {
+        PatientDTO patient = patientService.getPatientWithAppointments(id);
+        return patient != null ? ResponseEntity.ok(patient) : ResponseEntity.notFound().build();
+    }
+
     @Operation(summary = "Создать пациента")
     @PostMapping
     public ResponseEntity<PatientDTO> createPatient(@Valid @RequestBody PatientDTO patientDTO) {
         PatientDTO created = patientService.createPatient(patientDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    @Operation(summary = "Создать пациента с транзакцией (демонстрация)")
+    @PostMapping("/demo/with-transaction")
+    public ResponseEntity<PatientDTO> createPatientWithTransaction(
+            @Valid @RequestBody PatientDTO patientDTO,
+            @RequestParam(defaultValue = "false") boolean throwError) {
+        PatientDTO created = patientService.createWithTransaction(patientDTO, throwError);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    @Operation(summary = "Создать пациента без транзакции (демонстрация)")
+    @PostMapping("/demo/without-transaction")
+    public ResponseEntity<PatientDTO> createPatientWithoutTransaction(
+            @Valid @RequestBody PatientDTO patientDTO,
+            @RequestParam(defaultValue = "false") boolean throwError) {
+        PatientDTO created = patientService.createWithoutTransaction(patientDTO, throwError);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    @Operation(summary = "Массовое создание пациентов")
+    @PostMapping("/bulk")
+    public ResponseEntity<List<PatientDTO>> createPatientsBulk(
+            @Valid @RequestBody List<PatientDTO> patients) {
+        List<PatientDTO> created = patientService.saveAll(patients);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    @Operation(summary = "Массовое создание пациентов без транзакции (демонстрация)")
+    @PostMapping("/bulk/without-transaction")
+    public ResponseEntity<List<PatientDTO>> createPatientsBulkWithoutTransaction(
+            @Valid @RequestBody List<PatientDTO> patients) {
+        List<PatientDTO> created = patientService.saveAllWithoutTransaction(patients);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    @Operation(summary = "Массовое создание пациентов с транзакцией (демонстрация)")
+    @PostMapping("/bulk/with-transaction")
+    public ResponseEntity<List<PatientDTO>> createPatientsBulkWithTransaction(
+            @Valid @RequestBody List<PatientDTO> patients) {
+        List<PatientDTO> created = patientService.saveAllWithTransaction(patients);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
@@ -65,7 +114,7 @@ public class PatientController {
         return ResponseEntity.noContent().build();
     }
 
-    @Operation(summary = "Поиск по специализации врача")
+    @Operation(summary = "Поиск по специализации врача (JPQL с кэшем)")
     @GetMapping("/search/by-specialization")
     public ResponseEntity<Page<PatientDTO>> findPatientsBySpecialization(
             @RequestParam String specializationName,
@@ -79,6 +128,20 @@ public class PatientController {
         return ResponseEntity.ok(result);
     }
 
+    @Operation(summary = "Поиск по специализации врача (native query с кэшем)")
+    @GetMapping("/search/by-specialization-native")
+    public ResponseEntity<Page<PatientDTO>> findPatientsBySpecializationNative(
+            @RequestParam String specializationName,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "lastName") String sortBy,
+            @RequestParam(defaultValue = "asc") String sortDir) {
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationNativeCached(
+                specializationName, page, size, sortBy, sortDir);
+        return ResponseEntity.ok(result);
+    }
+
+    @Operation(summary = "Получить размер кэша")
     @GetMapping("/cache/status")
     public ResponseEntity<String> getCacheStatus() {
         return ResponseEntity.ok("Размер кэша: " + patientService.getCacheSize());

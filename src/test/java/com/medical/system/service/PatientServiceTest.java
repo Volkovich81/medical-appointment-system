@@ -1,0 +1,229 @@
+package com.medical.system.service;
+
+import com.medical.system.cache.PatientCache;
+import com.medical.system.dto.PatientDTO;
+import com.medical.system.entity.Doctor;
+import com.medical.system.entity.MedicalRecord;
+import com.medical.system.entity.Patient;
+import com.medical.system.repository.DoctorRepository;
+import com.medical.system.repository.MedicalRecordRepository;
+import com.medical.system.repository.PatientRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
+class PatientServiceTest {
+
+    @Mock
+    private PatientRepository patientRepository;
+
+    @Mock
+    private MedicalRecordRepository medicalRecordRepository;
+
+    @Mock
+    private DoctorRepository doctorRepository;
+
+    @Mock
+    private PatientCache patientCache;
+
+    @InjectMocks
+    private PatientService patientService;
+
+    private Patient patient;
+    private PatientDTO patientDto;
+
+    @BeforeEach
+    void setUp() {
+        patient = new Patient();
+        patient.setId(1L);
+        patient.setFirstName("Иван");
+        patient.setLastName("Иванов");
+        patient.setPhone("+375291234567");
+        patient.setEmail("ivan@example.com");
+
+        patientDto = new PatientDTO();
+        patientDto.setId(1L);
+        patientDto.setFirstName("Иван");
+        patientDto.setLastName("Иванов");
+        patientDto.setPhone("+375291234567");
+        patientDto.setEmail("ivan@example.com");
+    }
+
+    @Test
+    void getAllPatients_Success() {
+        when(patientRepository.findAll()).thenReturn(List.of(patient));
+
+        List<PatientDTO> result = patientService.getAllPatients();
+
+        assertFalse(result.isEmpty());
+        assertEquals(1, result.size());
+        assertEquals("Иван", result.get(0).getFirstName());
+    }
+
+    @Test
+    void getPatientById_Success() {
+        when(patientRepository.findById(1L)).thenReturn(Optional.of(patient));
+
+        PatientDTO result = patientService.getPatientById(1L);
+
+        assertNotNull(result);
+        assertEquals("Иван", result.getFirstName());
+    }
+
+    @Test
+    void getPatientById_NotFound() {
+        when(patientRepository.findById(1L)).thenReturn(Optional.empty());
+
+        PatientDTO result = patientService.getPatientById(1L);
+
+        assertNull(result);
+    }
+
+    @Test
+    void getPatientsByLastName_Success() {
+        when(patientRepository.findByLastNameIgnoreCase("Иванов")).thenReturn(List.of(patient));
+
+        List<PatientDTO> result = patientService.getPatientsByLastName("Иванов");
+
+        assertFalse(result.isEmpty());
+        assertEquals(1, result.size());
+    }
+
+    @Test
+    void getPatientsByLastName_Empty_ReturnsAll() {
+        when(patientRepository.findAll()).thenReturn(List.of(patient));
+
+        List<PatientDTO> result = patientService.getPatientsByLastName(null);
+
+        assertFalse(result.isEmpty());
+        verify(patientRepository, never()).findByLastNameIgnoreCase(any());
+    }
+
+    @Test
+    void createPatient_Success() {
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+
+        PatientDTO result = patientService.createPatient(patientDto);
+
+        assertNotNull(result);
+        verify(patientRepository).save(any(Patient.class));
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void updatePatient_Success() {
+        when(patientRepository.findById(1L)).thenReturn(Optional.of(patient));
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+
+        PatientDTO result = patientService.updatePatient(1L, patientDto);
+
+        assertNotNull(result);
+        verify(patientRepository).save(any(Patient.class));
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void updatePatient_NotFound() {
+        when(patientRepository.findById(1L)).thenReturn(Optional.empty());
+
+        PatientDTO result = patientService.updatePatient(1L, patientDto);
+
+        assertNull(result);
+        verify(patientRepository, never()).save(any());
+    }
+
+    @Test
+    void deletePatient_Success() {
+        doNothing().when(patientRepository).deleteById(1L);
+
+        patientService.deletePatient(1L);
+
+        verify(patientRepository).deleteById(1L);
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void saveAll_Success() {
+        when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient));
+
+        List<PatientDTO> result = patientService.saveAll(List.of(patientDto));
+
+        assertFalse(result.isEmpty());
+        assertEquals(1, result.size());
+        verify(patientRepository).saveAll(anyList());
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void saveAllWithoutTransaction_ThrowsException() {
+        when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient));
+
+        assertThrows(RuntimeException.class, () ->
+                patientService.saveAllWithoutTransaction(List.of(patientDto))
+        );
+
+        verify(patientRepository).saveAll(anyList());
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void saveAllWithTransaction_ThrowsException() {
+        when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient));
+
+        assertThrows(RuntimeException.class, () ->
+                patientService.saveAllWithTransaction(List.of(patientDto))
+        );
+
+        verify(patientRepository).saveAll(anyList());
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void createWithTransaction_WithError_ThrowsException() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+
+        assertThrows(IllegalStateException.class, () ->
+                patientService.createWithTransaction(patientDto, true)
+        );
+    }
+
+    @Test
+    void createWithoutTransaction_WithError_ThrowsException() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+
+        assertThrows(IllegalStateException.class, () ->
+                patientService.createWithoutTransaction(patientDto, true)
+        );
+    }
+
+    @Test
+    void getCacheSize_Success() {
+        when(patientCache.size()).thenReturn(5);
+
+        int result = patientService.getCacheSize();
+
+        assertEquals(5, result);
+    }
+}

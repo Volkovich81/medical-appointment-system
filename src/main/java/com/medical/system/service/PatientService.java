@@ -193,6 +193,37 @@ public class PatientService {
         return result;
     }
 
+    @Transactional
+    public List<PatientDTO> saveAll(List<PatientDTO> patientDtoList) {
+        List<Patient> patients = patientDtoList.stream()
+                .map(PatientMapper::toEntity)
+                .toList();
+        List<Patient> saved = patientRepository.saveAll(patients);
+        invalidateCache();
+        return saved.stream()
+                .map(PatientMapper::toDto)
+                .toList();
+    }
+
+    public List<PatientDTO> saveAllWithoutTransaction(List<PatientDTO> patientDtoList) {
+        List<Patient> patients = patientDtoList.stream()
+                .map(PatientMapper::toEntity)
+                .toList();
+        patientRepository.saveAll(patients);
+        invalidateCache();
+        throw new RuntimeException("Тест: ошибка БЕЗ @Transactional");
+    }
+
+    @Transactional
+    public List<PatientDTO> saveAllWithTransaction(List<PatientDTO> patientDtoList) {
+        List<Patient> patients = patientDtoList.stream()
+                .map(PatientMapper::toEntity)
+                .toList();
+        patientRepository.saveAll(patients);
+        invalidateCache();
+        throw new RuntimeException("Тест: ошибка С @Transactional");
+    }
+
     private Patient createPatientWithMedicalRecord(PatientDTO patientDTO) {
         Patient patient = PatientMapper.toEntity(patientDTO);
         Patient savedPatient = patientRepository.save(patient);
