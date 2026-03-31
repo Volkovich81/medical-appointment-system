@@ -351,4 +351,49 @@ class PatientServiceTest {
         verify(appointmentRepository).save(any(Appointment.class));
         verify(patientCache).clear();
     }
+
+    @Test
+    void findPatientsBySpecializationCached_FromDatabase() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationJpql(any(), any(Pageable.class)))
+                .thenReturn(page);
+
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationCached(
+                "Хирург", 0, 10, "lastName", "asc");
+
+        assertNotNull(result);
+        assertEquals(1, result.getTotalElements());
+        verify(patientCache).put(any(), any());
+    }
+
+    @Test
+    void findPatientsBySpecializationCached_FromCache() {
+        Page<PatientDTO> cachedPage = new PageImpl<>(List.of(patientDto));
+
+        when(patientCache.containsKey(any())).thenReturn(true);
+        when(patientCache.get(any())).thenReturn(cachedPage);
+
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationCached(
+                "Хирург", 0, 10, "lastName", "asc");
+
+        assertNotNull(result);
+        verify(patientRepository, never()).findByDoctorSpecializationJpql(any(), any());
+    }
+
+    @Test
+    void findPatientsBySpecializationCached_WithDescSort() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationJpql(any(), any(Pageable.class)))
+                .thenReturn(page);
+
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationCached(
+                "Хирург", 0, 10, "lastName", "desc");
+
+        assertNotNull(result);
+        verify(patientCache).put(any(), any());
+    }
 }
