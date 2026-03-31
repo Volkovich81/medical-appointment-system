@@ -681,4 +681,56 @@ class PatientServiceTest {
         assertNotNull(result);
         verify(patientCache).clear();
     }
+
+    @Test
+    void findPatientsBySpecializationCached_AscSort() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationJpql(any(), any(Pageable.class)))
+                .thenReturn(page);
+
+        patientService.findPatientsBySpecializationCached("Хирург", 0, 10, "lastName", "asc");
+
+        verify(patientCache).put(any(), any());
+    }
+
+    @Test
+    void findPatientsBySpecializationCached_DescSort() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationJpql(any(), any(Pageable.class)))
+                .thenReturn(page);
+
+        patientService.findPatientsBySpecializationCached("Хирург", 0, 10, "lastName", "desc");
+
+        verify(patientCache).put(any(), any());
+    }
+
+    @Test
+    void findPatientsBySpecializationNativeCached_AscSort() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationNative(any(), any(Pageable.class)))
+                .thenReturn(page);
+
+        patientService.findPatientsBySpecializationNativeCached("Хирург", 0, 10, "lastName", "asc");
+
+        verify(patientCache).put(any(), any());
+    }
+
+    @Test
+    void findPatientsBySpecializationNativeCached_DescSort() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationNative(any(), any(Pageable.class)))
+                .thenReturn(page);
+
+        patientService.findPatientsBySpecializationNativeCached("Хирург", 0, 10, "lastName", "desc");
+
+        verify(patientCache).put(any(), any());
+    }
 }
