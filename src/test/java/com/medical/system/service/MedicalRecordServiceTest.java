@@ -3,7 +3,6 @@ package com.medical.system.service;
 import com.medical.system.dto.MedicalRecordDTO;
 import com.medical.system.entity.MedicalRecord;
 import com.medical.system.entity.Patient;
-import com.medical.system.mapper.MedicalRecordMapper;
 import com.medical.system.repository.MedicalRecordRepository;
 import com.medical.system.repository.PatientRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -102,9 +101,9 @@ class MedicalRecordServiceTest {
     void createMedicalRecord_PatientNotFound_ThrowsException() {
         when(patientRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThrows(RuntimeException.class, () -> {
-            medicalRecordService.createMedicalRecord(medicalRecordDto);
-        });
+        assertThrows(RuntimeException.class, () ->
+                medicalRecordService.createMedicalRecord(medicalRecordDto)
+        );
     }
 
     @Test
@@ -123,6 +122,16 @@ class MedicalRecordServiceTest {
         when(medicalRecordRepository.findById(1L)).thenReturn(Optional.empty());
 
         MedicalRecordDTO result = medicalRecordService.updateMedicalRecord(1L, medicalRecordDto);
+
+        assertNull(result);
+        verify(medicalRecordRepository, never()).save(any());
+    }
+
+    @Test
+    void updateMedicalRecord_NotFound_ReturnsNull() {
+        when(medicalRecordRepository.findById(999L)).thenReturn(Optional.empty());
+
+        MedicalRecordDTO result = medicalRecordService.updateMedicalRecord(999L, medicalRecordDto);
 
         assertNull(result);
         verify(medicalRecordRepository, never()).save(any());

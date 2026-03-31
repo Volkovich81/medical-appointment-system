@@ -116,6 +116,16 @@ class DoctorServiceTest {
     }
 
     @Test
+    void updateDoctor_NotFound_ReturnsNull() {
+        when(doctorRepository.findById(999L)).thenReturn(Optional.empty());
+
+        DoctorDTO result = doctorService.updateDoctor(999L, doctorDto);
+
+        assertNull(result);
+        verify(doctorRepository, never()).save(any());
+    }
+
+    @Test
     void deleteDoctor_Success() {
         doNothing().when(doctorRepository).deleteById(1L);
 

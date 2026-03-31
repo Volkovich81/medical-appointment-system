@@ -2,7 +2,6 @@ package com.medical.system.service;
 
 import com.medical.system.dto.SpecializationDTO;
 import com.medical.system.entity.Specialization;
-import com.medical.system.mapper.SpecializationMapper;
 import com.medical.system.repository.SpecializationRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -99,6 +98,16 @@ class SpecializationServiceTest {
         when(specializationRepository.findById(1L)).thenReturn(Optional.empty());
 
         SpecializationDTO result = specializationService.updateSpecialization(1L, specializationDto);
+
+        assertNull(result);
+        verify(specializationRepository, never()).save(any());
+    }
+
+    @Test
+    void updateSpecialization_NotFound_ReturnsNull() {
+        when(specializationRepository.findById(999L)).thenReturn(Optional.empty());
+
+        SpecializationDTO result = specializationService.updateSpecialization(999L, specializationDto);
 
         assertNull(result);
         verify(specializationRepository, never()).save(any());

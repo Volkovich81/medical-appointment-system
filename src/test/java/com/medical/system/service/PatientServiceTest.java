@@ -2,9 +2,11 @@ package com.medical.system.service;
 
 import com.medical.system.cache.PatientCache;
 import com.medical.system.dto.PatientDTO;
+import com.medical.system.entity.Appointment;
 import com.medical.system.entity.Doctor;
 import com.medical.system.entity.MedicalRecord;
 import com.medical.system.entity.Patient;
+import com.medical.system.repository.AppointmentRepository;
 import com.medical.system.repository.DoctorRepository;
 import com.medical.system.repository.MedicalRecordRepository;
 import com.medical.system.repository.PatientRepository;
@@ -14,6 +16,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +36,9 @@ class PatientServiceTest {
 
     @Mock
     private MedicalRecordRepository medicalRecordRepository;
+
+    @Mock
+    private AppointmentRepository appointmentRepository;
 
     @Mock
     private DoctorRepository doctorRepository;
@@ -225,5 +233,79 @@ class PatientServiceTest {
         int result = patientService.getCacheSize();
 
         assertEquals(5, result);
+    }
+
+    @Test
+    void getPatientWithAppointments_Success() {
+        when(patientRepository.findByIdWithAppointments(1L)).thenReturn(patient);
+
+        PatientDTO result = patientService.getPatientWithAppointments(1L);
+
+        assertNotNull(result);
+        verify(patientRepository).findByIdWithAppointments(1L);
+    }
+
+    @Test
+    void findPatientsBySpecializationNativeCached_FromDatabase() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationNative(any(), any(Pageable.class)))
+                .thenReturn(page);
+
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationNativeCached(
+                "Хирург", 0, 10, "lastName", "asc");
+
+        assertNotNull(result);
+        assertEquals(1, result.getTotalElements());
+        verify(patientCache).put(any(), any());
+    }
+
+    @Test
+    void findPatientsBySpecializationNativeCached_FromCache() {
+        Page<PatientDTO> cachedPage = new PageImpl<>(List.of(patientDto));
+
+        when(patientCache.containsKey(any())).thenReturn(true);
+        when(patientCache.get(any())).thenReturn(cachedPage);
+
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationNativeCached(
+                "Хирург", 0, 10, "lastName", "asc");
+
+        assertNotNull(result);
+        verify(patientRepository, never()).findByDoctorSpecializationNative(any(), any());
+    }
+
+    @Test
+    void createWithTransaction_NoError_Success() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+        Appointment appointment = new Appointment();
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+        when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
+
+        PatientDTO result = patientService.createWithTransaction(patientDto, false);
+
+        assertNotNull(result);
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void createWithoutTransaction_NoError_Success() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+        Appointment appointment = new Appointment();
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+        when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
+
+        PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
+
+        assertNotNull(result);
+        verify(patientCache).clear();
     }
 }

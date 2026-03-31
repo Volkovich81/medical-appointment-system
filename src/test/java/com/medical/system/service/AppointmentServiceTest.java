@@ -5,7 +5,6 @@ import com.medical.system.entity.Appointment;
 import com.medical.system.entity.Patient;
 import com.medical.system.entity.Doctor;
 import com.medical.system.enums.AppointmentStatus;
-import com.medical.system.mapper.AppointmentMapper;
 import com.medical.system.repository.AppointmentRepository;
 import com.medical.system.repository.PatientRepository;
 import com.medical.system.repository.DoctorRepository;
@@ -113,9 +112,9 @@ class AppointmentServiceTest {
     void createAppointment_PatientNotFound_ThrowsException() {
         when(patientRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThrows(RuntimeException.class, () -> {
-            appointmentService.createAppointment(appointmentDto);
-        });
+        assertThrows(RuntimeException.class, () ->
+                appointmentService.createAppointment(appointmentDto)
+        );
     }
 
     @Test
@@ -123,9 +122,9 @@ class AppointmentServiceTest {
         when(patientRepository.findById(1L)).thenReturn(Optional.of(patient));
         when(doctorRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThrows(RuntimeException.class, () -> {
-            appointmentService.createAppointment(appointmentDto);
-        });
+        assertThrows(RuntimeException.class, () ->
+                appointmentService.createAppointment(appointmentDto)
+        );
     }
 
     @Test
@@ -144,6 +143,16 @@ class AppointmentServiceTest {
         when(appointmentRepository.findById(1L)).thenReturn(Optional.empty());
 
         AppointmentDTO result = appointmentService.updateAppointment(1L, appointmentDto);
+
+        assertNull(result);
+        verify(appointmentRepository, never()).save(any());
+    }
+
+    @Test
+    void updateAppointment_NotFound_ReturnsNull() {
+        when(appointmentRepository.findById(999L)).thenReturn(Optional.empty());
+
+        AppointmentDTO result = appointmentService.updateAppointment(999L, appointmentDto);
 
         assertNull(result);
         verify(appointmentRepository, never()).save(any());
