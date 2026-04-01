@@ -172,8 +172,8 @@ class PatientServiceTest {
     void saveAllWithoutTransaction_ThrowsBulkOperationException() {
         when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient));
 
-        BulkOperationException exception = assertThrows(BulkOperationException.class,
-                () -> patientService.saveAllWithoutTransaction(List.of(patientDto))
+        BulkOperationException exception = assertThrows(BulkOperationException.class, () ->
+                patientService.saveAllWithoutTransaction(List.of(patientDto))
         );
 
         assertNotNull(exception);
@@ -184,8 +184,8 @@ class PatientServiceTest {
     void saveAllWithTransaction_ThrowsBulkOperationException() {
         when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient));
 
-        BulkOperationException exception = assertThrows(BulkOperationException.class,
-                () -> patientService.saveAllWithTransaction(List.of(patientDto))
+        BulkOperationException exception = assertThrows(BulkOperationException.class, () ->
+                patientService.saveAllWithTransaction(List.of(patientDto))
         );
 
         assertNotNull(exception);
