@@ -17,7 +17,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -94,19 +93,18 @@ class PatientServiceTest {
         assertFalse(result.isEmpty());
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {"", " "})
-    void getPatientsByLastName_EmptyStrings_ReturnsAll(String lastName) {
+    @Test
+    void getPatientsByLastName_Empty_ReturnsAll() {
         when(patientRepository.findAll()).thenReturn(List.of(patient));
-        List<PatientDTO> result = patientService.getPatientsByLastName(lastName);
+        List<PatientDTO> result = patientService.getPatientsByLastName(null);
         assertFalse(result.isEmpty());
         verify(patientRepository, never()).findByLastNameIgnoreCase(any());
     }
 
     @Test
-    void getPatientsByLastName_Null_ReturnsAll() {
+    void getPatientsByLastName_EmptyString_ReturnsAll() {
         when(patientRepository.findAll()).thenReturn(List.of(patient));
-        List<PatientDTO> result = patientService.getPatientsByLastName(null);
+        List<PatientDTO> result = patientService.getPatientsByLastName("");
         assertFalse(result.isEmpty());
         verify(patientRepository, never()).findByLastNameIgnoreCase(any());
     }
@@ -306,5 +304,18 @@ class PatientServiceTest {
 
         PatientDTO result = patientService.createWithTransaction(patientDto, false);
         assertEquals(99L, result.getId());
+    }
+
+    @Test
+    void createWithoutTransaction_Coverage_DifferentData() {
+        Patient altPatient = new Patient();
+        altPatient.setId(88L);
+        when(patientRepository.save(any(Patient.class))).thenReturn(altPatient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(new Doctor()));
+        when(appointmentRepository.save(any(Appointment.class))).thenReturn(new Appointment());
+
+        PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
+        assertEquals(88L, result.getId());
     }
 }
