@@ -32,6 +32,7 @@ import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@SuppressWarnings({"java:S1602", "java:S5960"})
 class PatientServiceTest {
 
     @Mock
