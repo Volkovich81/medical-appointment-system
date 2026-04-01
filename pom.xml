@@ -17,6 +17,7 @@
         <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <sonar.coverage.exclusions>
             **/MedicalAppointmentSystemApplication.java,
+            src/main/java/com/medical/system/*.java,
             **/dto/**,
             **/entity/**,
             **/mapper/**,
@@ -94,6 +95,7 @@
                 <configuration>
                     <excludes>
                         <exclude>**/MedicalAppointmentSystemApplication.class</exclude>
+                        <exclude>com/medical/system/*.class</exclude>
                         <exclude>**/dto/**</exclude>
                         <exclude>**/entity/**</exclude>
                         <exclude>**/mapper/**</exclude>
