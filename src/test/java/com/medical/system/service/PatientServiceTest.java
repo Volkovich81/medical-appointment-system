@@ -102,14 +102,6 @@ class PatientServiceTest {
     }
 
     @Test
-    void getPatientsByLastName_EmptyString_ReturnsAll() {
-        when(patientRepository.findAll()).thenReturn(List.of(patient));
-        List<PatientDTO> result = patientService.getPatientsByLastName("");
-        assertFalse(result.isEmpty());
-        verify(patientRepository, never()).findByLastNameIgnoreCase(any());
-    }
-
-    @Test
     void createPatient_Success() {
         when(patientRepository.save(any(Patient.class))).thenReturn(patient);
         PatientDTO result = patientService.createPatient(patientDto);
@@ -307,6 +299,14 @@ class PatientServiceTest {
     }
 
     @Test
+    void getPatientsByLastName_EmptyString_Coverage() {
+        when(patientRepository.findAll()).thenReturn(List.of(patient));
+        List<PatientDTO> result = patientService.getPatientsByLastName("");
+        assertFalse(result.isEmpty());
+        verify(patientRepository, never()).findByLastNameIgnoreCase(any());
+    }
+
+    @Test
     void createWithoutTransaction_Coverage_DifferentData() {
         Patient altPatient = new Patient();
         altPatient.setId(88L);
@@ -317,5 +317,12 @@ class PatientServiceTest {
 
         PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
         assertEquals(88L, result.getId());
+    }
+
+    @Test
+    void saveAll_EmptyList_Coverage() {
+        when(patientRepository.saveAll(anyList())).thenReturn(List.of());
+        List<PatientDTO> result = patientService.saveAll(List.of());
+        assertTrue(result.isEmpty());
     }
 }
