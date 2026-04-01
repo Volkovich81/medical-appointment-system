@@ -22,6 +22,19 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+
+        <sonar.coverage.exclusions>
+            **/MedicalAppointmentSystemApplication.java,
+            **/aspect/**,
+            **/cache/**,
+            **/controller/**,
+            **/dto/**,
+            **/entity/**,
+            **/enums/**,
+            **/exception/**,
+            **/mapper/**,
+            **/repository/**
+        </sonar.coverage.exclusions>
     </properties>
 
     <dependencies>
@@ -105,16 +118,16 @@
                 </executions>
                 <configuration>
                     <excludes>
-                        <exclude>com/medical/system/aspect/**</exclude>
-                        <exclude>com/medical/system/cache/**</exclude>
-                        <exclude>com/medical/system/controller/**</exclude>
-                        <exclude>com/medical/system/dto/**</exclude>
-                        <exclude>com/medical/system/entity/**</exclude>
-                        <exclude>com/medical/system/enums/**</exclude>
-                        <exclude>com/medical/system/exception/**</exclude>
-                        <exclude>com/medical/system/mapper/**</exclude>
-                        <exclude>com/medical/system/repository/**</exclude>
-                        <exclude>com/medical/system/MedicalAppointmentSystemApplication.class</exclude>
+                        <exclude>**/aspect/**</exclude>
+                        <exclude>**/cache/**</exclude>
+                        <exclude>**/controller/**</exclude>
+                        <exclude>**/dto/**</exclude>
+                        <exclude>**/entity/**</exclude>
+                        <exclude>**/enums/**</exclude>
+                        <exclude>**/exception/**</exclude>
+                        <exclude>**/mapper/**</exclude>
+                        <exclude>**/repository/**</exclude>
+                        <exclude>**/MedicalAppointmentSystemApplication.class</exclude>
                     </excludes>
                 </configuration>
             </plugin>
