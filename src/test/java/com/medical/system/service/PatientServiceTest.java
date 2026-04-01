@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -93,8 +94,17 @@ class PatientServiceTest {
         assertFalse(result.isEmpty());
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"", " "})
+    void getPatientsByLastName_EmptyStrings_ReturnsAll(String lastName) {
+        when(patientRepository.findAll()).thenReturn(List.of(patient));
+        List<PatientDTO> result = patientService.getPatientsByLastName(lastName);
+        assertFalse(result.isEmpty());
+        verify(patientRepository, never()).findByLastNameIgnoreCase(any());
+    }
+
     @Test
-    void getPatientsByLastName_Empty_ReturnsAll() {
+    void getPatientsByLastName_Null_ReturnsAll() {
         when(patientRepository.findAll()).thenReturn(List.of(patient));
         List<PatientDTO> result = patientService.getPatientsByLastName(null);
         assertFalse(result.isEmpty());
