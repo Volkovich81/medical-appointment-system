@@ -180,17 +180,19 @@ public class PatientService {
     @Transactional
     public PatientDTO createWithTransaction(PatientDTO patientDTO, boolean throwError) {
         PatientDTO result = createPatientWithAppointment(patientDTO, true, throwError);
-        if (!throwError) {
-            invalidateCache();
+        if (throwError) {
+            return result;
         }
+        invalidateCache();
         return result;
     }
 
     public PatientDTO createWithoutTransaction(PatientDTO patientDTO, boolean throwError) {
         PatientDTO result = createPatientWithAppointment(patientDTO, false, throwError);
-        if (!throwError) {
-            invalidateCache();
+        if (throwError) {
+            return result;
         }
+        invalidateCache();
         return result;
     }
 
