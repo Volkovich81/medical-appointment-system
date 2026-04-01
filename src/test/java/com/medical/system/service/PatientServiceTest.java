@@ -351,4 +351,62 @@ class PatientServiceTest {
         assertNotNull(result);
         verify(doctorRepository).save(any(Doctor.class));
     }
+
+    @Test
+    void createWithTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+
+        assertThrows(IllegalStateException.class, () -> patientService.createWithTransaction(patientDto, true));
+
+        verify(patientCache, never()).clear();
+    }
+
+    @Test
+    void createWithoutTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+
+        assertThrows(IllegalStateException.class, () -> patientService.createWithoutTransaction(patientDto, true));
+
+        verify(patientCache, never()).clear();
+    }
+
+    @Test
+    void findPatientsBySpecializationCached_WithSortByFirstName() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationJpql(any(), any(Pageable.class)))
+                .thenReturn(page);
+
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationCached(
+                "Хирург", 0, 10, "firstName", "asc");
+
+        assertNotNull(result);
+        verify(patientCache).put(any(), any());
+    }
+
+    @Test
+    void findPatientsBySpecializationNativeCached_WithSortByFirstName() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationNative(any(), any(Pageable.class)))
+                .thenReturn(page);
+
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationNativeCached(
+                "Хирург", 0, 10, "firstName", "asc");
+
+        assertNotNull(result);
+        verify(patientCache).put(any(), any());
+    }
 }
