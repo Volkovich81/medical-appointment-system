@@ -384,6 +384,7 @@ class PatientServiceTest {
         verify(doctorRepository).save(any(Doctor.class));
     }
 
+    @SuppressWarnings("java:S1602")
     @Test
     void createWithTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache() {
         Doctor doctor = new Doctor();
@@ -398,36 +399,9 @@ class PatientServiceTest {
         verify(patientCache, never()).clear();
     }
 
+    @SuppressWarnings("java:S1602")
     @Test
     void createWithoutTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache() {
-        Doctor doctor = new Doctor();
-        doctor.setId(1L);
-
-        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
-        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
-        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
-
-        assertThrows(IllegalStateException.class, () -> patientService.createWithoutTransaction(patientDto, true));
-
-        verify(patientCache, never()).clear();
-    }
-
-    @Test
-    void createWithTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache_Coverage() {
-        Doctor doctor = new Doctor();
-        doctor.setId(1L);
-
-        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
-        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
-        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
-
-        assertThrows(IllegalStateException.class, () -> patientService.createWithTransaction(patientDto, true));
-
-        verify(patientCache, never()).clear();
-    }
-
-    @Test
-    void createWithoutTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache_Coverage() {
         Doctor doctor = new Doctor();
         doctor.setId(1L);
 
