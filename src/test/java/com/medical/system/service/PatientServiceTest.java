@@ -186,6 +186,7 @@ class PatientServiceTest {
         verify(patientCache).clear();
     }
 
+    @SuppressWarnings("java:S1602")
     @Test
     void createWithTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache() {
         Doctor doctor = new Doctor();
@@ -200,6 +201,7 @@ class PatientServiceTest {
         verify(patientCache, never()).clear();
     }
 
+    @SuppressWarnings("java:S1602")
     @Test
     void createWithoutTransaction_ThrowErrorTrue_ShouldNotCallInvalidateCache() {
         Doctor doctor = new Doctor();
