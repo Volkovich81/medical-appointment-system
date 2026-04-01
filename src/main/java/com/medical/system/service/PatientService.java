@@ -179,19 +179,15 @@ public class PatientService {
 
     @Transactional
     public PatientDTO createWithTransaction(PatientDTO patientDTO, boolean throwError) {
+        // Если throwError == true, внутри createPatientWithAppointment упадет Exception
+        // и до invalidateCache() мы просто не дойдем. Это правильное поведение.
         PatientDTO result = createPatientWithAppointment(patientDTO, true, throwError);
-        if (throwError) {
-            return result;
-        }
         invalidateCache();
         return result;
     }
 
     public PatientDTO createWithoutTransaction(PatientDTO patientDTO, boolean throwError) {
         PatientDTO result = createPatientWithAppointment(patientDTO, false, throwError);
-        if (throwError) {
-            return result;
-        }
         invalidateCache();
         return result;
     }
