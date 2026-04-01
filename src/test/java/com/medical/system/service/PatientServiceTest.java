@@ -27,7 +27,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
-// Развернутые статические импорты JUnit и Mockito
+// Развернутые статические импорты JUnit и Mockito для Checkstyle
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -121,9 +121,16 @@ class PatientServiceTest {
     @Test
     void updatePatient_Success() {
         when(patientRepository.findById(1L)).thenReturn(Optional.of(patient));
-        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
-        PatientDTO result = patientService.updatePatient(1L, patientDto);
+        // Используем thenAnswer для имитации сохранения и покрытия сеттеров
+        when(patientRepository.save(any(Patient.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+        PatientDTO updateData = new PatientDTO();
+        updateData.setFirstName("Updated");
+        updateData.setLastName("Updated");
+
+        PatientDTO result = patientService.updatePatient(1L, updateData);
         assertNotNull(result);
+        assertEquals("Updated", result.getFirstName());
         verify(patientCache).clear();
     }
 
@@ -271,7 +278,10 @@ class PatientServiceTest {
         when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
         when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
 
-        assertThrows(IllegalStateException.class, () -> patientService.createWithTransaction(patientDto, true));
+        IllegalStateException ex = assertThrows(IllegalStateException.class,
+                () -> patientService.createWithTransaction(patientDto, true));
+        // Проверка сообщения важна для покрытия веток тернарного оператора в сервисе
+        assertTrue(ex.getMessage().contains("откатится"));
         verify(patientCache, never()).clear();
     }
 
@@ -283,7 +293,10 @@ class PatientServiceTest {
         when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
         when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
 
-        assertThrows(IllegalStateException.class, () -> patientService.createWithoutTransaction(patientDto, true));
+        IllegalStateException ex = assertThrows(IllegalStateException.class,
+                () -> patientService.createWithoutTransaction(patientDto, true));
+        // Проверка сообщения для покрытия второй ветки
+        assertTrue(ex.getMessage().contains("уже сохранены"));
         verify(patientCache, never()).clear();
     }
 
