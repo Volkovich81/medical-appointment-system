@@ -10,4 +10,8 @@ class MedicalAppointmentSystemApplicationTests {
     void contextLoads() {
     }
 
+    @Test
+    void main_Method_Coverage() {
+        MedicalAppointmentSystemApplication.main(new String[] {});
+    }
 }
