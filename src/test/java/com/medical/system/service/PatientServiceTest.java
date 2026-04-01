@@ -325,4 +325,18 @@ class PatientServiceTest {
         List<PatientDTO> result = patientService.saveAll(List.of());
         assertTrue(result.isEmpty());
     }
+
+    @Test
+    void getPatientsByLastName_BlankString_Coverage() {
+        when(patientRepository.findAll()).thenReturn(List.of(patient));
+        List<PatientDTO> result = patientService.getPatientsByLastName("   ");
+        assertFalse(result.isEmpty());
+    }
+
+    @Test
+    void saveAll_MultipleItems_Coverage() {
+        when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient, patient));
+        List<PatientDTO> result = patientService.saveAll(List.of(patientDto, patientDto));
+        assertEquals(2, result.size());
+    }
 }
