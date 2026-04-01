@@ -414,4 +414,63 @@ class PatientServiceTest {
 
         verify(patientCache, never()).clear();
     }
+
+    @Test
+    void createWithTransaction_ThrowErrorFalse_Coverage() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+        Appointment appointment = new Appointment();
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+        when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
+
+        PatientDTO result = patientService.createWithTransaction(patientDto, false);
+        assertNotNull(result);
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void createWithoutTransaction_ThrowErrorFalse_Coverage() {
+        Doctor doctor = new Doctor();
+        doctor.setId(1L);
+        Appointment appointment = new Appointment();
+
+        when(patientRepository.save(any(Patient.class))).thenReturn(patient);
+        when(medicalRecordRepository.save(any(MedicalRecord.class))).thenReturn(new MedicalRecord());
+        when(doctorRepository.findById(1L)).thenReturn(Optional.of(doctor));
+        when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
+
+        PatientDTO result = patientService.createWithoutTransaction(patientDto, false);
+        assertNotNull(result);
+        verify(patientCache).clear();
+    }
+
+    @Test
+    void getPatientsByLastName_WithLastName_Coverage() {
+        when(patientRepository.findByLastNameIgnoreCase("Иванов")).thenReturn(List.of(patient));
+        List<PatientDTO> result = patientService.getPatientsByLastName("Иванов");
+        assertFalse(result.isEmpty());
+    }
+
+    @Test
+    void findPatientsBySpecializationNativeCached_WithDescSort_Coverage() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationNative(any(), any(Pageable.class))).thenReturn(page);
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationNativeCached("Хирург", 0, 10, "lastName", "desc");
+        assertNotNull(result);
+        verify(patientCache).put(any(), any());
+    }
+
+    @Test
+    void findPatientsBySpecializationCached_WithFirstNameDesc_Coverage() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationJpql(any(), any(Pageable.class))).thenReturn(page);
+        Page<PatientDTO> result = patientService.findPatientsBySpecializationCached("Хирург", 0, 10, "firstName", "desc");
+        assertNotNull(result);
+        verify(patientCache).put(any(), any());
+    }
 }
