@@ -33,7 +33,8 @@
             **/enums/**,
             **/exception/**,
             **/mapper/**,
-            **/repository/**
+            **/repository/**,
+            **/config/**
         </sonar.coverage.exclusions>
     </properties>
 
@@ -120,6 +121,7 @@
                         <exclude>**/exception/**</exclude>
                         <exclude>**/mapper/**</exclude>
                         <exclude>**/repository/**</exclude>
+                        <exclude>**/config/**</exclude>
                         <exclude>**/MedicalAppointmentSystemApplication.class</exclude>
                     </excludes>
                 </configuration>
