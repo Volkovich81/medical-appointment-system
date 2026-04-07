@@ -7,7 +7,6 @@ import com.medical.system.entity.Appointment;
 import com.medical.system.entity.Doctor;
 import com.medical.system.entity.MedicalRecord;
 import com.medical.system.entity.Patient;
-import com.medical.system.exception.BulkOperationException;
 import com.medical.system.repository.AppointmentRepository;
 import com.medical.system.repository.DoctorRepository;
 import com.medical.system.repository.MedicalRecordRepository;
@@ -367,5 +366,65 @@ class PatientServiceTest {
         when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient, patient));
         List<PatientDTO> result = patientService.saveAll(List.of(patientDto, patientDto));
         assertEquals(2, result.size());
+    }
+
+    @Test
+    void saveAllWithoutTransaction_FullCoverage_AllErrorTypes() {
+        PatientDTO p1 = new PatientDTO();
+
+        PatientDTO p2 = new PatientDTO();
+        p2.setFirstName("");
+        p2.setLastName("Фамилия");
+
+        PatientDTO p3 = new PatientDTO();
+        p3.setFirstName("Имя");
+        p3.setLastName("   ");
+
+        List<PatientDTO> list = List.of(p1, p2, p3);
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                () -> patientService.saveAllWithoutTransaction(list));
+
+        assertTrue(ex.getMessage().contains("пустое имя"));
+        assertTrue(ex.getMessage().contains("пустая фамилия"));
+        assertTrue(ex.getMessage().contains("? ?"));
+
+        verify(patientRepository, never()).saveAll(any());
+    }
+
+    @Test
+    void saveAllWithTransaction_FullCoverage_AllErrorTypes() {
+        // Аналогично для транзакционного метода, чтобы закрыть его циклы
+        PatientDTO p1 = new PatientDTO();
+        p1.setFirstName(null);
+        p1.setLastName(null);
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                () -> patientService.saveAllWithTransaction(List.of(p1)));
+
+        assertTrue(ex.getMessage().contains("пустое имя"));
+        verify(patientRepository, never()).saveAll(any());
+    }
+
+    @Test
+    void findPatientsBySpecialization_SortDesc_Coverage() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationJpql(any(), any())).thenReturn(page);
+
+        patientService.findPatientsBySpecializationCached("Кардиолог", 0, 10, "id", "desc");
+
+        verify(patientRepository).findByDoctorSpecializationJpql(eq("Кардиолог"), any());
+    }
+
+    @Test
+    void findPatientsBySpecializationNative_SortDesc_Coverage() {
+        Page<Patient> page = new PageImpl<>(List.of(patient));
+        when(patientCache.containsKey(any())).thenReturn(false);
+        when(patientRepository.findByDoctorSpecializationNative(any(), any())).thenReturn(page);
+
+        patientService.findPatientsBySpecializationNativeCached("Кардиолог", 0, 10, "id", "desc");
+
+        verify(patientRepository).findByDoctorSpecializationNative(eq("Кардиолог"), any());
     }
 }
