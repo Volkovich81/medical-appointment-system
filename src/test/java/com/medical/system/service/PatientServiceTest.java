@@ -427,4 +427,48 @@ class PatientServiceTest {
 
         verify(patientRepository).findByDoctorSpecializationNative(eq("Кардиолог"), any());
     }
+
+    @Test
+    void saveAllWithoutTransaction_Success_Coverage() {
+        // Закрываем строки 246-251 (маппинг после успешного сохранения)
+        PatientDTO validDto = new PatientDTO();
+        validDto.setFirstName("Олег");
+        validDto.setLastName("Петров");
+
+        when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient));
+
+        List<PatientDTO> result = patientService.saveAllWithoutTransaction(List.of(validDto));
+
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        verify(patientRepository).saveAll(anyList());
+    }
+
+    @Test
+    void saveAllWithTransaction_Success_Coverage() {
+        PatientDTO validDto = new PatientDTO();
+        validDto.setFirstName("Мария");
+        validDto.setLastName("Сидорова");
+
+        when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient));
+
+        List<PatientDTO> result = patientService.saveAllWithTransaction(List.of(validDto));
+
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        verify(patientRepository).saveAll(anyList());
+    }
+
+    @Test
+    void saveAllWithoutTransaction_PartialError_Coverage() {
+        PatientDTO valid = new PatientDTO();
+        valid.setFirstName("Иван");
+        valid.setLastName("Иванов");
+
+        PatientDTO invalid = new PatientDTO();
+        invalid.setFirstName("");
+
+        assertThrows(IllegalArgumentException.class,
+                () -> patientService.saveAllWithoutTransaction(List.of(valid, invalid)));
+    }
 }
