@@ -526,3 +526,34 @@ java.lang.IllegalArgumentException: Ошибка валидации: Пацие�
 2026-04-07T16:04:14.797+03:00  INFO 23076 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-04-07T16:04:14.797+03:00  INFO 23076 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-04-07T16:04:14.814+03:00  INFO 23076 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-07T16:40:50.547+03:00  INFO 14276 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 14276 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-07T16:40:50.551+03:00 DEBUG 14276 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-07T16:40:50.552+03:00  INFO 14276 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-07T16:40:52.300+03:00  INFO 14276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07T16:40:52.460+03:00  INFO 14276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 135 ms. Found 5 JPA repository interfaces.
+2026-04-07T16:40:53.963+03:00  INFO 14276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-07T16:40:53.985+03:00  INFO 14276 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-07T16:40:53.986+03:00  INFO 14276 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-07T16:40:54.097+03:00  INFO 14276 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-07T16:40:54.097+03:00  INFO 14276 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3453 ms
+2026-04-07T16:40:54.380+03:00  INFO 14276 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07T16:40:54.489+03:00  INFO 14276 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-07T16:40:54.556+03:00  INFO 14276 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-07T16:40:54.928+03:00  INFO 14276 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07T16:40:54.969+03:00  INFO 14276 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-07T16:40:55.253+03:00  INFO 14276 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@777b2207
+2026-04-07T16:40:55.257+03:00  INFO 14276 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-07T16:40:55.322+03:00  WARN 14276 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07T16:40:56.952+03:00  INFO 14276 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07T16:40:57.174+03:00  INFO 14276 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T16:40:57.726+03:00  INFO 14276 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07T16:40:58.866+03:00  WARN 14276 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07T16:40:59.691+03:00  INFO 14276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-07T16:40:59.702+03:00  INFO 14276 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 10.488 seconds (process running for 11.52)
+2026-04-07T16:41:18.560+03:00  INFO 14276 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07T16:41:18.573+03:00  INFO 14276 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-07T16:41:18.576+03:00  INFO 14276 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-07T16:41:18.982+03:00  WARN 14276 --- [http-nio-8081-exec-1] c.m.s.exception.GlobalExceptionHandler   : Ошибка валидации в сервисе: Ошибка валидации: Пациент  Гришаева: пустое имя
+2026-04-07T16:41:27.397+03:00  INFO 14276 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T16:41:27.397+03:00  INFO 14276 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-07T16:41:27.412+03:00  INFO 14276 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

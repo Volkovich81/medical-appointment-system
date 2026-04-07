@@ -206,89 +206,67 @@ public class PatientService {
                 .toList();
     }
 
+    private List<String> validatePatientDto(PatientDTO dto) {
+        List<String> errors = new ArrayList<>();
+        if (dto.getFirstName() == null || dto.getFirstName().isBlank()) {
+            errors.add("пустое имя");
+        }
+        if (dto.getLastName() == null || dto.getLastName().isBlank()) {
+            errors.add("пустая фамилия");
+        }
+        return errors;
+    }
+
     public List<PatientDTO> saveAllWithoutTransaction(List<PatientDTO> patientDtoList) {
         List<PatientDTO> validPatients = new ArrayList<>();
-        List<String> errors = new ArrayList<>();
+        List<String> allErrors = new ArrayList<>();
 
         for (PatientDTO dto : patientDtoList) {
-            List<String> patientErrors = new ArrayList<>();
-
-            if (dto.getFirstName() == null || dto.getFirstName().isBlank()) {
-                patientErrors.add("пустое имя");
-            }
-            if (dto.getLastName() == null || dto.getLastName().isBlank()) {
-                patientErrors.add("пустая фамилия");
-            }
-
+            List<String> patientErrors = validatePatientDto(dto);
             if (patientErrors.isEmpty()) {
                 validPatients.add(dto);
             } else {
-                String namePart = dto.getFirstName() != null ? dto.getFirstName() : "?";
-                String lastNamePart = dto.getLastName() != null ? dto.getLastName() : "?";
-                errors.add("Пациент " + namePart + " " + lastNamePart
-                        + ": " + String.join(", ", patientErrors));
+                String name = dto.getFirstName() != null ? dto.getFirstName() : "?";
+                String lastName = dto.getLastName() != null ? dto.getLastName() : "?";
+                allErrors.add("Пациент " + name + " " + lastName + ": " + String.join(", ", patientErrors));
             }
         }
 
         if (!validPatients.isEmpty()) {
-            List<Patient> patients = new ArrayList<>();
-            for (PatientDTO dto : validPatients) {
-                patients.add(PatientMapper.toEntity(dto));
-            }
-            patientRepository.saveAll(patients);
+            patientRepository.saveAll(validPatients.stream().map(PatientMapper::toEntity).toList());
             invalidateCache();
         }
 
-        if (!errors.isEmpty()) {
-            throw new IllegalArgumentException("Ошибка валидации: " + String.join("; ", errors));
+        if (!allErrors.isEmpty()) {
+            throw new IllegalArgumentException("Ошибка валидации: " + String.join("; ", allErrors));
         }
 
-        List<PatientDTO> result = new ArrayList<>();
-        for (PatientDTO dto : validPatients) {
-            Patient patient = PatientMapper.toEntity(dto);
-            result.add(PatientMapper.toDto(patient));
-        }
-        return result;
+        return validPatients.stream()
+                .map(PatientMapper::toEntity)
+                .map(PatientMapper::toDto)
+                .toList();
     }
 
     @Transactional
     public List<PatientDTO> saveAllWithTransaction(List<PatientDTO> patientDtoList) {
-        List<String> errors = new ArrayList<>();
+        List<String> allErrors = new ArrayList<>();
 
         for (PatientDTO dto : patientDtoList) {
-            List<String> patientErrors = new ArrayList<>();
-
-            if (dto.getFirstName() == null || dto.getFirstName().isBlank()) {
-                patientErrors.add("пустое имя");
-            }
-            if (dto.getLastName() == null || dto.getLastName().isBlank()) {
-                patientErrors.add("пустая фамилия");
-            }
-
+            List<String> patientErrors = validatePatientDto(dto);
             if (!patientErrors.isEmpty()) {
-                String namePart = dto.getFirstName() != null ? dto.getFirstName() : "?";
-                String lastNamePart = dto.getLastName() != null ? dto.getLastName() : "?";
-                errors.add("Пациент " + namePart + " " + lastNamePart
-                        + ": " + String.join(", ", patientErrors));
+                String name = dto.getFirstName() != null ? dto.getFirstName() : "?";
+                String lastName = dto.getLastName() != null ? dto.getLastName() : "?";
+                allErrors.add("Пациент " + name + " " + lastName + ": " + String.join(", ", patientErrors));
             }
         }
 
-        if (!errors.isEmpty()) {
-            throw new IllegalArgumentException("Ошибка валидации: " + String.join("; ", errors));
+        if (!allErrors.isEmpty()) {
+            throw new IllegalArgumentException("Ошибка валидации: " + String.join("; ", allErrors));
         }
 
-        List<Patient> patients = new ArrayList<>();
-        for (PatientDTO dto : patientDtoList) {
-            patients.add(PatientMapper.toEntity(dto));
-        }
-        List<Patient> saved = patientRepository.saveAll(patients);
+        List<Patient> saved = patientRepository.saveAll(patientDtoList.stream().map(PatientMapper::toEntity).toList());
         invalidateCache();
-
-        List<PatientDTO> result = new ArrayList<>();
-        for (Patient patient : saved) {
-            result.add(PatientMapper.toDto(patient));
-        }
-        return result;
+        return saved.stream().map(PatientMapper::toDto).toList();
     }
 
     private Patient createPatientWithMedicalRecord(PatientDTO patientDTO) {

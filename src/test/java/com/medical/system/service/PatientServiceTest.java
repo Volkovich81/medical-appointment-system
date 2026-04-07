@@ -485,4 +485,21 @@ class PatientServiceTest {
         assertThrows(IllegalArgumentException.class,
                 () -> patientService.saveAllWithTransaction(List.of(p1, p2)));
     }
+
+    @Test
+    void saveAllWithTransaction_NullFields_FullCoverage() {
+        PatientDTO p1 = new PatientDTO();
+        p1.setFirstName(null);
+        p1.setLastName("Фамилия");
+
+        PatientDTO p2 = new PatientDTO();
+        p2.setFirstName("Имя");
+        p2.setLastName(null);
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                () -> patientService.saveAllWithTransaction(List.of(p1, p2)));
+
+        assertTrue(ex.getMessage().contains("пустое имя"));
+        assertTrue(ex.getMessage().contains("пустая фамилия"));
+    }
 }
