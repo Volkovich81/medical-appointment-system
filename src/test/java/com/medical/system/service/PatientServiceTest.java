@@ -471,4 +471,18 @@ class PatientServiceTest {
         assertThrows(IllegalArgumentException.class,
                 () -> patientService.saveAllWithoutTransaction(List.of(valid, invalid)));
     }
+
+    @Test
+    void saveAllWithTransaction_NullValues_Coverage() {
+        PatientDTO p1 = new PatientDTO();
+        p1.setFirstName(null);
+        p1.setLastName("Иванов");
+
+        PatientDTO p2 = new PatientDTO();
+        p2.setFirstName("Иван");
+        p2.setLastName(null);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> patientService.saveAllWithTransaction(List.of(p1, p2)));
+    }
 }
