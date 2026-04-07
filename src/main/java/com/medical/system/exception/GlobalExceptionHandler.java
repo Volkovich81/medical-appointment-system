@@ -46,4 +46,16 @@ public class GlobalExceptionHandler {
         log.warn("Ошибка валидации: {}", errors);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorDto> handleIllegalArgument(IllegalArgumentException exception) {
+        log.warn("Ошибка валидации в сервисе: {}", exception.getMessage());
+        ErrorDto error = new ErrorDto(
+                "Bad Request",
+                exception.getMessage(),
+                HttpStatus.BAD_REQUEST.value(),
+                LocalDateTime.now()
+        );
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
 }

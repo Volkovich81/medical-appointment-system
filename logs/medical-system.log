@@ -1,165 +1,528 @@
-2026-04-01T14:55:02.877+03:00  INFO 24396 --- [main] MedicalAppointmentSystemApplicationTests : Starting MedicalAppointmentSystemApplicationTests using Java 17.0.18 with PID 24396 (started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
-2026-04-01T14:55:02.893+03:00 DEBUG 24396 --- [main] MedicalAppointmentSystemApplicationTests : Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-04-01T14:55:02.893+03:00  INFO 24396 --- [main] MedicalAppointmentSystemApplicationTests : No active profile set, falling back to 1 default profile: "default"
-2026-04-01T14:55:04.547+03:00  INFO 24396 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-01T14:55:04.657+03:00  INFO 24396 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 5 JPA repository interfaces.
-2026-04-01T14:55:05.692+03:00  INFO 24396 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-01T14:55:05.817+03:00  INFO 24396 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-01T14:55:05.896+03:00  INFO 24396 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-01T14:55:06.336+03:00  INFO 24396 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-01T14:55:06.390+03:00  INFO 24396 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-01T14:55:06.691+03:00  INFO 24396 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2e706bc6
-2026-04-01T14:55:06.691+03:00  INFO 24396 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-01T14:55:06.764+03:00  WARN 24396 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-01T14:55:08.242+03:00  INFO 24396 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-01T14:55:08.355+03:00  INFO 24396 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-01T14:55:09.061+03:00  INFO 24396 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-01T14:55:10.412+03:00  WARN 24396 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-01T14:55:11.239+03:00  INFO 24396 --- [main] MedicalAppointmentSystemApplicationTests : Started MedicalAppointmentSystemApplicationTests in 9.103 seconds (process running for 11.486)
-2026-04-01T14:55:13.024+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.041+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T14:55:13.056+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá äùòÄ! ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T14:55:13.068+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.072+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.072+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.104+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T14:55:13.107+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.329+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T14:55:13.341+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName desc'}
-2026-04-01T14:55:13.341+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName asc'}
-2026-04-01T14:55:13.341+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName desc'}
-2026-04-01T14:55:13.361+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.367+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.372+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.372+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá äùòÄ! ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T14:55:13.372+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName asc'}
-2026-04-01T14:55:13.389+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.393+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T14:55:13.393+03:00  INFO 24396 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName desc'}
-2026-04-01T14:55:13.515+03:00  INFO 24396 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-01T14:55:13.515+03:00  INFO 24396 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-01T14:55:13.533+03:00  INFO 24396 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-04-01T16:52:47.879+03:00  INFO 20608 --- [main] MedicalAppointmentSystemApplicationTests : Starting MedicalAppointmentSystemApplicationTests using Java 17.0.18 with PID 20608 (started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
-2026-04-01T16:52:47.879+03:00 DEBUG 20608 --- [main] MedicalAppointmentSystemApplicationTests : Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-04-01T16:52:47.885+03:00  INFO 20608 --- [main] MedicalAppointmentSystemApplicationTests : No active profile set, falling back to 1 default profile: "default"
-2026-04-01T16:52:49.445+03:00  INFO 20608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-01T16:52:49.542+03:00  INFO 20608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88 ms. Found 5 JPA repository interfaces.
-2026-04-01T16:52:50.750+03:00  INFO 20608 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-01T16:52:50.879+03:00  INFO 20608 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-01T16:52:50.945+03:00  INFO 20608 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-01T16:52:51.480+03:00  INFO 20608 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-01T16:52:51.529+03:00  INFO 20608 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-01T16:52:51.832+03:00  INFO 20608 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6d7e973b
-2026-04-01T16:52:51.832+03:00  INFO 20608 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-01T16:52:51.904+03:00  WARN 20608 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-01T16:52:53.512+03:00  INFO 20608 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-01T16:52:53.622+03:00  INFO 20608 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-01T16:52:54.260+03:00  INFO 20608 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-01T16:52:55.466+03:00  WARN 20608 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-01T16:52:56.245+03:00  INFO 20608 --- [main] MedicalAppointmentSystemApplicationTests : Started MedicalAppointmentSystemApplicationTests in 9.124 seconds (process running for 11.384)
-2026-04-01T16:52:58.059+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.079+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T16:52:58.094+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá äùòÄ! ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T16:52:58.094+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.112+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.126+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.141+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T16:52:58.156+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.385+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T16:52:58.395+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName desc'}
-2026-04-01T16:52:58.401+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName asc'}
-2026-04-01T16:52:58.402+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName desc'}
-2026-04-01T16:52:58.416+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.427+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.427+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.427+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá äùòÄ! ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T16:52:58.442+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName asc'}
-2026-04-01T16:52:58.442+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.442+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T16:52:58.457+03:00  INFO 20608 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName desc'}
-2026-04-01T16:52:58.573+03:00  INFO 20608 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-01T16:52:58.584+03:00  INFO 20608 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-01T16:52:58.594+03:00  INFO 20608 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-04-01T17:14:01.938+03:00  INFO 8732 --- [main] MedicalAppointmentSystemApplicationTests : Starting MedicalAppointmentSystemApplicationTests using Java 17.0.18 with PID 8732 (started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
-2026-04-01T17:14:01.940+03:00 DEBUG 8732 --- [main] MedicalAppointmentSystemApplicationTests : Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-04-01T17:14:01.941+03:00  INFO 8732 --- [main] MedicalAppointmentSystemApplicationTests : No active profile set, falling back to 1 default profile: "default"
-2026-04-01T17:14:03.271+03:00  INFO 8732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-01T17:14:03.370+03:00  INFO 8732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83 ms. Found 5 JPA repository interfaces.
-2026-04-01T17:14:04.370+03:00  INFO 8732 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-01T17:14:04.472+03:00  INFO 8732 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-01T17:14:04.523+03:00  INFO 8732 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-01T17:14:05.029+03:00  INFO 8732 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-01T17:14:05.076+03:00  INFO 8732 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-01T17:14:05.394+03:00  INFO 8732 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1f9c9485
-2026-04-01T17:14:05.397+03:00  INFO 8732 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-01T17:14:05.455+03:00  WARN 8732 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-01T17:14:06.979+03:00  INFO 8732 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-01T17:14:07.092+03:00  INFO 8732 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-01T17:14:07.751+03:00  INFO 8732 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-01T17:14:08.929+03:00  WARN 8732 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-01T17:14:09.706+03:00  INFO 8732 --- [main] MedicalAppointmentSystemApplicationTests : Started MedicalAppointmentSystemApplicationTests in 8.462 seconds (process running for 10.64)
-2026-04-01T17:14:12.221+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.243+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá äùòÄ! ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T17:14:12.256+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.263+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.276+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.290+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.303+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.324+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.527+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T17:14:12.545+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName desc'}
-2026-04-01T17:14:12.552+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName asc'}
-2026-04-01T17:14:12.559+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName desc'}
-2026-04-01T17:14:12.568+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T17:14:12.575+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName desc'}
-2026-04-01T17:14:12.580+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName asc'}
-2026-04-01T17:14:12.590+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.594+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá äùòÄ! ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T17:14:12.599+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.608+03:00  INFO 8732 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T17:14:12.788+03:00  INFO 8732 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-01T17:14:12.796+03:00  INFO 8732 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-01T17:14:12.809+03:00  INFO 8732 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-04-01T19:14:37.300+03:00  INFO 21240 --- [main] MedicalAppointmentSystemApplicationTests : Starting MedicalAppointmentSystemApplicationTests using Java 17.0.18 with PID 21240 (started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
-2026-04-01T19:14:37.302+03:00 DEBUG 21240 --- [main] MedicalAppointmentSystemApplicationTests : Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-04-01T19:14:37.303+03:00  INFO 21240 --- [main] MedicalAppointmentSystemApplicationTests : No active profile set, falling back to 1 default profile: "default"
-2026-04-01T19:14:38.716+03:00  INFO 21240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-01T19:14:38.793+03:00  INFO 21240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 5 JPA repository interfaces.
-2026-04-01T19:14:39.747+03:00  INFO 21240 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-01T19:14:39.871+03:00  INFO 21240 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-01T19:14:39.925+03:00  INFO 21240 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-01T19:14:40.465+03:00  INFO 21240 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-01T19:14:40.532+03:00  INFO 21240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-01T19:14:41.029+03:00  INFO 21240 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@66f04451
-2026-04-01T19:14:41.034+03:00  INFO 21240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-01T19:14:41.141+03:00  WARN 21240 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-01T19:14:44.220+03:00  INFO 21240 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-01T19:14:44.529+03:00  INFO 21240 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-01T19:14:45.522+03:00  INFO 21240 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-01T19:14:47.523+03:00  WARN 21240 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-01T19:14:48.892+03:00  INFO 21240 --- [main] MedicalAppointmentSystemApplicationTests : Started MedicalAppointmentSystemApplicationTests in 12.213 seconds (process running for 15.034)
-2026-04-01T19:14:51.721+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:51.749+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá äùòÄ! ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T19:14:51.771+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:51.781+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:51.799+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:51.810+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:51.835+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:51.847+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:51.869+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:51.884+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:51.927+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:52.216+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T19:14:52.239+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName desc'}
-2026-04-01T19:14:52.248+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName asc'}
-2026-04-01T19:14:52.259+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName desc'}
-2026-04-01T19:14:52.270+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T19:14:52.281+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName desc'}
-2026-04-01T19:14:52.290+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [NATIVE] ÑÄççõÖ àá ÅÄáõ ÑÄççõï... ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='firstName asc'}
-2026-04-01T19:14:52.302+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:52.309+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [JPQL] ÑÄççõÖ àá äùòÄ! ä´ÓÁ: PatientSearchKey{spec='ï®‡„‡£', page=0, size=10, sort='lastName asc'}
-2026-04-01T19:14:52.317+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:52.328+03:00  INFO 21240 --- [main] c.medical.system.service.PatientService  : ? [SERVICE] äÌË Ø†Ê®•≠‚Æ¢ ÆÁ®È•≠ (®≠¢†´®§†Ê®Ô)
-2026-04-01T19:14:52.541+03:00  INFO 21240 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-01T19:14:52.549+03:00  INFO 21240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-01T19:14:52.560+03:00  INFO 21240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-07T13:40:54.231+03:00  INFO 11784 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 11784 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-07T13:40:54.244+03:00 DEBUG 11784 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-07T13:40:54.246+03:00  INFO 11784 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-07T13:40:55.268+03:00  INFO 11784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07T13:40:55.360+03:00  INFO 11784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 5 JPA repository interfaces.
+2026-04-07T13:40:56.412+03:00  INFO 11784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-07T13:40:56.429+03:00  INFO 11784 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-07T13:40:56.429+03:00  INFO 11784 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-07T13:40:56.508+03:00  INFO 11784 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-07T13:40:56.508+03:00  INFO 11784 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2199 ms
+2026-04-07T13:40:56.744+03:00  INFO 11784 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07T13:40:56.853+03:00  INFO 11784 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-07T13:40:56.907+03:00  INFO 11784 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-07T13:40:57.235+03:00  INFO 11784 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07T13:40:57.281+03:00  INFO 11784 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-07T13:40:57.574+03:00  INFO 11784 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1818c0a0
+2026-04-07T13:40:57.576+03:00  INFO 11784 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-07T13:40:57.648+03:00  WARN 11784 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07T13:40:58.974+03:00  INFO 11784 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07T13:40:59.278+03:00  INFO 11784 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T13:40:59.814+03:00  INFO 11784 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07T13:41:00.763+03:00  WARN 11784 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07T13:41:01.334+03:00  INFO 11784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-07T13:41:01.343+03:00  INFO 11784 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 7.852 seconds (process running for 8.735)
+2026-04-07T14:00:57.492+03:00  INFO 11784 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T14:00:57.492+03:00  INFO 11784 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-07T14:00:57.500+03:00  INFO 11784 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-07T14:50:06.582+03:00  INFO 18284 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 18284 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-07T14:50:06.598+03:00 DEBUG 18284 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-07T14:50:06.598+03:00  INFO 18284 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-07T14:50:07.421+03:00  INFO 18284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07T14:50:07.522+03:00  INFO 18284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 5 JPA repository interfaces.
+2026-04-07T14:50:08.427+03:00  INFO 18284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-07T14:50:08.442+03:00  INFO 18284 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-07T14:50:08.442+03:00  INFO 18284 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-07T14:50:08.536+03:00  INFO 18284 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-07T14:50:08.537+03:00  INFO 18284 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1905 ms
+2026-04-07T14:50:08.775+03:00  INFO 18284 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07T14:50:08.916+03:00  INFO 18284 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-07T14:50:08.984+03:00  INFO 18284 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-07T14:50:09.421+03:00  INFO 18284 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07T14:50:09.458+03:00  INFO 18284 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-07T14:50:09.704+03:00  INFO 18284 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1c825108
+2026-04-07T14:50:09.707+03:00  INFO 18284 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-07T14:50:09.774+03:00  WARN 18284 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07T14:50:11.243+03:00  INFO 18284 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07T14:50:11.360+03:00  INFO 18284 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T14:50:11.959+03:00  INFO 18284 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07T14:50:12.898+03:00  WARN 18284 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07T14:50:13.474+03:00  INFO 18284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-07T14:50:13.484+03:00  INFO 18284 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 7.592 seconds (process running for 8.145)
+2026-04-07T15:08:21.604+03:00  INFO 18284 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07T15:08:21.604+03:00  INFO 18284 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-07T15:08:21.604+03:00  INFO 18284 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-04-07T15:08:22.274+03:00 ERROR 18284 --- [http-nio-8081-exec-1] c.m.s.exception.GlobalExceptionHandler   : –û—à–∏–±–∫–∞: 400 BAD_REQUEST "Validation failure"
+
+org.springframework.web.method.annotation.HandlerMethodValidationException: 400 BAD_REQUEST "Validation failure"
+	at org.springframework.web.method.annotation.HandlerMethodValidator.applyArgumentValidation(HandlerMethodValidator.java:106) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:178) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2026-04-07T15:08:31.175+03:00  WARN 18284 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m21s139ms905¬µs500ns).
+2026-04-07T15:08:43.503+03:00  INFO 18284 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: –ú–µ—Ç–æ–¥ [PatientService.getPatientsByLastName(..)] –≤—ã–ø–æ–ª–Ω–µ–Ω –∑–∞ 608 –º—Å
+2026-04-07T15:09:19.033+03:00 ERROR 18284 --- [http-nio-8081-exec-3] c.m.s.exception.GlobalExceptionHandler   : –û—à–∏–±–∫–∞: 400 BAD_REQUEST "Validation failure"
+
+org.springframework.web.method.annotation.HandlerMethodValidationException: 400 BAD_REQUEST "Validation failure"
+	at org.springframework.web.method.annotation.HandlerMethodValidator.applyArgumentValidation(HandlerMethodValidator.java:106) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:178) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2026-04-07T15:09:21.567+03:00 ERROR 18284 --- [http-nio-8081-exec-10] c.m.s.exception.GlobalExceptionHandler   : –û—à–∏–±–∫–∞: 400 BAD_REQUEST "Validation failure"
+
+org.springframework.web.method.annotation.HandlerMethodValidationException: 400 BAD_REQUEST "Validation failure"
+	at org.springframework.web.method.annotation.HandlerMethodValidator.applyArgumentValidation(HandlerMethodValidator.java:106) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:178) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2026-04-07T15:09:31.250+03:00  INFO 18284 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: –ú–µ—Ç–æ–¥ [PatientService.getPatientsByLastName(..)] –≤—ã–ø–æ–ª–Ω–µ–Ω –∑–∞ 56 –º—Å
+2026-04-07T15:14:05.540+03:00 ERROR 18284 --- [http-nio-8081-exec-7] c.m.s.exception.GlobalExceptionHandler   : –û—à–∏–±–∫–∞: 400 BAD_REQUEST "Validation failure"
+
+org.springframework.web.method.annotation.HandlerMethodValidationException: 400 BAD_REQUEST "Validation failure"
+	at org.springframework.web.method.annotation.HandlerMethodValidator.applyArgumentValidation(HandlerMethodValidator.java:106) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:178) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2026-04-07T15:19:33.896+03:00  WARN 18284 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m54s300ms763¬µs400ns).
+2026-04-07T15:28:58.711+03:00  INFO 18284 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T15:28:58.713+03:00  INFO 18284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-07T15:28:58.717+03:00  INFO 18284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-07T15:46:04.702+03:00  INFO 1404 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 1404 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-07T15:46:04.704+03:00 DEBUG 1404 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-07T15:46:04.705+03:00  INFO 1404 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-07T15:46:05.548+03:00  INFO 1404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07T15:46:05.637+03:00  INFO 1404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 5 JPA repository interfaces.
+2026-04-07T15:46:06.501+03:00  INFO 1404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-07T15:46:06.517+03:00  INFO 1404 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-07T15:46:06.517+03:00  INFO 1404 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-07T15:46:06.590+03:00  INFO 1404 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-07T15:46:06.590+03:00  INFO 1404 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1825 ms
+2026-04-07T15:46:06.797+03:00  INFO 1404 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07T15:46:06.870+03:00  INFO 1404 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-07T15:46:06.911+03:00  INFO 1404 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-07T15:46:07.181+03:00  INFO 1404 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07T15:46:07.213+03:00  INFO 1404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-07T15:46:07.429+03:00  INFO 1404 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1a7e6989
+2026-04-07T15:46:07.431+03:00  INFO 1404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-07T15:46:07.529+03:00  WARN 1404 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07T15:46:08.727+03:00  INFO 1404 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07T15:46:08.838+03:00  INFO 1404 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T15:46:09.331+03:00  INFO 1404 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07T15:46:10.142+03:00  WARN 1404 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07T15:46:10.681+03:00  INFO 1404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-07T15:46:10.688+03:00  INFO 1404 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 6.664 seconds (process running for 7.25)
+2026-04-07T15:46:23.634+03:00  INFO 1404 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07T15:46:23.634+03:00  INFO 1404 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-07T15:46:23.658+03:00  INFO 1404 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 23 ms
+2026-04-07T15:46:24.006+03:00  INFO 1404 --- [http-nio-8081-exec-1] com.medical.system.cache.PatientCache    : üßπ [–ö–≠–®] –ü–æ–ª–Ω–æ—Å—Ç—å—é –æ—á–∏—â–µ–Ω. –£–¥–∞–ª–µ–Ω–æ —ç–ª–µ–º–µ–Ω—Ç–æ–≤: 0
+2026-04-07T15:46:24.006+03:00  INFO 1404 --- [http-nio-8081-exec-1] c.medical.system.service.PatientService  : üßπ [SERVICE] –ö—ç—à –ø–∞—Ü–∏–µ–Ω—Ç–æ–≤ –æ—á–∏—â–µ–Ω (–∏–Ω–≤–∞–ª–∏–¥–∞—Ü–∏—è)
+2026-04-07T15:46:24.006+03:00  INFO 1404 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: –ú–µ—Ç–æ–¥ [PatientService.saveAll(..)] –≤—ã–ø–æ–ª–Ω–µ–Ω –∑–∞ 96 –º—Å
+2026-04-07T15:47:07.265+03:00  INFO 1404 --- [http-nio-8081-exec-2] com.medical.system.cache.PatientCache    : üßπ [–ö–≠–®] –ü–æ–ª–Ω–æ—Å—Ç—å—é –æ—á–∏—â–µ–Ω. –£–¥–∞–ª–µ–Ω–æ —ç–ª–µ–º–µ–Ω—Ç–æ–≤: 0
+2026-04-07T15:47:07.266+03:00  INFO 1404 --- [http-nio-8081-exec-2] c.medical.system.service.PatientService  : üßπ [SERVICE] –ö—ç—à –ø–∞—Ü–∏–µ–Ω—Ç–æ–≤ –æ—á–∏—â–µ–Ω (–∏–Ω–≤–∞–ª–∏–¥–∞—Ü–∏—è)
+2026-04-07T15:47:07.266+03:00  INFO 1404 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: –ú–µ—Ç–æ–¥ [PatientService.saveAllWithTransaction(..)] –≤—ã–ø–æ–ª–Ω–µ–Ω –∑–∞ 16 –º—Å
+2026-04-07T15:50:12.964+03:00  INFO 1404 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T15:50:12.964+03:00  INFO 1404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-07T15:50:12.982+03:00  INFO 1404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-07T15:56:26.442+03:00  INFO 15076 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 15076 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-07T15:56:26.442+03:00 DEBUG 15076 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-07T15:56:26.442+03:00  INFO 15076 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-07T15:56:27.703+03:00  INFO 15076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07T15:56:27.875+03:00  INFO 15076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 139 ms. Found 5 JPA repository interfaces.
+2026-04-07T15:56:29.445+03:00  INFO 15076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-07T15:56:29.476+03:00  INFO 15076 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-07T15:56:29.476+03:00  INFO 15076 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-07T15:56:29.634+03:00  INFO 15076 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-07T15:56:29.634+03:00  INFO 15076 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3097 ms
+2026-04-07T15:56:29.996+03:00  INFO 15076 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07T15:56:30.090+03:00  INFO 15076 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-07T15:56:30.169+03:00  INFO 15076 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-07T15:56:30.687+03:00  INFO 15076 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07T15:56:30.766+03:00  INFO 15076 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-07T15:56:31.144+03:00  INFO 15076 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4f54afa5
+2026-04-07T15:56:31.160+03:00  INFO 15076 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-07T15:56:31.222+03:00  WARN 15076 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07T15:56:33.276+03:00  INFO 15076 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07T15:56:33.496+03:00  INFO 15076 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T15:56:34.192+03:00  INFO 15076 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07T15:56:35.600+03:00  WARN 15076 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07T15:56:36.465+03:00  INFO 15076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-07T15:56:36.481+03:00  INFO 15076 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 10.848 seconds (process running for 11.591)
+2026-04-07T15:57:12.757+03:00  INFO 15076 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07T15:57:12.768+03:00  INFO 15076 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-07T15:57:12.772+03:00  INFO 15076 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-04-07T15:57:13.271+03:00 ERROR 15076 --- [http-nio-8081-exec-1] c.m.s.exception.GlobalExceptionHandler   : –û—à–∏–±–∫–∞: –û—à–∏–±–∫–∞ –≤–∞–ª–∏–¥–∞—Ü–∏–∏: –ü–∞—Ü–∏–µ–Ω—Ç  –ì—Ä–∏—à–∞–µ–≤–∞: –ø—É—Å—Ç–æ–µ –∏–º—è
+
+java.lang.IllegalArgumentException: –û—à–∏–±–∫–∞ –≤–∞–ª–∏–¥–∞—Ü–∏–∏: –ü–∞—Ü–∏–µ–Ω—Ç  –ì—Ä–∏—à–∞–µ–≤–∞: –ø—É—Å—Ç–æ–µ –∏–º—è
+	at com.medical.system.service.PatientService.saveAllWithTransaction(PatientService.java:277) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89) ~[spring-aop-6.1.1.jar:6.1.1]
+	at com.medical.system.aspect.ExecutionTimeAspect.logExecutionTime(ExecutionTimeAspect.java:18) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.1.jar:6.1.1]
+	at com.medical.system.service.PatientService$$SpringCGLIB$$0.saveAllWithTransaction(<generated>) ~[classes/:na]
+	at com.medical.system.controller.PatientController.createPatientsBulkWithTransaction(PatientController.java:97) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2026-04-07T15:57:38.853+03:00  INFO 15076 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: –ú–µ—Ç–æ–¥ [PatientService.getPatientsByLastName(..)] –≤—ã–ø–æ–ª–Ω–µ–Ω –∑–∞ 584 –º—Å
+2026-04-07T15:59:22.551+03:00  INFO 15076 --- [http-nio-8081-exec-4] com.medical.system.cache.PatientCache    : üßπ [–ö–≠–®] –ü–æ–ª–Ω–æ—Å—Ç—å—é –æ—á–∏—â–µ–Ω. –£–¥–∞–ª–µ–Ω–æ —ç–ª–µ–º–µ–Ω—Ç–æ–≤: 0
+2026-04-07T15:59:22.551+03:00  INFO 15076 --- [http-nio-8081-exec-4] c.medical.system.service.PatientService  : üßπ [SERVICE] –ö—ç—à –ø–∞—Ü–∏–µ–Ω—Ç–æ–≤ –æ—á–∏—â–µ–Ω (–∏–Ω–≤–∞–ª–∏–¥–∞—Ü–∏—è)
+2026-04-07T15:59:22.551+03:00 ERROR 15076 --- [http-nio-8081-exec-4] c.m.s.exception.GlobalExceptionHandler   : –û—à–∏–±–∫–∞: –û—à–∏–±–∫–∞ –≤–∞–ª–∏–¥–∞—Ü–∏–∏: –ü–∞—Ü–∏–µ–Ω—Ç  –£–∫—É–ø: –ø—É—Å—Ç–æ–µ –∏–º—è
+
+java.lang.IllegalArgumentException: –û—à–∏–±–∫–∞ –≤–∞–ª–∏–¥–∞—Ü–∏–∏: –ü–∞—Ü–∏–µ–Ω—Ç  –£–∫—É–ø: –ø—É—Å—Ç–æ–µ –∏–º—è
+	at com.medical.system.service.PatientService.saveAllWithoutTransaction(PatientService.java:243) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89) ~[spring-aop-6.1.1.jar:6.1.1]
+	at com.medical.system.aspect.ExecutionTimeAspect.logExecutionTime(ExecutionTimeAspect.java:18) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.1.jar:6.1.1]
+	at com.medical.system.service.PatientService$$SpringCGLIB$$0.saveAllWithoutTransaction(<generated>) ~[classes/:na]
+	at com.medical.system.controller.PatientController.createPatientsBulkWithoutTransaction(PatientController.java:89) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2026-04-07T15:59:32.667+03:00  INFO 15076 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: –ú–µ—Ç–æ–¥ [PatientService.getPatientsByLastName(..)] –≤—ã–ø–æ–ª–Ω–µ–Ω –∑–∞ 88 –º—Å
+2026-04-07T16:01:40.070+03:00  INFO 15076 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T16:01:40.070+03:00  INFO 15076 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-07T16:01:40.090+03:00  INFO 15076 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-07T16:02:55.078+03:00  INFO 23076 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 23076 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-07T16:02:55.078+03:00 DEBUG 23076 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-07T16:02:55.086+03:00  INFO 23076 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-07T16:02:56.246+03:00  INFO 23076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07T16:02:56.399+03:00  INFO 23076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 5 JPA repository interfaces.
+2026-04-07T16:02:58.048+03:00  INFO 23076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-07T16:02:58.076+03:00  INFO 23076 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-07T16:02:58.076+03:00  INFO 23076 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-07T16:02:58.217+03:00  INFO 23076 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-07T16:02:58.217+03:00  INFO 23076 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3075 ms
+2026-04-07T16:02:58.583+03:00  INFO 23076 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07T16:02:58.721+03:00  INFO 23076 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-07T16:02:58.815+03:00  INFO 23076 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-07T16:02:59.381+03:00  INFO 23076 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07T16:02:59.443+03:00  INFO 23076 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-07T16:02:59.853+03:00  INFO 23076 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@598138b
+2026-04-07T16:02:59.853+03:00  INFO 23076 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-07T16:02:59.916+03:00  WARN 23076 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07T16:03:01.868+03:00  INFO 23076 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07T16:03:02.089+03:00  INFO 23076 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T16:03:02.798+03:00  INFO 23076 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07T16:03:04.384+03:00  WARN 23076 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07T16:03:05.433+03:00  INFO 23076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-07T16:03:05.449+03:00  INFO 23076 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 11.17 seconds (process running for 11.869)
+2026-04-07T16:03:33.078+03:00  INFO 23076 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07T16:03:33.078+03:00  INFO 23076 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-07T16:03:33.089+03:00  INFO 23076 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2026-04-07T16:03:33.574+03:00  WARN 23076 --- [http-nio-8081-exec-1] c.m.s.exception.GlobalExceptionHandler   : –û—à–∏–±–∫–∞ –≤–∞–ª–∏–¥–∞—Ü–∏–∏ –≤ —Å–µ—Ä–≤–∏—Å–µ: –û—à–∏–±–∫–∞ –≤–∞–ª–∏–¥–∞—Ü–∏–∏: –ü–∞—Ü–∏–µ–Ω—Ç  –ì—Ä–∏—à–∞–µ–≤–∞: –ø—É—Å—Ç–æ–µ –∏–º—è
+2026-04-07T16:03:45.205+03:00  INFO 23076 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: –ú–µ—Ç–æ–¥ [PatientService.getPatientsByLastName(..)] –≤—ã–ø–æ–ª–Ω–µ–Ω –∑–∞ 585 –º—Å
+2026-04-07T16:04:14.797+03:00  INFO 23076 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T16:04:14.797+03:00  INFO 23076 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-07T16:04:14.814+03:00  INFO 23076 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

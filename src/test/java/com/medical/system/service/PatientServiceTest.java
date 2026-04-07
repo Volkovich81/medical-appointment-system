@@ -27,19 +27,10 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
-// Развернутые статические импорты JUnit и Mockito для Checkstyle
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @SuppressWarnings({"java:S1602", "java:S5960", "java:S5778"})
@@ -121,7 +112,6 @@ class PatientServiceTest {
     @Test
     void updatePatient_Success() {
         when(patientRepository.findById(1L)).thenReturn(Optional.of(patient));
-        // Используем thenAnswer для имитации сохранения и покрытия сеттеров
         when(patientRepository.save(any(Patient.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         PatientDTO updateData = new PatientDTO();
@@ -159,17 +149,44 @@ class PatientServiceTest {
     }
 
     @Test
-    void saveAllWithoutTransaction_ThrowsBulkOperationException() {
+    void saveAllWithoutTransaction_ValidOnly() {
+        PatientDTO validDto = new PatientDTO();
+        validDto.setFirstName("Анна");
+        validDto.setLastName("Смирнова");
+        validDto.setEmail("anna@mail.com");
+
+        PatientDTO invalidDto = new PatientDTO();
+        invalidDto.setFirstName("Без");
+        invalidDto.setLastName("");
+        invalidDto.setEmail("no@mail.com");
+
         when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient));
-        assertThrows(BulkOperationException.class, () -> patientService.saveAllWithoutTransaction(List.of(patientDto)));
+
+        assertThrows(IllegalArgumentException.class, () ->
+                patientService.saveAllWithoutTransaction(List.of(validDto, invalidDto))
+        );
+
+        verify(patientRepository).saveAll(anyList());
         verify(patientCache).clear();
     }
 
     @Test
-    void saveAllWithTransaction_ThrowsBulkOperationException() {
-        when(patientRepository.saveAll(anyList())).thenReturn(List.of(patient));
-        assertThrows(BulkOperationException.class, () -> patientService.saveAllWithTransaction(List.of(patientDto)));
-        verify(patientCache).clear();
+    void saveAllWithTransaction_AnyInvalid_ThrowsException() {
+        PatientDTO validDto = new PatientDTO();
+        validDto.setFirstName("Анна");
+        validDto.setLastName("Смирнова");
+        validDto.setEmail("anna@mail.com");
+
+        PatientDTO invalidDto = new PatientDTO();
+        invalidDto.setFirstName("Без");
+        invalidDto.setLastName("");
+        invalidDto.setEmail("no@mail.com");
+
+        assertThrows(IllegalArgumentException.class, () ->
+                patientService.saveAllWithTransaction(List.of(validDto, invalidDto))
+        );
+
+        verify(patientRepository, never()).saveAll(any());
     }
 
     @Test
@@ -280,7 +297,6 @@ class PatientServiceTest {
 
         IllegalStateException ex = assertThrows(IllegalStateException.class,
                 () -> patientService.createWithTransaction(patientDto, true));
-        // Проверка сообщения важна для покрытия веток тернарного оператора в сервисе
         assertTrue(ex.getMessage().contains("откатится"));
         verify(patientCache, never()).clear();
     }
@@ -295,7 +311,6 @@ class PatientServiceTest {
 
         IllegalStateException ex = assertThrows(IllegalStateException.class,
                 () -> patientService.createWithoutTransaction(patientDto, true));
-        // Проверка сообщения для покрытия второй ветки
         assertTrue(ex.getMessage().contains("уже сохранены"));
         verify(patientCache, never()).clear();
     }

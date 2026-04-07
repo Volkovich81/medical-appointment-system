@@ -8,7 +8,6 @@ import com.medical.system.entity.MedicalRecord;
 import com.medical.system.entity.Appointment;
 import com.medical.system.entity.Doctor;
 import com.medical.system.enums.AppointmentStatus;
-import com.medical.system.exception.BulkOperationException;
 import com.medical.system.mapper.PatientMapper;
 import com.medical.system.repository.PatientRepository;
 import com.medical.system.repository.MedicalRecordRepository;
@@ -24,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -126,7 +126,11 @@ public class PatientService {
         }
 
         log.info("🟡 [NATIVE] ДАННЫЕ ИЗ БАЗЫ ДАННЫХ... Ключ: {}", key);
-        Pageable pageable = PageRequest.of(page, size);
+
+        Sort sort = sortDir.equalsIgnoreCase("asc")
+                ? Sort.by(sortBy).ascending()
+                : Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(page, size, sort);
 
         Page<Patient> patientsPage = patientRepository
                 .findByDoctorSpecializationNative(name, pageable);
@@ -179,8 +183,6 @@ public class PatientService {
 
     @Transactional
     public PatientDTO createWithTransaction(PatientDTO patientDTO, boolean throwError) {
-        // Если throwError == true, внутри createPatientWithAppointment упадет Exception
-        // и до invalidateCache() мы просто не дойдем. Это правильное поведение.
         PatientDTO result = createPatientWithAppointment(patientDTO, true, throwError);
         invalidateCache();
         return result;
@@ -205,22 +207,88 @@ public class PatientService {
     }
 
     public List<PatientDTO> saveAllWithoutTransaction(List<PatientDTO> patientDtoList) {
-        List<Patient> patients = patientDtoList.stream()
-                .map(PatientMapper::toEntity)
-                .toList();
-        patientRepository.saveAll(patients);
-        invalidateCache();
-        throw new BulkOperationException("Тест: ошибка БЕЗ @Transactional");
+        List<PatientDTO> validPatients = new ArrayList<>();
+        List<String> errors = new ArrayList<>();
+
+        for (PatientDTO dto : patientDtoList) {
+            List<String> patientErrors = new ArrayList<>();
+
+            if (dto.getFirstName() == null || dto.getFirstName().isBlank()) {
+                patientErrors.add("пустое имя");
+            }
+            if (dto.getLastName() == null || dto.getLastName().isBlank()) {
+                patientErrors.add("пустая фамилия");
+            }
+
+            if (patientErrors.isEmpty()) {
+                validPatients.add(dto);
+            } else {
+                String namePart = dto.getFirstName() != null ? dto.getFirstName() : "?";
+                String lastNamePart = dto.getLastName() != null ? dto.getLastName() : "?";
+                errors.add("Пациент " + namePart + " " + lastNamePart
+                        + ": " + String.join(", ", patientErrors));
+            }
+        }
+
+        if (!validPatients.isEmpty()) {
+            List<Patient> patients = new ArrayList<>();
+            for (PatientDTO dto : validPatients) {
+                patients.add(PatientMapper.toEntity(dto));
+            }
+            patientRepository.saveAll(patients);
+            invalidateCache();
+        }
+
+        if (!errors.isEmpty()) {
+            throw new IllegalArgumentException("Ошибка валидации: " + String.join("; ", errors));
+        }
+
+        List<PatientDTO> result = new ArrayList<>();
+        for (PatientDTO dto : validPatients) {
+            Patient patient = PatientMapper.toEntity(dto);
+            result.add(PatientMapper.toDto(patient));
+        }
+        return result;
     }
 
     @Transactional
     public List<PatientDTO> saveAllWithTransaction(List<PatientDTO> patientDtoList) {
-        List<Patient> patients = patientDtoList.stream()
-                .map(PatientMapper::toEntity)
-                .toList();
-        patientRepository.saveAll(patients);
+        List<String> errors = new ArrayList<>();
+
+        for (PatientDTO dto : patientDtoList) {
+            List<String> patientErrors = new ArrayList<>();
+
+            if (dto.getFirstName() == null || dto.getFirstName().isBlank()) {
+                patientErrors.add("пустое имя");
+            }
+            if (dto.getLastName() == null || dto.getLastName().isBlank()) {
+                patientErrors.add("пустая фамилия");
+            }
+
+            if (!patientErrors.isEmpty()) {
+                String namePart = dto.getFirstName() != null ? dto.getFirstName() : "?";
+                String lastNamePart = dto.getLastName() != null ? dto.getLastName() : "?";
+                errors.add("Пациент " + namePart + " " + lastNamePart
+                        + ": " + String.join(", ", patientErrors));
+            }
+        }
+
+        if (!errors.isEmpty()) {
+            throw new IllegalArgumentException("Ошибка валидации: " + String.join("; ", errors));
+        }
+
+        List<Patient> patients = new ArrayList<>();
+        for (PatientDTO dto : patientDtoList) {
+            patients.add(PatientMapper.toEntity(dto));
+        }
+        List<Patient> saved = patientRepository.saveAll(patients);
         invalidateCache();
-        throw new BulkOperationException("Тест: ошибка С @Transactional");
+
+        List<PatientDTO> result = new ArrayList<>();
+        for (Patient patient : saved) {
+            result.add(PatientMapper.toDto(patient));
+        }
+        return result;
     }
 
     private Patient createPatientWithMedicalRecord(PatientDTO patientDTO) {

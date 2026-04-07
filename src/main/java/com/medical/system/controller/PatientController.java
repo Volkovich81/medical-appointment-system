@@ -77,7 +77,7 @@ public class PatientController {
     @Operation(summary = "Массовое создание пациентов")
     @PostMapping("/bulk")
     public ResponseEntity<List<PatientDTO>> createPatientsBulk(
-            @Valid @RequestBody List<PatientDTO> patients) {
+            @RequestBody List<PatientDTO> patients) {
         List<PatientDTO> created = patientService.saveAll(patients);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
@@ -85,7 +85,7 @@ public class PatientController {
     @Operation(summary = "Массовое создание пациентов без транзакции (демонстрация)")
     @PostMapping("/bulk/without-transaction")
     public ResponseEntity<List<PatientDTO>> createPatientsBulkWithoutTransaction(
-            @Valid @RequestBody List<PatientDTO> patients) {
+            @RequestBody List<PatientDTO> patients) {
         List<PatientDTO> created = patientService.saveAllWithoutTransaction(patients);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
@@ -93,7 +93,7 @@ public class PatientController {
     @Operation(summary = "Массовое создание пациентов с транзакцией (демонстрация)")
     @PostMapping("/bulk/with-transaction")
     public ResponseEntity<List<PatientDTO>> createPatientsBulkWithTransaction(
-            @Valid @RequestBody List<PatientDTO> patients) {
+            @RequestBody List<PatientDTO> patients) {
         List<PatientDTO> created = patientService.saveAllWithTransaction(patients);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
