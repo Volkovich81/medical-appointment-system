@@ -13,7 +13,6 @@ import java.util.Map;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-@lombok.Generated
 public class AsyncTaskExecutorService {
 
     private final PatientService patientService;

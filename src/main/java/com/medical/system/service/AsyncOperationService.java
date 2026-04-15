@@ -14,7 +14,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-@lombok.Generated
 public class AsyncOperationService {
 
     private final Map<String, TaskStatus> taskStatusMap = new ConcurrentHashMap<>();
