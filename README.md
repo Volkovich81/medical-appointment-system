@@ -92,5 +92,4 @@
 ---
 
 ## SonarCloud
-
 https://sonarcloud.io/summary/new_code?id=Volkovich81_medical-appointment-system
