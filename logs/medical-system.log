@@ -1,102 +1,357 @@
-2026-04-14T18:22:43.459+03:00  INFO 22928 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 22928 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
-2026-04-14T18:22:43.465+03:00 DEBUG 22928 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-04-14T18:22:43.466+03:00  INFO 22928 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
-2026-04-14T18:22:44.597+03:00  INFO 22928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-14T18:22:44.669+03:00  INFO 22928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 5 JPA repository interfaces.
-2026-04-14T18:22:45.526+03:00  INFO 22928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2026-04-14T18:22:45.540+03:00  INFO 22928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-14T18:22:45.541+03:00  INFO 22928 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-04-14T18:22:45.627+03:00  INFO 22928 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-14T18:22:45.628+03:00  INFO 22928 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2108 ms
-2026-04-14T18:22:45.836+03:00  INFO 22928 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-14T18:22:45.939+03:00  INFO 22928 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-14T18:22:45.996+03:00  INFO 22928 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-14T18:22:46.296+03:00  INFO 22928 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-14T18:22:46.330+03:00  INFO 22928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-14T18:22:46.566+03:00  INFO 22928 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@c98dc7c
-2026-04-14T18:22:46.567+03:00  INFO 22928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-14T18:22:46.639+03:00  WARN 22928 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-14T18:22:47.811+03:00  INFO 22928 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-14T18:22:48.068+03:00  INFO 22928 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-14T18:22:48.503+03:00  INFO 22928 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-14T18:22:49.271+03:00  WARN 22928 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-14T18:22:49.784+03:00  INFO 22928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
-2026-04-14T18:22:49.791+03:00  INFO 22928 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 6.947 seconds (process running for 9.559)
-2026-04-14T18:23:14.729+03:00  INFO 22928 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-14T18:23:14.730+03:00  INFO 22928 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-14T18:23:14.731+03:00  INFO 22928 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-04-14T18:23:16.019+03:00  INFO 22928 --- [http-nio-8081-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 666 ms
-2026-04-14T18:23:50.135+03:00  INFO 22928 --- [task-1] c.m.s.service.AsyncOperationService      : 🟡 Задача 96c833a3-703e-46f3-80ea-399c20235cf0 создана, статус: PENDING
-2026-04-14T18:23:52.142+03:00  INFO 22928 --- [task-1] c.m.s.service.AsyncOperationService      : 🟠 Задача 96c833a3-703e-46f3-80ea-399c20235cf0 в процессе, статус: PROCESSING
-2026-04-14T18:23:55.147+03:00  INFO 22928 --- [task-1] c.m.s.service.AsyncOperationService      : 🟢 Задача 96c833a3-703e-46f3-80ea-399c20235cf0 завершена, статус: COMPLETED
-2026-04-14T18:23:55.150+03:00  INFO 22928 --- [task-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startLongOperation()] выполнен за 5012 мс
-2026-04-14T18:24:33.988+03:00  INFO 22928 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
-2026-04-14T18:25:03.894+03:00  INFO 22928 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-14T18:25:03.896+03:00  INFO 22928 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-14T18:25:03.902+03:00  INFO 22928 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-04-14T18:27:04.408+03:00  INFO 33612 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 33612 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
-2026-04-14T18:27:04.411+03:00 DEBUG 33612 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-04-14T18:27:04.411+03:00  INFO 33612 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
-2026-04-14T18:27:05.216+03:00  INFO 33612 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-14T18:27:05.286+03:00  INFO 33612 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 5 JPA repository interfaces.
-2026-04-14T18:27:06.066+03:00  INFO 33612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2026-04-14T18:27:06.077+03:00  INFO 33612 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-14T18:27:06.078+03:00  INFO 33612 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-04-14T18:27:06.155+03:00  INFO 33612 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-14T18:27:06.155+03:00  INFO 33612 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1691 ms
-2026-04-14T18:27:06.339+03:00  INFO 33612 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-14T18:27:06.401+03:00  INFO 33612 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-14T18:27:06.440+03:00  INFO 33612 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-14T18:27:06.681+03:00  INFO 33612 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-14T18:27:06.714+03:00  INFO 33612 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-14T18:27:06.901+03:00  INFO 33612 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7094dc0
-2026-04-14T18:27:06.903+03:00  INFO 33612 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-14T18:27:06.943+03:00  WARN 33612 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-14T18:27:08.044+03:00  INFO 33612 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-14T18:27:08.135+03:00  INFO 33612 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-14T18:27:08.489+03:00  INFO 33612 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-14T18:27:09.228+03:00  WARN 33612 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-14T18:27:09.735+03:00  INFO 33612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
-2026-04-14T18:27:09.742+03:00  INFO 33612 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 5.999 seconds (process running for 6.525)
-2026-04-14T18:27:48.055+03:00  INFO 33612 --- [http-nio-8081-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-14T18:27:48.056+03:00  INFO 33612 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-14T18:27:48.057+03:00  INFO 33612 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-04-14T18:27:49.136+03:00  INFO 33612 --- [http-nio-8081-exec-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 747 ms
-2026-04-14T18:29:09.411+03:00  INFO 33612 --- [http-nio-8081-exec-9] c.m.s.c.RaceConditionController          : Запуск теста: 50 потоков, по 100 инкрементов каждый
-2026-04-14T18:29:09.417+03:00  INFO 33612 --- [http-nio-8081-exec-9] c.m.s.c.RaceConditionController          : Тест завершён.
+2026-04-15T10:11:48.811+03:00  INFO 20212 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 20212 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-15T10:11:48.818+03:00 DEBUG 20212 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-15T10:11:48.820+03:00  INFO 20212 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T10:11:50.086+03:00  INFO 20212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T10:11:50.203+03:00  INFO 20212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97 ms. Found 5 JPA repository interfaces.
+2026-04-15T10:11:51.528+03:00  INFO 20212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-15T10:11:51.553+03:00  INFO 20212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T10:11:51.553+03:00  INFO 20212 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-15T10:11:51.647+03:00  INFO 20212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T10:11:51.649+03:00  INFO 20212 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2754 ms
+2026-04-15T10:11:51.940+03:00  INFO 20212 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T10:11:52.071+03:00  INFO 20212 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-15T10:11:52.156+03:00  INFO 20212 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T10:11:52.571+03:00  INFO 20212 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T10:11:52.644+03:00  INFO 20212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T10:11:53.018+03:00  INFO 20212 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7094dc0
+2026-04-15T10:11:53.020+03:00  INFO 20212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T10:11:53.107+03:00  WARN 20212 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T10:11:54.855+03:00  INFO 20212 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T10:11:55.010+03:00  INFO 20212 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:11:55.589+03:00  INFO 20212 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T10:11:56.726+03:00  WARN 20212 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T10:11:57.585+03:00  INFO 20212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-15T10:11:57.593+03:00  INFO 20212 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 9.906 seconds (process running for 10.607)
+2026-04-15T10:12:01.726+03:00  INFO 20212 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T10:12:01.727+03:00  INFO 20212 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T10:12:01.728+03:00  INFO 20212 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-15T10:12:01.770+03:00  INFO 20212 --- [task-1] c.m.s.service.AsyncOperationService      : 🟡 Задача ca51127b-6ea6-40ca-9f6c-856285e68f68 создана, статус: PENDING
+2026-04-15T10:12:03.772+03:00  INFO 20212 --- [task-1] c.m.s.service.AsyncOperationService      : 🟠 Задача ca51127b-6ea6-40ca-9f6c-856285e68f68 в процессе, статус: PROCESSING
+2026-04-15T10:12:06.773+03:00  INFO 20212 --- [task-1] c.m.s.service.AsyncOperationService      : 🟢 Задача ca51127b-6ea6-40ca-9f6c-856285e68f68 завершена, статус: COMPLETED
+2026-04-15T10:12:06.774+03:00  INFO 20212 --- [task-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startLongOperation()] выполнен за 5003 мс
+2026-04-15T10:12:20.914+03:00  INFO 20212 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:13:33.681+03:00  INFO 20212 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:13:33.683+03:00  INFO 20212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-15T10:13:33.687+03:00  INFO 20212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-15T10:13:47.134+03:00  INFO 36628 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 36628 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-15T10:13:47.138+03:00 DEBUG 36628 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-15T10:13:47.139+03:00  INFO 36628 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T10:13:48.145+03:00  INFO 36628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T10:13:48.244+03:00  INFO 36628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 5 JPA repository interfaces.
+2026-04-15T10:13:49.174+03:00  INFO 36628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-15T10:13:49.186+03:00  INFO 36628 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T10:13:49.188+03:00  INFO 36628 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-15T10:13:49.282+03:00  INFO 36628 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T10:13:49.283+03:00  INFO 36628 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2089 ms
+2026-04-15T10:13:49.471+03:00  INFO 36628 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T10:13:49.557+03:00  INFO 36628 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-15T10:13:49.618+03:00  INFO 36628 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T10:13:49.905+03:00  INFO 36628 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T10:13:49.946+03:00  INFO 36628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T10:13:50.218+03:00  INFO 36628 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@59c9df97
+2026-04-15T10:13:50.221+03:00  INFO 36628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T10:13:50.276+03:00  WARN 36628 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T10:13:51.729+03:00  INFO 36628 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T10:13:51.849+03:00  INFO 36628 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:13:52.332+03:00  INFO 36628 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T10:13:53.301+03:00  WARN 36628 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T10:13:53.909+03:00  INFO 36628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-15T10:13:53.917+03:00  INFO 36628 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 7.446 seconds (process running for 8.031)
+2026-04-15T10:13:55.979+03:00  INFO 36628 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T10:13:55.979+03:00  INFO 36628 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T10:13:55.980+03:00  INFO 36628 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-15T10:13:56.021+03:00  INFO 36628 --- [task-1] c.m.s.service.AsyncOperationService      : 🟡 Задача d283a86e-91e1-4079-b27f-e0002037211d создана, статус: PENDING
+2026-04-15T10:14:03.028+03:00  INFO 36628 --- [task-1] c.m.s.service.AsyncOperationService      : 🟠 Задача d283a86e-91e1-4079-b27f-e0002037211d в процессе, статус: PROCESSING
+2026-04-15T10:14:13.037+03:00  INFO 36628 --- [task-1] c.m.s.service.AsyncOperationService      : 🟢 Задача d283a86e-91e1-4079-b27f-e0002037211d завершена, статус: COMPLETED
+2026-04-15T10:14:13.039+03:00  INFO 36628 --- [task-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startLongOperation()] выполнен за 17017 мс
+2026-04-15T10:14:33.571+03:00  INFO 36628 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:14:44.008+03:00  INFO 36628 --- [task-2] c.m.s.service.AsyncOperationService      : 🟡 Задача 89a47a77-7050-4b56-aec3-a3212da068aa создана, статус: PENDING
+2026-04-15T10:14:51.025+03:00  INFO 36628 --- [task-2] c.m.s.service.AsyncOperationService      : 🟠 Задача 89a47a77-7050-4b56-aec3-a3212da068aa в процессе, статус: PROCESSING
+2026-04-15T10:15:01.037+03:00  INFO 36628 --- [task-2] c.m.s.service.AsyncOperationService      : 🟢 Задача 89a47a77-7050-4b56-aec3-a3212da068aa завершена, статус: COMPLETED
+2026-04-15T10:15:01.037+03:00  INFO 36628 --- [task-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startLongOperation()] выполнен за 17029 мс
+2026-04-15T10:15:01.094+03:00  INFO 36628 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:15:01.096+03:00  INFO 36628 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-15T10:15:01.103+03:00  INFO 36628 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-15T10:21:40.592+03:00  INFO 32104 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 32104 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-15T10:21:40.594+03:00 DEBUG 32104 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-15T10:21:40.595+03:00  INFO 32104 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T10:21:41.388+03:00  INFO 32104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T10:21:41.469+03:00  INFO 32104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 5 JPA repository interfaces.
+2026-04-15T10:21:42.282+03:00  INFO 32104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-15T10:21:42.296+03:00  INFO 32104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T10:21:42.296+03:00  INFO 32104 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-15T10:21:42.372+03:00  INFO 32104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T10:21:42.374+03:00  INFO 32104 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1735 ms
+2026-04-15T10:21:42.555+03:00  INFO 32104 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T10:21:42.621+03:00  INFO 32104 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-15T10:21:42.661+03:00  INFO 32104 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T10:21:42.930+03:00  INFO 32104 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T10:21:42.964+03:00  INFO 32104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T10:21:43.186+03:00  INFO 32104 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@cb715b9
+2026-04-15T10:21:43.189+03:00  INFO 32104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T10:21:43.240+03:00  WARN 32104 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T10:21:44.523+03:00  INFO 32104 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T10:21:44.638+03:00  INFO 32104 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:21:45.067+03:00  INFO 32104 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T10:21:45.905+03:00  WARN 32104 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T10:21:46.483+03:00  INFO 32104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-15T10:21:46.491+03:00  INFO 32104 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 6.546 seconds (process running for 7.16)
+2026-04-15T10:21:52.402+03:00  INFO 32104 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T10:21:52.403+03:00  INFO 32104 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T10:21:52.404+03:00  INFO 32104 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-15T10:21:53.401+03:00  INFO 32104 --- [http-nio-8081-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 749 ms
+2026-04-15T10:22:07.230+03:00  INFO 32104 --- [task-1] c.m.s.service.AsyncOperationService      : 🟡 Задача 9d90633d-e446-4a39-9e15-a2e1755ffdc9 создана, статус: PENDING
+2026-04-15T10:22:14.236+03:00  INFO 32104 --- [task-1] c.m.s.service.AsyncOperationService      : 🟠 Задача 9d90633d-e446-4a39-9e15-a2e1755ffdc9 в процессе, статус: PROCESSING
+2026-04-15T10:22:21.238+03:00  INFO 32104 --- [task-1] c.m.s.service.AsyncOperationService      : 🟢 Задача 9d90633d-e446-4a39-9e15-a2e1755ffdc9 завершена, статус: COMPLETED
+2026-04-15T10:22:21.244+03:00  INFO 32104 --- [task-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startLongOperation()] выполнен за 14010 мс
+2026-04-15T10:22:30.076+03:00  INFO 32104 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:22:38.956+03:00  INFO 32104 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:22:38.958+03:00  INFO 32104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-15T10:22:38.964+03:00  INFO 32104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-15T10:23:53.584+03:00  INFO 38940 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 38940 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-15T10:23:53.586+03:00 DEBUG 38940 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-15T10:23:53.587+03:00  INFO 38940 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T10:23:54.392+03:00  INFO 38940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T10:23:54.468+03:00  INFO 38940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 5 JPA repository interfaces.
+2026-04-15T10:23:55.298+03:00  INFO 38940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-15T10:23:55.312+03:00  INFO 38940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T10:23:55.312+03:00  INFO 38940 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-15T10:23:55.401+03:00  INFO 38940 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T10:23:55.401+03:00  INFO 38940 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1766 ms
+2026-04-15T10:23:55.595+03:00  INFO 38940 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T10:23:55.669+03:00  INFO 38940 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-15T10:23:55.712+03:00  INFO 38940 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T10:23:55.970+03:00  INFO 38940 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T10:23:56.005+03:00  INFO 38940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T10:23:56.198+03:00  INFO 38940 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33c2a762
+2026-04-15T10:23:56.201+03:00  INFO 38940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T10:23:56.239+03:00  WARN 38940 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T10:23:57.412+03:00  INFO 38940 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T10:23:57.510+03:00  INFO 38940 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:23:57.893+03:00  INFO 38940 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T10:23:58.703+03:00  WARN 38940 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T10:23:59.278+03:00  INFO 38940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-15T10:23:59.286+03:00  INFO 38940 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 6.36 seconds (process running for 7.032)
+2026-04-15T10:24:08.128+03:00  INFO 38940 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T10:24:08.129+03:00  INFO 38940 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T10:24:08.130+03:00  INFO 38940 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-15T10:24:09.095+03:00  INFO 38940 --- [http-nio-8081-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 697 ms
+2026-04-15T10:24:22.660+03:00  INFO 38940 --- [http-nio-8081-exec-5] c.m.s.service.AsyncOperationService      : 🟡 Задача e817189f-aee0-4258-b56e-1244aee73511 создана, статус: PENDING
+2026-04-15T10:24:24.673+03:00  INFO 38940 --- [http-nio-8081-exec-5] c.m.s.service.AsyncOperationService      : 🟠 Задача e817189f-aee0-4258-b56e-1244aee73511 в процессе, статус: PROCESSING
+2026-04-15T10:24:27.674+03:00  INFO 38940 --- [http-nio-8081-exec-5] c.m.s.service.AsyncOperationService      : 🟢 Задача e817189f-aee0-4258-b56e-1244aee73511 завершена, статус: COMPLETED
+2026-04-15T10:24:27.676+03:00  INFO 38940 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startAsyncTask()] выполнен за 5015 мс
+2026-04-15T10:24:36.452+03:00  INFO 38940 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:24:46.778+03:00  INFO 38940 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:24:46.780+03:00  INFO 38940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-15T10:24:46.786+03:00  INFO 38940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-15T10:30:02.709+03:00  INFO 22372 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 22372 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-15T10:30:02.710+03:00 DEBUG 22372 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-15T10:30:02.711+03:00  INFO 22372 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T10:30:03.504+03:00  INFO 22372 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T10:30:03.584+03:00  INFO 22372 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2026-04-15T10:30:04.391+03:00  INFO 22372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-15T10:30:04.403+03:00  INFO 22372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T10:30:04.404+03:00  INFO 22372 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-15T10:30:04.467+03:00  INFO 22372 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T10:30:04.468+03:00  INFO 22372 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1710 ms
+2026-04-15T10:30:04.660+03:00  INFO 22372 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T10:30:04.760+03:00  INFO 22372 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-15T10:30:04.807+03:00  INFO 22372 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T10:30:05.080+03:00  INFO 22372 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T10:30:05.122+03:00  INFO 22372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T10:30:05.321+03:00  INFO 22372 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6fe8e276
+2026-04-15T10:30:05.323+03:00  INFO 22372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T10:30:05.365+03:00  WARN 22372 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T10:30:06.595+03:00  INFO 22372 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T10:30:06.717+03:00  INFO 22372 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:30:07.164+03:00  INFO 22372 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T10:30:08.094+03:00  WARN 22372 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T10:30:08.811+03:00  INFO 22372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-15T10:30:08.820+03:00  INFO 22372 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 6.742 seconds (process running for 7.343)
+2026-04-15T10:30:13.318+03:00  INFO 22372 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T10:30:13.318+03:00  INFO 22372 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T10:30:13.319+03:00  INFO 22372 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-15T10:30:14.331+03:00  INFO 22372 --- [http-nio-8081-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 776 ms
+2026-04-15T10:30:21.695+03:00  INFO 22372 --- [http-nio-8081-exec-4] c.m.s.service.AsyncOperationService      : 🟡 Задача 63d26d26-abdd-4e0a-aa9b-9bf482513dbd создана, статус: PENDING
+2026-04-15T10:30:21.698+03:00  INFO 22372 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startAsyncTask()] выполнен за 2 мс
+2026-04-15T10:30:23.708+03:00  INFO 22372 --- [task-1] c.m.s.service.AsyncTaskExecutorService   : 🟠 Задача 63d26d26-abdd-4e0a-aa9b-9bf482513dbd в процессе, статус: PROCESSING
+2026-04-15T10:30:26.713+03:00  INFO 22372 --- [task-1] c.m.s.service.AsyncTaskExecutorService   : 🟢 Задача 63d26d26-abdd-4e0a-aa9b-9bf482513dbd завершена, статус: COMPLETED
+2026-04-15T10:30:26.714+03:00  INFO 22372 --- [task-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncTaskExecutorService.executeLongOperation(..)] выполнен за 5017 мс
+2026-04-15T10:30:30.353+03:00  INFO 22372 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:30:37.664+03:00  INFO 22372 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:30:37.666+03:00  INFO 22372 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-15T10:30:37.670+03:00  INFO 22372 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-15T10:32:35.869+03:00  INFO 23132 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 23132 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-15T10:32:35.871+03:00 DEBUG 23132 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-15T10:32:35.872+03:00  INFO 23132 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T10:32:36.722+03:00  INFO 23132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T10:32:36.802+03:00  INFO 23132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2026-04-15T10:32:37.652+03:00  INFO 23132 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-15T10:32:37.666+03:00  INFO 23132 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T10:32:37.666+03:00  INFO 23132 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-15T10:32:37.737+03:00  INFO 23132 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T10:32:37.738+03:00  INFO 23132 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1816 ms
+2026-04-15T10:32:37.944+03:00  INFO 23132 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T10:32:38.019+03:00  INFO 23132 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-15T10:32:38.066+03:00  INFO 23132 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T10:32:38.352+03:00  INFO 23132 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T10:32:38.387+03:00  INFO 23132 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T10:32:38.589+03:00  INFO 23132 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@38321e6f
+2026-04-15T10:32:38.591+03:00  INFO 23132 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T10:32:38.631+03:00  WARN 23132 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T10:32:39.946+03:00  INFO 23132 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T10:32:40.056+03:00  INFO 23132 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:32:40.453+03:00  INFO 23132 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T10:32:41.268+03:00  WARN 23132 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T10:32:41.834+03:00  INFO 23132 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-15T10:32:41.842+03:00  INFO 23132 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 6.722 seconds (process running for 7.345)
+2026-04-15T10:32:53.113+03:00  INFO 23132 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T10:32:53.114+03:00  INFO 23132 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T10:32:53.115+03:00  INFO 23132 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-15T10:32:54.087+03:00  INFO 23132 --- [http-nio-8081-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 747 ms
+2026-04-15T10:33:06.073+03:00  INFO 23132 --- [http-nio-8081-exec-4] c.m.s.service.AsyncOperationService      : 🟡 Задача 9e07719b-4547-47d9-a5f3-a0a5bdb56d00 создана, статус: PENDING
+2026-04-15T10:33:06.077+03:00  INFO 23132 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startAsyncTask()] выполнен за 3 мс
+2026-04-15T10:33:14.747+03:00  INFO 23132 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:33:16.089+03:00  INFO 23132 --- [task-1] c.m.s.service.AsyncTaskExecutorService   : 🟠 Задача 9e07719b-4547-47d9-a5f3-a0a5bdb56d00 в процессе, статус: PROCESSING
+2026-04-15T10:33:26.092+03:00  INFO 23132 --- [task-1] c.m.s.service.AsyncTaskExecutorService   : 🟢 Задача 9e07719b-4547-47d9-a5f3-a0a5bdb56d00 завершена, статус: COMPLETED
+2026-04-15T10:33:26.093+03:00  INFO 23132 --- [task-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncTaskExecutorService.executeLongOperation(..)] выполнен за 20017 мс
+2026-04-15T10:33:35.257+03:00  INFO 23132 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:34:11.829+03:00  INFO 23132 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:34:11.831+03:00  INFO 23132 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-15T10:34:11.835+03:00  INFO 23132 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-15T10:41:44.460+03:00  INFO 10696 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 10696 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-15T10:41:44.463+03:00 DEBUG 10696 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-15T10:41:44.464+03:00  INFO 10696 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T10:41:45.545+03:00  INFO 10696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T10:41:45.671+03:00  INFO 10696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 104 ms. Found 5 JPA repository interfaces.
+2026-04-15T10:41:46.672+03:00  INFO 10696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-15T10:41:46.685+03:00  INFO 10696 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T10:41:46.686+03:00  INFO 10696 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-15T10:41:46.756+03:00  INFO 10696 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T10:41:46.757+03:00  INFO 10696 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2222 ms
+2026-04-15T10:41:46.983+03:00  INFO 10696 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T10:41:47.069+03:00  INFO 10696 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-15T10:41:47.110+03:00  INFO 10696 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T10:41:47.390+03:00  INFO 10696 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T10:41:47.425+03:00  INFO 10696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T10:41:47.624+03:00  INFO 10696 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1da1a8a4
+2026-04-15T10:41:47.626+03:00  INFO 10696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T10:41:47.667+03:00  WARN 10696 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T10:41:48.974+03:00  INFO 10696 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T10:41:49.078+03:00  INFO 10696 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:41:49.505+03:00  INFO 10696 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T10:41:50.442+03:00  WARN 10696 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T10:41:51.074+03:00  INFO 10696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-15T10:41:51.081+03:00  INFO 10696 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 7.405 seconds (process running for 7.964)
+2026-04-15T10:41:55.298+03:00  INFO 10696 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T10:41:55.299+03:00  INFO 10696 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T10:41:55.300+03:00  INFO 10696 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-15T10:41:56.454+03:00  INFO 10696 --- [http-nio-8081-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 905 ms
+2026-04-15T10:42:11.012+03:00  INFO 10696 --- [http-nio-8081-exec-6] c.m.s.service.AsyncOperationService      : 🟡 Задача fe0911f3-e41e-4f78-8623-292be2778d4c (массовый импорт пациентов) создана, статус: PENDING
+2026-04-15T10:42:11.017+03:00  INFO 10696 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startBulkPatientImport(..)] выполнен за 3 мс
+2026-04-15T10:42:13.017+03:00  INFO 10696 --- [task-1] c.m.s.service.AsyncTaskExecutorService   : 🟠 Задача fe0911f3-e41e-4f78-8623-292be2778d4c в процессе, статус: PROCESSING
+2026-04-15T10:42:13.029+03:00 ERROR 10696 --- [task-1] c.m.s.service.AsyncTaskExecutorService   : 🔴 Задача fe0911f3-e41e-4f78-8623-292be2778d4c завершилась с ошибкой валидации, статус: FAILED. Причина: Ошибка валидации: Пациент  Иванов: пустое имя
+2026-04-15T10:42:13.029+03:00  INFO 10696 --- [task-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncTaskExecutorService.executeBulkImport(..)] выполнен за 2014 мс
+2026-04-15T10:42:22.899+03:00  INFO 10696 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 1 мс
+2026-04-15T10:42:22.900+03:00  INFO 10696 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskResult(..)] выполнен за 0 мс
+2026-04-15T10:42:37.455+03:00  INFO 10696 --- [http-nio-8081-exec-8] c.m.s.service.AsyncOperationService      : 🟡 Задача f95852db-3065-45f7-9e62-6248caec6104 (массовый импорт пациентов) создана, статус: PENDING
+2026-04-15T10:42:37.456+03:00  INFO 10696 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startBulkPatientImport(..)] выполнен за 1 мс
+2026-04-15T10:42:39.468+03:00  INFO 10696 --- [task-2] c.m.s.service.AsyncTaskExecutorService   : 🟠 Задача f95852db-3065-45f7-9e62-6248caec6104 в процессе, статус: PROCESSING
+2026-04-15T10:42:39.708+03:00  INFO 10696 --- [task-2] com.medical.system.cache.PatientCache    : 🧹 [КЭШ] Полностью очищен. Удалено элементов: 0
+2026-04-15T10:42:39.709+03:00  INFO 10696 --- [task-2] c.medical.system.service.PatientService  : 🧹 [SERVICE] Кэш пациентов очищен (инвалидация)
+2026-04-15T10:42:39.710+03:00  INFO 10696 --- [task-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.saveAllWithTransaction(..)] выполнен за 242 мс
+2026-04-15T10:42:41.744+03:00  INFO 10696 --- [task-2] c.m.s.service.AsyncTaskExecutorService   : 🟢 Задача f95852db-3065-45f7-9e62-6248caec6104 завершена успешно, статус: COMPLETED, сохранено пациентов: 1
+2026-04-15T10:42:41.744+03:00  INFO 10696 --- [task-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncTaskExecutorService.executeBulkImport(..)] выполнен за 4287 мс
+2026-04-15T10:42:50.507+03:00  INFO 10696 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:42:50.508+03:00  INFO 10696 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskResult(..)] выполнен за 0 мс
+2026-04-15T10:43:39.811+03:00  INFO 10696 --- [http-nio-8081-exec-10] c.m.s.service.AsyncOperationService      : 🟡 Задача 3bd594fe-03c6-416a-ac73-5bf9980f21f2 (массовый импорт пациентов) создана, статус: PENDING
+2026-04-15T10:43:39.813+03:00  INFO 10696 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startBulkPatientImport(..)] выполнен за 2 мс
+2026-04-15T10:43:41.824+03:00  INFO 10696 --- [task-3] c.m.s.service.AsyncTaskExecutorService   : 🟠 Задача 3bd594fe-03c6-416a-ac73-5bf9980f21f2 в процессе, статус: PROCESSING
+2026-04-15T10:43:41.831+03:00  INFO 10696 --- [task-3] com.medical.system.cache.PatientCache    : 🧹 [КЭШ] Полностью очищен. Удалено элементов: 0
+2026-04-15T10:43:41.832+03:00  INFO 10696 --- [task-3] c.medical.system.service.PatientService  : 🧹 [SERVICE] Кэш пациентов очищен (инвалидация)
+2026-04-15T10:43:41.832+03:00  INFO 10696 --- [task-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.saveAllWithTransaction(..)] выполнен за 7 мс
+2026-04-15T10:43:43.846+03:00  INFO 10696 --- [task-3] c.m.s.service.AsyncTaskExecutorService   : 🟢 Задача 3bd594fe-03c6-416a-ac73-5bf9980f21f2 завершена успешно, статус: COMPLETED, сохранено пациентов: 1
+2026-04-15T10:43:43.847+03:00  INFO 10696 --- [task-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncTaskExecutorService.executeBulkImport(..)] выполнен за 4033 мс
+2026-04-15T10:43:49.635+03:00  INFO 10696 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:43:49.636+03:00  INFO 10696 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskResult(..)] выполнен за 0 мс
+2026-04-15T10:43:57.061+03:00  INFO 10696 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:43:57.063+03:00  INFO 10696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-15T10:43:57.068+03:00  INFO 10696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-15T10:44:25.248+03:00  INFO 23660 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 23660 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-15T10:44:25.250+03:00 DEBUG 23660 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-15T10:44:25.251+03:00  INFO 23660 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T10:44:26.081+03:00  INFO 23660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T10:44:26.174+03:00  INFO 23660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 5 JPA repository interfaces.
+2026-04-15T10:44:27.208+03:00  INFO 23660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-15T10:44:27.223+03:00  INFO 23660 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T10:44:27.223+03:00  INFO 23660 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-15T10:44:27.319+03:00  INFO 23660 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T10:44:27.320+03:00  INFO 23660 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2021 ms
+2026-04-15T10:44:27.540+03:00  INFO 23660 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T10:44:27.612+03:00  INFO 23660 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-15T10:44:27.653+03:00  INFO 23660 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T10:44:28.007+03:00  INFO 23660 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T10:44:28.042+03:00  INFO 23660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T10:44:28.296+03:00  INFO 23660 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6cd8b2de
+2026-04-15T10:44:28.299+03:00  INFO 23660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T10:44:28.342+03:00  WARN 23660 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T10:44:29.872+03:00  INFO 23660 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T10:44:30.006+03:00  INFO 23660 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:44:30.482+03:00  INFO 23660 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T10:44:31.522+03:00  WARN 23660 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T10:44:32.174+03:00  INFO 23660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-15T10:44:32.183+03:00  INFO 23660 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 7.672 seconds (process running for 8.263)
+2026-04-15T10:44:33.654+03:00  INFO 23660 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T10:44:33.655+03:00  INFO 23660 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T10:44:33.657+03:00  INFO 23660 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-04-15T10:44:34.801+03:00  INFO 23660 --- [http-nio-8081-exec-2] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 865 ms
+2026-04-15T10:45:43.917+03:00  INFO 23660 --- [http-nio-8081-exec-8] c.m.s.service.AsyncOperationService      : 🟡 Задача 07aed2d8-4100-486f-8781-c74a4abcaea1 (массовый импорт пациентов) создана, статус: PENDING
+2026-04-15T10:45:43.920+03:00  INFO 23660 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.startBulkPatientImport(..)] выполнен за 3 мс
+2026-04-15T10:45:52.910+03:00  INFO 23660 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:45:53.932+03:00  INFO 23660 --- [task-1] c.m.s.service.AsyncTaskExecutorService   : 🟠 Задача 07aed2d8-4100-486f-8781-c74a4abcaea1 в процессе, статус: PROCESSING
+2026-04-15T10:45:54.114+03:00  INFO 23660 --- [task-1] com.medical.system.cache.PatientCache    : 🧹 [КЭШ] Полностью очищен. Удалено элементов: 0
+2026-04-15T10:45:54.114+03:00  INFO 23660 --- [task-1] c.medical.system.service.PatientService  : 🧹 [SERVICE] Кэш пациентов очищен (инвалидация)
+2026-04-15T10:45:54.115+03:00  INFO 23660 --- [task-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.saveAllWithTransaction(..)] выполнен за 165 мс
+2026-04-15T10:46:03.474+03:00  INFO 23660 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:46:04.134+03:00  INFO 23660 --- [task-1] c.m.s.service.AsyncTaskExecutorService   : 🟢 Задача 07aed2d8-4100-486f-8781-c74a4abcaea1 завершена успешно, статус: COMPLETED, сохранено пациентов: 1
+2026-04-15T10:46:04.135+03:00  INFO 23660 --- [task-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncTaskExecutorService.executeBulkImport(..)] выполнен за 20215 мс
+2026-04-15T10:46:13.814+03:00  INFO 23660 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskStatus(..)] выполнен за 0 мс
+2026-04-15T10:46:13.815+03:00  INFO 23660 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AsyncOperationService.getTaskResult(..)] выполнен за 0 мс
+2026-04-15T10:46:30.321+03:00  INFO 23660 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:46:30.324+03:00  INFO 23660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-15T10:46:30.330+03:00  INFO 23660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-15T10:50:18.156+03:00  INFO 37752 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 37752 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-15T10:50:18.158+03:00 DEBUG 37752 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-15T10:50:18.159+03:00  INFO 37752 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-15T10:50:19.033+03:00  INFO 37752 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15T10:50:19.131+03:00  INFO 37752 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 5 JPA repository interfaces.
+2026-04-15T10:50:20.078+03:00  INFO 37752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-15T10:50:20.093+03:00  INFO 37752 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-15T10:50:20.093+03:00  INFO 37752 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-15T10:50:20.201+03:00  INFO 37752 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-15T10:50:20.201+03:00  INFO 37752 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1993 ms
+2026-04-15T10:50:20.411+03:00  INFO 37752 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-15T10:50:20.505+03:00  INFO 37752 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-15T10:50:20.557+03:00  INFO 37752 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-15T10:50:20.855+03:00  INFO 37752 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15T10:50:20.906+03:00  INFO 37752 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-15T10:50:21.141+03:00  INFO 37752 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@300f120d
+2026-04-15T10:50:21.143+03:00  INFO 37752 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-15T10:50:21.184+03:00  WARN 37752 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15T10:50:22.600+03:00  INFO 37752 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15T10:50:22.716+03:00  INFO 37752 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T10:50:23.137+03:00  INFO 37752 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15T10:50:24.100+03:00  WARN 37752 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15T10:50:24.758+03:00  INFO 37752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-15T10:50:24.765+03:00  INFO 37752 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 7.293 seconds (process running for 7.866)
+2026-04-15T10:50:53.328+03:00  INFO 37752 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15T10:50:53.328+03:00  INFO 37752 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-15T10:50:53.329+03:00  INFO 37752 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-15T10:51:08.218+03:00  INFO 37752 --- [http-nio-8081-exec-5] c.m.s.c.RaceConditionController          : Запуск теста: 50 потоков, по 100 инкрементов каждый
+2026-04-15T10:51:08.233+03:00  INFO 37752 --- [http-nio-8081-exec-5] c.m.s.c.RaceConditionController          : Тест завершён.
 Ожидаемое значение: 5000
-Непотокобезопасный счётчик (race condition): 4981 (потеряно 19)
+Непотокобезопасный счётчик (race condition): 4967 (потеряно 33)
 Потокобезопасный счётчик (AtomicLong): 5000 (потеряно 0)
-2026-04-14T18:30:19.280+03:00  INFO 33612 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-14T18:30:19.281+03:00  INFO 33612 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-14T18:30:19.287+03:00  INFO 33612 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-04-14T18:46:28.412+03:00  INFO 34212 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 34212 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
-2026-04-14T18:46:28.414+03:00 DEBUG 34212 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-04-14T18:46:28.415+03:00  INFO 34212 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
-2026-04-14T18:46:29.200+03:00  INFO 34212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-14T18:46:29.272+03:00  INFO 34212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 5 JPA repository interfaces.
-2026-04-14T18:46:30.068+03:00  INFO 34212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2026-04-14T18:46:30.081+03:00  INFO 34212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-14T18:46:30.082+03:00  INFO 34212 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-04-14T18:46:30.149+03:00  INFO 34212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-14T18:46:30.150+03:00  INFO 34212 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1688 ms
-2026-04-14T18:46:30.356+03:00  INFO 34212 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-14T18:46:30.427+03:00  INFO 34212 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-14T18:46:30.472+03:00  INFO 34212 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-14T18:46:30.733+03:00  INFO 34212 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-14T18:46:30.765+03:00  INFO 34212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-14T18:46:30.949+03:00  INFO 34212 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1c83c000
-2026-04-14T18:46:30.951+03:00  INFO 34212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-14T18:46:30.986+03:00  WARN 34212 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-14T18:46:32.113+03:00  INFO 34212 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-14T18:46:32.211+03:00  INFO 34212 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-14T18:46:32.574+03:00  INFO 34212 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-14T18:46:33.329+03:00  WARN 34212 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-14T18:46:33.862+03:00  INFO 34212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
-2026-04-14T18:46:33.868+03:00  INFO 34212 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 6.213 seconds (process running for 6.784)
-2026-04-14T18:53:22.307+03:00  INFO 34212 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-14T18:53:22.324+03:00  INFO 34212 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-14T18:53:22.324+03:00  INFO 34212 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2026-04-14T19:13:07.222+03:00  INFO 34212 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-14T19:13:07.222+03:00  INFO 34212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-14T19:13:07.222+03:00  INFO 34212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-15T11:00:56.443+03:00  INFO 37752 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15T11:00:56.446+03:00  INFO 37752 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-15T11:00:56.450+03:00  INFO 37752 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

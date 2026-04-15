@@ -27,7 +27,9 @@
             **/aspect/**,
             **/cache/**,
             **/enums/**,
-            **/config/**
+            **/config/**,
+            **/service/AsyncOperationService.java,
+            **/service/AsyncTaskExecutorService.java
         </sonar.coverage.exclusions>
     </properties>
     <dependencies>
@@ -106,6 +108,8 @@
                         <exclude>**/cache/**</exclude>
                         <exclude>**/enums/**</exclude>
                         <exclude>**/config/**</exclude>
+                        <exclude>**/service/AsyncOperationService.class</exclude>
+                        <exclude>**/service/AsyncTaskExecutorService.class</exclude>
                     </excludes>
                 </configuration>
             </plugin>

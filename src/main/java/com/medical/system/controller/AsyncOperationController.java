@@ -1,5 +1,7 @@
 package com.medical.system.controller;
 
+import com.medical.system.dto.AsyncBulkPatientRequest;
+import com.medical.system.dto.PatientDTO;
 import com.medical.system.enums.TaskStatus;
 import com.medical.system.service.AsyncOperationService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,12 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 
 @Tag(name = "Асинхронные операции", description = "Демонстрация @Async и CompletableFuture")
 @RestController
@@ -25,20 +28,21 @@ public class AsyncOperationController {
 
     private final AsyncOperationService asyncOperationService;
 
-    @Operation(summary = "Запустить долгую асинхронную операцию")
-    @PostMapping("/start")
-    public ResponseEntity<Map<String, String>> startAsyncOperation() {
-        CompletableFuture<String> future = asyncOperationService.startLongOperation();
-        Map<String, String> response = new HashMap<>();
-        try {
-            String taskId = future.get();
-            response.put("taskId", taskId);
-            response.put("message", "Операция запущена. Используйте /async/status/{taskId} для проверки статуса.");
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
-        } catch (Exception e) {
-            response.put("error", "Не удалось запустить операцию: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+    @Operation(summary = "Запустить асинхронный массовый импорт пациентов")
+    @PostMapping("/patients/bulk")
+    public ResponseEntity<Map<String, String>> startBulkPatientImport(
+            @RequestBody AsyncBulkPatientRequest request) {
+        List<PatientDTO> patients = request.getPatients();
+        if (patients == null || patients.isEmpty()) {
+            return ResponseEntity.badRequest()
+                    .body(Map.of("error", "Список пациентов не может быть пустым"));
         }
+        String taskId = asyncOperationService.startBulkPatientImport(patients);
+        Map<String, String> response = new HashMap<>();
+        response.put("taskId", taskId);
+        response.put("message",
+                "Операция запущена. Используйте /async/status/{taskId} для проверки статуса.");
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
     }
 
     @Operation(summary = "Проверить статус асинхронной операции по ID")
@@ -52,6 +56,9 @@ public class AsyncOperationController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         response.put("status", status.name());
+        if (status == TaskStatus.COMPLETED || status == TaskStatus.FAILED) {
+            response.put("result", asyncOperationService.getTaskResult(taskId));
+        }
         return ResponseEntity.ok(response);
     }
 }
