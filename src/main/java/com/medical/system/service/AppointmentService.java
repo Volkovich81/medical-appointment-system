@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.medical.system.enums.AppointmentStatus;
+import java.time.LocalDateTime;
 
 import java.util.List;
 
@@ -36,6 +37,17 @@ public class AppointmentService {
 
     @Transactional
     public AppointmentDTO createAppointment(AppointmentDTO appointmentDTO) {
+        // Проверка на занятость времени
+        Long doctorId = appointmentDTO.getDoctorId();
+        LocalDateTime dateTime = appointmentDTO.getAppointmentDate();
+        List<Appointment> existing = appointmentRepository
+                .findByDoctorIdAndAppointmentDate(doctorId, dateTime);
+        boolean conflict = existing.stream()
+                .anyMatch(a -> a.getStatus() != AppointmentStatus.CANCELLED);
+        if (conflict) {
+            throw new IllegalArgumentException("Это время уже занято у данного врача");
+        }
+
         Patient patient = patientRepository.findById(appointmentDTO.getPatientId())
                 .orElseThrow(() -> new RuntimeException("Patient not found"));
         Doctor doctor = doctorRepository.findById(appointmentDTO.getDoctorId())
@@ -66,5 +78,16 @@ public class AppointmentService {
     @Transactional
     public void deleteAppointment(Long id) {
         appointmentRepository.deleteById(id);
+    }
+
+    @Transactional
+    public AppointmentDTO updateStatus(Long id, String status) {
+        return appointmentRepository.findById(id)
+                .map(appointment -> {
+                    appointment.setStatus(AppointmentStatus.valueOf(status));
+                    Appointment saved = appointmentRepository.save(appointment);
+                    return AppointmentMapper.toDto(saved);
+                })
+                .orElse(null);
     }
 }

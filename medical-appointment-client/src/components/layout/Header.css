@@ -1,0 +1,85 @@
+.header {
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* 🏥 Декоративный баннер */
+.header-decoration {
+  height: 80px;
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #0d9488 100%);
+  background-size: 400% 400%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Анимированный медицинский узор */
+.header-decoration::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='300' height='80' viewBox='0 0 300 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 L20 40 L30 20 L40 60 L50 30 L60 50 L70 25 L80 55 L90 35 L100 45 L110 22 L120 58 L130 28 L140 52 L150 38 L160 42 L170 18 L180 62 L190 32 L200 48 L210 26 L220 54 L230 34 L240 46 L250 20 L260 60 L270 30 L280 50 L290 35 L300 40' stroke='rgba(255,255,255,0.2)' stroke-width='2' fill='none'/%3E%3Ccircle cx='20' cy='40' r='2' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='50' cy='30' r='2' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='80' cy='55' r='2' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='120' cy='58' r='2' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='160' cy='42' r='2' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='200' cy='48' r='2' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='240' cy='54' r='2' fill='rgba(255,255,255,0.3)'/%3E%3Ccircle cx='280' cy='50' r='2' fill='rgba(255,255,255,0.3)'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 0.6;
+}
+
+.header-main {
+  background: white;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0d9488;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.header-role {
+  background: #ccfbf1;
+  color: #0f766e;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-user {
+  font-size: 15px;
+  color: #475569;
+}
+
+.btn-logout {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}

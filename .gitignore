@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+/medical-appointment-client/node_modules

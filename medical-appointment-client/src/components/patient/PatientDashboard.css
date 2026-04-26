@@ -1,0 +1,38 @@
+.patient-dashboard {
+  min-height: 100vh;
+  background: #f5f7f8;
+}
+
+.dashboard-tabs {
+  display: flex;
+  gap: 0;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 24px;
+}
+
+.dashboard-tabs button {
+  padding: 16px 24px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.dashboard-tabs button:hover {
+  color: #00897b;
+}
+
+.dashboard-tabs button.active {
+  color: #00897b;
+  border-bottom-color: #00897b;
+}
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}

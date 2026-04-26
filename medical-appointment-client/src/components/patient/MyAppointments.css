@@ -1,0 +1,129 @@
+.my-appointments-section {
+  padding: 24px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filter-tabs button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-tabs button:hover {
+  border-color: #00897b;
+}
+
+.filter-tabs button.active {
+  background: #00897b;
+  border-color: #00897b;
+  color: white;
+}
+
+.appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.appointment-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #00897b;
+}
+
+.appointment-card.status-cancelled {
+  border-left-color: #e57373;
+  opacity: 0.7;
+}
+
+.appointment-card.status-completed {
+  border-left-color: #81c784;
+}
+
+.appointment-date {
+  text-align: center;
+  min-width: 70px;
+}
+
+.date-day {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 14px;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.date-time {
+  font-size: 14px;
+  color: #00897b;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.appointment-info {
+  flex: 1;
+}
+
+.appointment-info h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.status-scheduled {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.status-completed {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.status-badge.status-cancelled {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.btn-cancel {
+  padding: 8px 16px;
+  border: 1px solid #e57373;
+  border-radius: 6px;
+  background: white;
+  color: #e57373;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+  background: #ffebee;
+}
