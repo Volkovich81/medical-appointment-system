@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
@@ -12,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableAsync
 @EnableScheduling
-public class MedicalAppointmentSystemApplication {
+public class MedicalAppointmentSystemApplication implements WebMvcConfigurer {
     public static void main(String[] args) {
         SpringApplication.run(MedicalAppointmentSystemApplication.class, args);
     }
@@ -29,5 +30,11 @@ public class MedicalAppointmentSystemApplication {
                         .allowCredentials(true);
             }
         };
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:/static/");
     }
 }
