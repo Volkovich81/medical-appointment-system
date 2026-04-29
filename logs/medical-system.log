@@ -1,232 +1,113 @@
-2026-04-26T12:41:28.231+03:00  INFO 59480 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 59480 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
-2026-04-26T12:41:28.244+03:00 DEBUG 59480 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-04-26T12:41:28.246+03:00  INFO 59480 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
-2026-04-26T12:41:29.542+03:00  INFO 59480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-26T12:41:29.650+03:00  INFO 59480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83 ms. Found 5 JPA repository interfaces.
-2026-04-26T12:41:30.763+03:00  INFO 59480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2026-04-26T12:41:30.779+03:00  INFO 59480 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-26T12:41:30.779+03:00  INFO 59480 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-04-26T12:41:30.891+03:00  INFO 59480 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-26T12:41:30.891+03:00  INFO 59480 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2581 ms
-2026-04-26T12:41:31.128+03:00  INFO 59480 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-26T12:41:31.239+03:00  INFO 59480 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-26T12:41:31.301+03:00  INFO 59480 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-26T12:41:31.722+03:00  INFO 59480 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-26T12:41:31.761+03:00  INFO 59480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-26T12:41:32.080+03:00  INFO 59480 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1a2d79bf
-2026-04-26T12:41:32.080+03:00  INFO 59480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-26T12:41:32.174+03:00  WARN 59480 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-26T12:41:33.738+03:00  INFO 59480 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-26T12:41:34.084+03:00  INFO 59480 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-26T12:41:34.565+03:00  INFO 59480 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-26T12:41:35.559+03:00  WARN 59480 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-26T12:41:36.256+03:00  INFO 59480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
-2026-04-26T12:41:36.268+03:00  INFO 59480 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 8.751 seconds (process running for 16.63)
-2026-04-26T12:42:05.704+03:00  INFO 59480 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-26T12:42:05.705+03:00  INFO 59480 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-26T12:42:05.708+03:00  INFO 59480 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-04-26T12:42:06.087+03:00  INFO 59480 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 259 мс
-2026-04-26T12:42:06.221+03:00  INFO 59480 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 10 мс
-2026-04-26T12:42:12.472+03:00  INFO 59480 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
-2026-04-26T12:42:12.506+03:00  INFO 59480 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
-2026-04-26T12:42:12.521+03:00  INFO 59480 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 49 мс
-2026-04-26T12:42:12.576+03:00  INFO 59480 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 22 мс
-2026-04-26T12:42:15.672+03:00  INFO 59480 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 166 мс
-2026-04-26T12:42:15.857+03:00  INFO 59480 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 101 мс
-2026-04-26T12:42:18.588+03:00  INFO 59480 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 34 мс
-2026-04-26T12:42:18.638+03:00  INFO 59480 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 83 мс
-2026-04-26T12:42:18.650+03:00  INFO 59480 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 45 мс
-2026-04-26T12:42:18.671+03:00  INFO 59480 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 116 мс
-2026-04-26T12:42:18.770+03:00  INFO 59480 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 88 мс
-2026-04-26T12:42:18.816+03:00  INFO 59480 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 110 мс
-2026-04-26T12:42:22.422+03:00  INFO 59480 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [MedicalRecordService.getAllMedicalRecords()] выполнен за 17 мс
-2026-04-26T12:42:22.455+03:00  INFO 59480 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [MedicalRecordService.getAllMedicalRecords()] выполнен за 9 мс
-2026-04-26T12:42:22.505+03:00  INFO 59480 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 100 мс
-2026-04-26T12:42:22.588+03:00  INFO 59480 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 67 мс
-2026-04-26T12:42:34.120+03:00  INFO 59480 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 42 мс
-2026-04-26T12:42:34.166+03:00  INFO 59480 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 9 мс
-2026-04-26T12:42:34.182+03:00  INFO 59480 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 25 мс
-2026-04-26T12:42:34.187+03:00  INFO 59480 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
-2026-04-26T12:42:34.214+03:00  INFO 59480 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 77 мс
-2026-04-26T12:42:34.215+03:00  INFO 59480 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 17 мс
-2026-04-26T12:42:47.451+03:00  INFO 59480 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 26 мс
-2026-04-26T12:42:47.454+03:00  INFO 59480 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 29 мс
-2026-04-26T12:42:47.485+03:00  INFO 59480 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 14 мс
-2026-04-26T12:42:47.504+03:00  INFO 59480 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 21 мс
-2026-04-26T12:43:05.135+03:00  INFO 59480 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 9 мс
-2026-04-26T12:43:05.153+03:00  INFO 59480 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 17 мс
-2026-04-26T12:43:05.186+03:00  INFO 59480 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
-2026-04-26T12:43:05.215+03:00  INFO 59480 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 29 мс
-2026-04-26T12:43:17.649+03:00  INFO 59480 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 47 мс
-2026-04-26T12:43:17.728+03:00  INFO 59480 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 58 мс
-2026-04-26T12:43:27.651+03:00  INFO 59480 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 34 мс
-2026-04-26T12:43:27.728+03:00  INFO 59480 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 43 мс
-2026-04-26T12:43:31.674+03:00  INFO 59480 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 32 мс
-2026-04-26T12:43:35.653+03:00  INFO 59480 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.createAppointment(..)] выполнен за 184 мс
-2026-04-26T12:43:37.985+03:00  INFO 59480 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 46 мс
-2026-04-26T12:43:38.051+03:00  INFO 59480 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 38 мс
-2026-04-26T12:43:41.002+03:00  INFO 59480 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 23 мс
-2026-04-26T12:43:44.467+03:00  INFO 59480 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 17 мс
-2026-04-26T12:43:44.495+03:00  INFO 59480 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 45 мс
-2026-04-26T12:43:44.527+03:00  INFO 59480 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 27 мс
-2026-04-26T12:43:44.543+03:00  INFO 59480 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 32 мс
-2026-04-26T12:43:48.401+03:00  INFO 59480 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.updateStatus(..)] выполнен за 0 мс
-2026-04-26T12:45:29.947+03:00  INFO 59480 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 3 мс
-2026-04-26T12:45:29.960+03:00  INFO 59480 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 14 мс
-2026-04-26T12:45:29.981+03:00  INFO 59480 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 4 мс
-2026-04-26T12:45:29.990+03:00  INFO 59480 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 27 мс
-2026-04-26T12:45:53.794+03:00  INFO 59480 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 50 мс
-2026-04-26T12:45:53.869+03:00  INFO 59480 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 46 мс
-2026-04-26T12:48:01.257+03:00  INFO 59480 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 31 мс
-2026-04-26T12:48:01.271+03:00  INFO 59480 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 45 мс
-2026-04-26T12:48:01.290+03:00  INFO 59480 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 19 мс
-2026-04-26T12:48:01.331+03:00  INFO 59480 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 41 мс
-2026-04-26T12:48:03.654+03:00  INFO 59480 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 5 мс
-2026-04-26T12:48:03.670+03:00  INFO 59480 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 21 мс
-2026-04-26T12:48:03.679+03:00  INFO 59480 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 7 мс
-2026-04-26T12:48:03.696+03:00  INFO 59480 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 15 мс
-2026-04-26T12:48:05.288+03:00  INFO 59480 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 49 мс
-2026-04-26T12:48:05.338+03:00  INFO 59480 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 50 мс
-2026-04-26T12:48:08.020+03:00  INFO 59480 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 26 мс
-2026-04-26T12:50:56.997+03:00  INFO 59480 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-26T12:50:57.012+03:00  INFO 59480 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-26T12:50:57.012+03:00  INFO 59480 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-04-26T12:57:58.973+03:00  INFO 43328 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 43328 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
-2026-04-26T12:57:58.975+03:00 DEBUG 43328 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-04-26T12:57:58.976+03:00  INFO 43328 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
-2026-04-26T12:58:00.148+03:00  INFO 43328 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-26T12:58:00.247+03:00  INFO 43328 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 5 JPA repository interfaces.
-2026-04-26T12:58:01.273+03:00  INFO 43328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2026-04-26T12:58:01.289+03:00  INFO 43328 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-26T12:58:01.289+03:00  INFO 43328 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-04-26T12:58:01.383+03:00  INFO 43328 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-26T12:58:01.383+03:00  INFO 43328 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2328 ms
-2026-04-26T12:58:01.619+03:00  INFO 43328 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-26T12:58:01.714+03:00  INFO 43328 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-26T12:58:01.761+03:00  INFO 43328 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-26T12:58:02.116+03:00  INFO 43328 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-26T12:58:02.154+03:00  INFO 43328 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-26T12:58:02.418+03:00  INFO 43328 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@da87122
-2026-04-26T12:58:02.421+03:00  INFO 43328 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-26T12:58:02.475+03:00  WARN 43328 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-26T12:58:03.984+03:00  INFO 43328 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-26T12:58:04.103+03:00  INFO 43328 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-26T12:58:04.579+03:00  INFO 43328 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-04-26T12:58:05.659+03:00  WARN 43328 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-26T12:58:06.376+03:00  INFO 43328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
-2026-04-26T12:58:06.389+03:00  INFO 43328 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 8.361 seconds (process running for 9.121)
-2026-04-26T12:58:06.595+03:00  INFO 43328 --- [scheduling-1] c.m.s.scheduler.AppointmentScheduler     : ✅ Завершено записей: 19
-2026-04-26T12:58:28.040+03:00  INFO 43328 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-26T12:58:28.041+03:00  INFO 43328 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-26T12:58:28.044+03:00  INFO 43328 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2026-04-26T12:58:28.321+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 150 мс
-2026-04-26T12:58:28.532+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 7 мс
-2026-04-26T12:58:28.562+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 12 мс
-2026-04-26T12:58:28.567+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 42 мс
-2026-04-26T12:58:28.583+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 95 мс
-2026-04-26T12:58:28.615+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 32 мс
-2026-04-26T12:58:39.696+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 40 мс
-2026-04-26T12:58:39.739+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 83 мс
-2026-04-26T12:58:39.746+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 33 мс
-2026-04-26T12:58:39.812+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 50 мс
-2026-04-26T13:05:30.545+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 9 мс
-2026-04-26T13:05:30.563+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
-2026-04-26T13:06:33.179+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 98 мс
-2026-04-26T13:06:33.229+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 14 мс
-2026-04-26T13:06:33.256+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 45 мс
-2026-04-26T13:06:33.261+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 16 мс
-2026-04-26T13:06:33.296+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 23 мс
-2026-04-26T13:06:33.314+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 109 мс
-2026-04-26T13:06:36.806+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 103 мс
-2026-04-26T13:06:36.926+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 80 мс
-2026-04-26T13:06:39.313+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 23 мс
-2026-04-26T13:06:39.344+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 54 мс
-2026-04-26T13:06:39.379+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 49 мс
-2026-04-26T13:06:39.427+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 64 мс
-2026-04-26T13:06:42.395+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 1 мс
-2026-04-26T13:06:42.419+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 25 мс
-2026-04-26T13:06:42.420+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 8 мс
-2026-04-26T13:06:42.448+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 13 мс
-2026-04-26T13:06:52.502+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 5 мс
-2026-04-26T13:06:52.515+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
-2026-04-26T13:06:56.818+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 6 мс
-2026-04-26T13:06:56.829+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 17 мс
-2026-04-26T13:06:56.829+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
-2026-04-26T13:06:56.877+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 19 мс
-2026-04-26T13:06:57.957+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 46 мс
-2026-04-26T13:06:58.028+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 54 мс
-2026-04-26T13:06:58.645+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 21 мс
-2026-04-26T13:06:58.662+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 38 мс
-2026-04-26T13:06:58.695+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 23 мс
-2026-04-26T13:06:58.695+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 64 мс
-2026-04-26T13:06:58.729+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 34 мс
-2026-04-26T13:06:58.762+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 41 мс
-2026-04-26T13:06:59.235+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [MedicalRecordService.getAllMedicalRecords()] выполнен за 12 мс
-2026-04-26T13:06:59.263+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [MedicalRecordService.getAllMedicalRecords()] выполнен за 0 мс
-2026-04-26T13:06:59.293+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 65 мс
-2026-04-26T13:06:59.361+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 66 мс
-2026-04-26T13:07:00.262+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 24 мс
-2026-04-26T13:07:00.295+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 57 мс
-2026-04-26T13:07:00.315+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 20 мс
-2026-04-26T13:07:00.328+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 90 мс
-2026-04-26T13:07:00.344+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 33 мс
-2026-04-26T13:07:00.395+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 51 мс
-2026-04-26T13:07:32.654+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [MedicalRecordService.getAllMedicalRecords()] выполнен за 10 мс
-2026-04-26T13:07:32.673+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [MedicalRecordService.getAllMedicalRecords()] выполнен за 5 мс
-2026-04-26T13:07:32.676+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 32 мс
-2026-04-26T13:07:32.721+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 28 мс
-2026-04-26T13:07:36.872+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 9 мс
-2026-04-26T13:07:36.874+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 11 мс
-2026-04-26T13:07:36.874+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 11 мс
-2026-04-26T13:07:36.895+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 21 мс
-2026-04-26T13:07:36.906+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 19 мс
-2026-04-26T13:07:36.922+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 27 мс
-2026-04-26T13:07:42.806+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 41 мс
-2026-04-26T13:07:42.854+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 38 мс
-2026-04-26T13:07:46.842+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 23 мс
-2026-04-26T13:07:46.843+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 24 мс
-2026-04-26T13:07:46.868+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 49 мс
-2026-04-26T13:07:46.870+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 27 мс
-2026-04-26T13:07:46.889+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 25 мс
-2026-04-26T13:07:46.910+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 31 мс
-2026-04-26T13:07:47.954+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 8 мс
-2026-04-26T13:07:48.118+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 163 мс
-2026-04-26T13:07:48.128+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 6 мс
-2026-04-26T13:07:48.147+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 12 мс
-2026-04-26T13:07:51.985+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 4 мс
-2026-04-26T13:07:52.008+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 7 мс
-2026-04-26T13:07:54.659+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 39 мс
-2026-04-26T13:07:54.710+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 35 мс
-2026-04-26T13:07:55.643+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 3 мс
-2026-04-26T13:07:55.673+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 33 мс
-2026-04-26T13:07:55.685+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 44 мс
-2026-04-26T13:07:55.692+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 16 мс
-2026-04-26T13:07:55.711+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 24 мс
-2026-04-26T13:07:55.741+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 42 мс
-2026-04-26T13:07:56.709+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [MedicalRecordService.getAllMedicalRecords()] выполнен за 12 мс
-2026-04-26T13:07:56.741+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [MedicalRecordService.getAllMedicalRecords()] выполнен за 15 мс
-2026-04-26T13:07:56.743+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 38 мс
-2026-04-26T13:07:56.809+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 49 мс
-2026-04-26T13:07:58.114+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 21 мс
-2026-04-26T13:07:58.129+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 36 мс
-2026-04-26T13:07:58.144+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 51 мс
-2026-04-26T13:07:58.159+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 15 мс
-2026-04-26T13:07:58.181+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 37 мс
-2026-04-26T13:07:58.208+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 49 мс
-2026-04-26T13:07:59.092+03:00  INFO 43328 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 34 мс
-2026-04-26T13:07:59.158+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 48 мс
-2026-04-26T13:08:06.267+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 5 мс
-2026-04-26T13:08:06.277+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
-2026-04-26T13:08:26.532+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 29 мс
-2026-04-26T13:08:26.557+03:00  INFO 43328 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 16 мс
-2026-04-26T13:08:26.574+03:00  INFO 43328 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 33 мс
-2026-04-26T13:08:26.574+03:00  INFO 43328 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
-2026-04-26T13:08:26.616+03:00  INFO 43328 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 75 мс
-2026-04-26T13:08:26.616+03:00  INFO 43328 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 8 мс
-2026-04-26T13:09:08.859+03:00  INFO 43328 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 14 мс
-2026-04-26T13:09:08.874+03:00  INFO 43328 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 29 мс
-2026-04-26T13:09:08.890+03:00  INFO 43328 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 16 мс
-2026-04-26T13:09:08.924+03:00  INFO 43328 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 34 мс
-2026-04-26T13:09:39.099+03:00  INFO 43328 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-26T13:09:39.099+03:00  INFO 43328 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-04-26T13:09:39.117+03:00  INFO 43328 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-04-27T14:42:17.602+03:00  INFO 44272 --- [main] .m.s.MedicalAppointmentSystemApplication : Starting MedicalAppointmentSystemApplication using Java 17.0.18 with PID 44272 (C:\Users\user\IdeaProjects\medical-appointment-system\target\classes started by user in C:\Users\user\IdeaProjects\medical-appointment-system)
+2026-04-27T14:42:17.613+03:00 DEBUG 44272 --- [main] .m.s.MedicalAppointmentSystemApplication : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-27T14:42:17.614+03:00  INFO 44272 --- [main] .m.s.MedicalAppointmentSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2026-04-27T14:42:18.966+03:00  INFO 44272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-27T14:42:19.092+03:00  INFO 44272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 5 JPA repository interfaces.
+2026-04-27T14:42:20.241+03:00  INFO 44272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-04-27T14:42:20.276+03:00  INFO 44272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-27T14:42:20.276+03:00  INFO 44272 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-27T14:42:20.386+03:00  INFO 44272 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-27T14:42:20.386+03:00  INFO 44272 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2684 ms
+2026-04-27T14:42:20.663+03:00  INFO 44272 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-27T14:42:20.757+03:00  INFO 44272 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-27T14:42:20.836+03:00  INFO 44272 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-27T14:42:21.260+03:00  INFO 44272 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-27T14:42:21.307+03:00  INFO 44272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-27T14:42:21.593+03:00  INFO 44272 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@e86c9a5
+2026-04-27T14:42:21.593+03:00  INFO 44272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-27T14:42:21.656+03:00  WARN 44272 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-27T14:42:23.108+03:00  INFO 44272 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-27T14:42:23.345+03:00  INFO 44272 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-27T14:42:23.911+03:00  INFO 44272 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-27T14:42:24.984+03:00  WARN 44272 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-27T14:42:25.660+03:00  INFO 44272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2026-04-27T14:42:25.675+03:00  INFO 44272 --- [main] .m.s.MedicalAppointmentSystemApplication : Started MedicalAppointmentSystemApplication in 8.991 seconds (process running for 9.885)
+2026-04-27T14:43:31.969+03:00  INFO 44272 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-27T14:43:31.970+03:00  INFO 44272 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-27T14:43:31.970+03:00  INFO 44272 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-04-27T14:43:32.158+03:00  INFO 44272 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 128 мс
+2026-04-27T14:43:32.303+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 13 мс
+2026-04-27T14:43:32.328+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 38 мс
+2026-04-27T14:43:32.330+03:00  INFO 44272 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 69 мс
+2026-04-27T14:43:32.330+03:00  INFO 44272 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 2 мс
+2026-04-27T14:43:32.364+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 17 мс
+2026-04-27T14:43:47.982+03:00  INFO 44272 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 29 мс
+2026-04-27T14:43:48.020+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 29 мс
+2026-04-27T14:43:48.035+03:00  INFO 44272 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 81 мс
+2026-04-27T14:43:48.107+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 55 мс
+2026-04-27T14:44:04.281+03:00  INFO 44272 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 10 мс
+2026-04-27T14:44:04.301+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 30 мс
+2026-04-27T14:44:04.303+03:00  INFO 44272 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 6 мс
+2026-04-27T14:44:04.334+03:00  INFO 44272 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 20 мс
+2026-04-27T14:44:27.788+03:00  INFO 44272 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 25 мс
+2026-04-27T14:44:27.799+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 36 мс
+2026-04-27T14:44:27.819+03:00  INFO 44272 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 23 мс
+2026-04-27T14:44:27.844+03:00  INFO 44272 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 33 мс
+2026-04-27T14:44:35.781+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 7 мс
+2026-04-27T14:44:35.797+03:00  INFO 44272 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 5 мс
+2026-04-27T14:44:35.797+03:00  INFO 44272 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 23 мс
+2026-04-27T14:44:35.824+03:00  INFO 44272 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 20 мс
+2026-04-27T14:45:14.032+03:00  INFO 44272 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 50 мс
+2026-04-27T14:45:14.073+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 25 мс
+2026-04-27T14:45:14.085+03:00  INFO 44272 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 3 мс
+2026-04-27T14:45:14.090+03:00  INFO 44272 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 17 мс
+2026-04-27T14:45:14.090+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
+2026-04-27T14:45:14.106+03:00  INFO 44272 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 8 мс
+2026-04-27T15:17:37.538+03:00  WARN 44272 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m45s812ms106µs500ns).
+2026-04-27T15:17:39.526+03:00  INFO 44272 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 82 мс
+2026-04-27T15:17:39.576+03:00  INFO 44272 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 11 мс
+2026-04-27T15:17:39.599+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 34 мс
+2026-04-27T15:17:39.606+03:00  INFO 44272 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 7 мс
+2026-04-27T15:17:39.628+03:00  INFO 44272 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 74 мс
+2026-04-27T15:17:39.647+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 22 мс
+2026-04-27T15:17:49.264+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 26 мс
+2026-04-27T15:17:49.298+03:00  INFO 44272 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 58 мс
+2026-04-27T15:17:49.310+03:00  INFO 44272 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 26 мс
+2026-04-27T15:17:49.359+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 37 мс
+2026-04-27T15:32:44.170+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 32 мс
+2026-04-27T15:32:44.217+03:00  INFO 44272 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 32 мс
+2026-04-27T15:32:44.233+03:00  INFO 44272 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
+2026-04-27T15:32:44.248+03:00  INFO 44272 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 15 мс
+2026-04-27T15:32:44.248+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
+2026-04-27T15:32:44.264+03:00  INFO 44272 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 16 мс
+2026-04-27T15:32:58.210+03:00  WARN 44272 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m50s665ms314µs100ns).
+2026-04-27T15:41:32.209+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 10 мс
+2026-04-27T15:41:32.221+03:00  INFO 44272 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 22 мс
+2026-04-27T15:41:32.239+03:00  INFO 44272 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 18 мс
+2026-04-27T15:41:32.277+03:00  INFO 44272 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 38 мс
+2026-04-27T15:41:35.786+03:00  INFO 44272 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 4 мс
+2026-04-27T15:41:35.796+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 14 мс
+2026-04-27T15:41:35.802+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 5 мс
+2026-04-27T15:41:35.804+03:00  INFO 44272 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 0 мс
+2026-04-27T15:41:37.322+03:00  INFO 44272 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 49 мс
+2026-04-27T15:41:37.387+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 49 мс
+2026-04-27T15:41:45.236+03:00  INFO 44272 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 33 мс
+2026-04-27T15:41:49.227+03:00  INFO 44272 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.createAppointment(..)] выполнен за 138 мс
+2026-04-27T15:41:52.370+03:00  INFO 44272 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 16 мс
+2026-04-27T15:41:52.377+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 24 мс
+2026-04-27T15:41:52.399+03:00  INFO 44272 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 2 мс
+2026-04-27T15:41:52.420+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 18 мс
+2026-04-27T15:41:59.968+03:00  INFO 44272 --- [http-nio-8081-exec-2] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.updateStatus(..)] выполнен за 14 мс
+2026-04-27T15:42:11.178+03:00  INFO 44272 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
+2026-04-27T15:42:11.201+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 5 мс
+2026-04-27T15:42:27.985+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
+2026-04-27T15:42:27.994+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 9 мс
+2026-04-27T15:42:28.000+03:00  INFO 44272 --- [http-nio-8081-exec-10] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 6 мс
+2026-04-27T15:42:28.013+03:00  INFO 44272 --- [http-nio-8081-exec-9] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 9 мс
+2026-04-27T15:42:36.657+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 8 мс
+2026-04-27T15:42:36.663+03:00  INFO 44272 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 16 мс
+2026-04-27T15:42:36.677+03:00  INFO 44272 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 30 мс
+2026-04-27T15:42:36.677+03:00  INFO 44272 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 8 мс
+2026-04-27T15:42:36.702+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [AppointmentService.getAllAppointments()] выполнен за 16 мс
+2026-04-27T15:42:36.718+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [PatientService.getPatientsByLastName(..)] выполнен за 25 мс
+2026-04-27T15:42:43.964+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
+2026-04-27T15:42:43.982+03:00  INFO 44272 --- [http-nio-8081-exec-1] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
+2026-04-27T15:42:46.694+03:00  INFO 44272 --- [http-nio-8081-exec-3] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 0 мс
+2026-04-27T15:42:46.704+03:00  INFO 44272 --- [http-nio-8081-exec-6] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 10 мс
+2026-04-27T15:42:46.715+03:00  INFO 44272 --- [http-nio-8081-exec-7] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [SpecializationService.getAllSpecializations()] выполнен за 11 мс
+2026-04-27T15:42:46.723+03:00  INFO 44272 --- [http-nio-8081-exec-4] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 5 мс
+2026-04-27T15:43:07.196+03:00  INFO 44272 --- [http-nio-8081-exec-8] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.updateDoctor(..)] выполнен за 12 мс
+2026-04-27T15:43:07.236+03:00  INFO 44272 --- [http-nio-8081-exec-5] c.m.system.aspect.ExecutionTimeAspect    : AOP: Метод [DoctorService.getAllDoctors()] выполнен за 5 мс
+2026-04-27T15:46:07.953+03:00  INFO 44272 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-27T15:46:07.953+03:00  INFO 44272 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-27T15:46:07.966+03:00  INFO 44272 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
