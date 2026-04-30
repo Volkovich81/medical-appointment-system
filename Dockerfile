@@ -16,13 +16,8 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
-# Копируем всё из dist в static (index.html + папка assets)
-COPY --from=frontend-build /app/frontend/dist ./src/main/resources/static
-# Перемещаем содержимое assets на уровень static и удаляем пустую папку
-RUN if [ -d ./src/main/resources/static/assets ]; then \
-      mv ./src/main/resources/static/assets/* ./src/main/resources/static/ && \
-      rmdir ./src/main/resources/static/assets; \
-    fi
+# Копируем СОДЕРЖИМОЕ dist (включая папку assets) прямо в static
+COPY --from=frontend-build /app/frontend/dist/ ./src/main/resources/static/
 RUN echo "=== Static files ===" && ls -lR ./src/main/resources/static
 RUN mvn clean package -DskipTests
 
