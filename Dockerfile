@@ -18,7 +18,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
 # ⚡ Сброс кэша (не удаляй эту строку, она уже обновлена)
-RUN echo "Cache bust 2026-04-30 09:15 UTC"
+RUN echo "Cache bust 2026-04-30 11:00 UTC"
 # Копируем содержимое dist (включая папку assets) прямо в static
 COPY --from=frontend-build /app/frontend/dist/ ./src/main/resources/static/
 RUN echo "=== Static contents ===" && ls -lR ./src/main/resources/static
