@@ -23,3 +23,9 @@ logging:
     com.medical.system: DEBUG
   file:
     name: ./logs/medical-system.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
