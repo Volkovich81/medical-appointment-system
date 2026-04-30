@@ -1,11 +1,5 @@
 server:
   port: 8081
-  servlet:
-    session:
-      cookie:
-        same-site: lax
-  tomcat:
-    use-relative-redirects: true
 
 spring:
   datasource:
