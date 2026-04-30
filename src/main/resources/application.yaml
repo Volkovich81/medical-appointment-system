@@ -23,21 +23,6 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
-  web:
-    resources:
-      static-locations: classpath:/META-INF/resources/
-      cache:
-        period: 0
-      chain:
-        strategy:
-          content:
-            enabled: true
-            paths: /**
-
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-
 logging:
   level:
     root: INFO
