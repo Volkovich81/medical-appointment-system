@@ -6,6 +6,7 @@ COPY medical-appointment-client/ ./
 ARG VITE_API_URL=""
 ENV VITE_API_URL=$VITE_API_URL
 RUN npm run build
+RUN sed -i 's/<meta[^>]*Content-Security-Policy[^>]*>//g' dist/index.html
 
 FROM maven:3.9-eclipse-temurin-17 AS backend-build
 WORKDIR /app
