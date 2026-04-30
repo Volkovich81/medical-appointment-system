@@ -9,6 +9,7 @@ ENV VITE_API_URL=$VITE_API_URL
 RUN npm run build
 # Удаляем CSP мета-тег
 RUN node -e "const fs=require('fs'); let html=fs.readFileSync('dist/index.html','utf8'); html=html.replace(/<meta[^>]*http-equiv=['\"]Content-Security-Policy['\"][^>]*>/gi,''); fs.writeFileSync('dist/index.html',html);"
+RUN echo "=== Dist contents ===" && ls -lR dist
 
 # Этап 2 — сборка Spring Boot
 FROM maven:3.9-eclipse-temurin-17 AS backend-build
@@ -16,9 +17,11 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
-# Копируем СОДЕРЖИМОЕ dist (включая папку assets) прямо в static
+# ⚡ Сброс кэша (не удаляй эту строку, она уже обновлена)
+RUN echo "Cache bust 2026-04-30 09:15 UTC"
+# Копируем содержимое dist (включая папку assets) прямо в static
 COPY --from=frontend-build /app/frontend/dist/ ./src/main/resources/static/
-RUN echo "=== Static files ===" && ls -lR ./src/main/resources/static
+RUN echo "=== Static contents ===" && ls -lR ./src/main/resources/static
 RUN mvn clean package -DskipTests
 
 # Этап 3 — финальный образ
