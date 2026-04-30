@@ -25,6 +25,7 @@ spring:
 
   web:
     resources:
+      static-locations: classpath:/META-INF/resources/
       cache:
         period: 0
       chain:
