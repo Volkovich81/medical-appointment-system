@@ -4,6 +4,8 @@ server:
     session:
       cookie:
         same-site: lax
+  tomcat:
+    use-relative-redirects: true
 
 spring:
   datasource:
@@ -23,6 +25,8 @@ spring:
 
   web:
     resources:
+      cache:
+        period: 0
       chain:
         strategy:
           content:
